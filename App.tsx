@@ -1,20 +1,17 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import React, { useState } from 'react';
+import { DashboardScreen } from './src/screens/DashboardScreen';
+import { CommissionDetailScreen } from './src/screens/CommissionDetailScreen';
+import { Commission } from './src/types';
 
 export default function App() {
-  return (
-    <View style={styles.container}>
-      <Text>Open up App.tsx to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
+  const [selectedCommission, setSelectedCommission] = useState<Commission | null>(null);
+
+  return selectedCommission ? (
+    <CommissionDetailScreen
+      commission={selectedCommission}
+      onBack={() => setSelectedCommission(null)}
+    />
+  ) : (
+    <DashboardScreen onSelectCommission={(item) => setSelectedCommission(item)} />
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
