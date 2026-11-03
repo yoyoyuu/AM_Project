@@ -20,7 +20,7 @@
   - *Hecho cuando:* `npx expo start` abre la app vacía.
   - *Nota:* probar primero con Expo Go de SDK 58; si no está disponible o falla, ver T007.
 - [x] **T002** Configurar calidad: `expo lint`, Prettier, Jest con `jest-expo` y scripts `lint` y `test`. · M · Traza: RNF-08
-- [ ] **T003** Crear la estructura de carpetas del plan (`src/app/`, `src/features/auth/`, `src/lib/`, `supabase/migrations/`, `docs/`), `.env.example` y `.gitignore` (sin claves). · S
+- [x] **T003** Crear la estructura de carpetas del plan (`src/app/`, `src/features/auth/`, `src/lib/`, `supabase/migrations/`, `docs/`), `.env.example` y `.gitignore` (sin claves). · S
 - [ ] **T004** Crear **un** proyecto de Supabase (`koma`). Guardar URL y clave pública en `.env` local. · S
 - [ ] **T005** Copiar al repo `constitution.md`, el SRS y spec, plan y tareas. · S
 - [ ] **T007** *(solo si Expo Go no sirve)* Generar el development build con EAS. · M
