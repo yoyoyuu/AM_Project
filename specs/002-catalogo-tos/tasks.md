@@ -58,7 +58,7 @@ Actualizar `errors.ts` y los comentarios ⚠️ del `plan.md` con los valores re
  
 ---
  
-### T103 — Escribir script de pruebas RLS para `artist_tos`
+### [x] T103 — Escribir script de pruebas RLS para `artist_tos`
  
 **RF:** RF-03, RNF-04
 **Archivos:**
@@ -75,7 +75,7 @@ Actualizar `errors.ts` y los comentarios ⚠️ del `plan.md` con los valores re
  
 ---
  
-### T104 — Verificar función `get_artist_public_profile`
+### [x] T104 — Verificar función `get_artist_public_profile`
  
 **RF:** RF-02B, RNF-04
 **Archivos:**
@@ -94,7 +94,7 @@ Actualizar `errors.ts` y los comentarios ⚠️ del `plan.md` con los valores re
  
 ## Bloque C — Módulo TypeScript base
  
-### T105 — Crear `src/features/catalogo/types.ts`
+### [x] T105 — Crear `src/features/catalogo/types.ts`
  
 **RF:** RF-02, RF-03, RF-02B
 **Archivos:**
@@ -105,7 +105,7 @@ Actualizar `errors.ts` y los comentarios ⚠️ del `plan.md` con los valores re
  
 ---
  
-### T106 — Crear `src/features/catalogo/messages.ts`
+### [x] T106 — Crear `src/features/catalogo/messages.ts`
  
 **RF:** RF-02, RF-03, RF-02B
 **Archivos:**
@@ -116,7 +116,7 @@ Actualizar `errors.ts` y los comentarios ⚠️ del `plan.md` con los valores re
  
 ---
  
-### T107 — Crear `src/features/catalogo/schemas.ts`
+### [x] T107 — Crear `src/features/catalogo/schemas.ts`
  
 **RF:** RF-02, RF-03, RF-02B
 **Archivos:**
@@ -129,7 +129,7 @@ Actualizar `errors.ts` y los comentarios ⚠️ del `plan.md` con los valores re
 - `searchHandleSchema` normaliza `@usuario` → `usuario`.
 ---
  
-### T108 — Crear `src/features/catalogo/errors.ts`
+### [x] T108 — Crear `src/features/catalogo/errors.ts`
  
 **RF:** RF-02, RF-03, RF-02B
 **Archivos:**
@@ -142,7 +142,7 @@ Actualizar `errors.ts` y los comentarios ⚠️ del `plan.md` con los valores re
  
 ---
  
-### T109 — Crear `src/features/catalogo/api.ts`
+### [x] T109 — Crear `src/features/catalogo/api.ts`
  
 **RF:** RF-02, RF-03, RF-02B
 **Archivos:**
@@ -155,7 +155,7 @@ Actualizar `errors.ts` y los comentarios ⚠️ del `plan.md` con los valores re
  
 ---
  
-### T110 — Crear `src/features/catalogo/queries.ts`
+### [x] T110 — Crear `src/features/catalogo/queries.ts`
  
 **RF:** RF-02, RF-03, RF-02B
 **Archivos:**
@@ -168,7 +168,7 @@ Actualizar `errors.ts` y los comentarios ⚠️ del `plan.md` con los valores re
  
 ---
  
-### T111 — Crear `src/features/catalogo/hooks/useServiceForm.ts` y `useTosForm.ts`
+### [x] T111 — Crear `src/features/catalogo/hooks/useServiceForm.ts` y `useTosForm.ts`
  
 **RF:** RF-02, RF-03
 **Archivos:**
@@ -184,7 +184,7 @@ Actualizar `errors.ts` y los comentarios ⚠️ del `plan.md` con los valores re
  
 ## Bloque D — Pantallas de gestión del artista
  
-### T112 — Crear pantalla `catalogo/index.tsx` (lista de servicios del artista)
+### [x] T112 — Crear pantalla `catalogo/index.tsx` (lista de servicios del artista)
  
 **RF:** RF-02
 **Archivos:**
