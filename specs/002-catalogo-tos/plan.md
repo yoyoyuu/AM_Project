@@ -422,7 +422,7 @@ export async function updateService(id: string, payload: ServiceUpdate): Promise
   return data;
 }
  
-/** Elimina un servicio. ⚠️ Verificar si la FK de comisiones activas genera error 23503. */
+/** Elimina un servicio; una FK activa llega como PostgREST error code `23503`. */
 export async function deleteService(id: string): Promise<void> {
   const { error } = await supabase.from('services').delete().eq('id', id);
   if (error) throw error;
@@ -583,6 +583,60 @@ export const catalogoErrors = {
 };
 ```
  
+### Comportamientos verificados de `supabase-js` 2.118.0
+
+El cliente instalado es `@supabase/supabase-js` `2.118.0`, que usa
+`@supabase/postgrest-js` `2.118.0`. Las respuestas de PostgREST con error se
+normalizan a un `PostgrestError` con las propiedades `code`, `message`,
+`details` y `hint`.
+
+1. **Límite de servicios.** `raise exception 'services_limit_reached'` no
+   define un código SQL explícito, por lo que Postgres lo entrega con el
+   código `P0001` y el mensaje literal `services_limit_reached`. El cliente
+   recibe, conceptualmente:
+
+   ```typescript
+   {
+     code: 'P0001',
+     message: 'services_limit_reached',
+     details: '',
+     hint: '',
+   }
+   ```
+
+   Por ello `errors.ts` debe revisar `error.message` para este trigger, no
+   esperar que `error.code` sea `services_limit_reached`.
+
+2. **RPC sin artista.** La función devuelve SQL `null`. PostgREST serializa
+   ese resultado como JSON `null` y `supabase-js` asigna `data = null` sin
+   error:
+
+   ```typescript
+   const { data, error } = await supabase.rpc(
+     'get_artist_public_profile',
+     { p_handle: 'handle-inexistente' },
+   );
+   // data === null
+   // error === null
+   ```
+
+3. **FK de comisiones activas.** Una eliminación bloqueada por la FK llega
+   como error PostgreSQL `23503`. El mensaje es el texto estándar de
+   violación de clave foránea y puede variar con los nombres de tablas o
+   restricciones; el cliente debe mapear por `error.code`:
+
+   ```typescript
+   {
+     code: '23503',
+     message: 'update or delete on table "services" violates foreign key constraint ...',
+     details: '',
+     hint: '',
+   }
+   ```
+
+   La FK `commissions.service_id` pertenece a la spec 004; T100 no puede
+   producir este error mientras esa tabla aún no exista.
+
 Archivo: `src/features/catalogo/messages.ts`
  
 ```typescript
@@ -669,8 +723,8 @@ src/features/catalogo/
  
 | Riesgo | Mitigación |
 |---|---|
-| La FK `commissions.service_id` (spec 004) no existe aún | El trigger de eliminación por ahora no puede bloquearse por FK; se usa una función temporal que cuenta comisiones activas. Cuando llegue spec 004, se agrega la FK y se simplifica. |
-| `get_artist_public_profile` devuelve `null` vs. `{}` según la versión de `supabase-js` | ⚠️ Verificar el comportamiento de `.rpc()` con resultado `null`; el cliente debe manejar ambos. |
+| La FK `commissions.service_id` (spec 004) no existe aún | Cuando llegue spec 004, la eliminación bloqueada llegará como error con `code = '23503'`; el cliente mapeará ese código. |
+| `get_artist_public_profile` devuelve `null` vs. `{}` según la versión de `supabase-js` | Verificado con `supabase-js` 2.118.0: una función que devuelve SQL `null` llega como `data === null` y `error === null`. |
 | Pausa del proyecto gratuito de Supabase | Reactivar antes de la demo. |
  
 ---

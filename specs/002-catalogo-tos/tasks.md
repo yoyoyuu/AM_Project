@@ -20,7 +20,7 @@
  
 ---
  
-### T101 — Verificar y documentar comportamientos de `supabase-js` ⚠️
+### [x] T101 — Verificar y documentar comportamientos de `supabase-js` ⚠️
  
 **RF:** RF-02, RF-03, RF-02B
 **Archivos:**
@@ -39,7 +39,7 @@ Actualizar `errors.ts` y los comentarios ⚠️ del `plan.md` con los valores re
  
 ## Bloque B — Pruebas de RLS
  
-### T102 — Escribir script de pruebas RLS para `services`
+### [x] T102 — Escribir script de pruebas RLS para `services`
  
 **RF:** RF-02, RNF-04
 **Archivos:**
