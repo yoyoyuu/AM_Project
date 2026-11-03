@@ -33,8 +33,8 @@
 - [x] **T010** Escribir el **script SQL de pruebas de RLS** (`supabase/tests/rls.sql`) y correrlo a mano con dos usuarios: un usuario no lee ni edita el perfil de otro, `anon` no lee nada, no se editan `privacy_*`, `profile_complete` ni `is_artist`, handle duplicado y reservado rechazados, el handle no se puede borrar, registro sin consentimiento rechazado. · M · Traza: RNF-04, RNF-09, RF-20, RF-21
 - [x] **T011** Escribir la migración `0001_profiles.sql` según el plan (tabla, restricciones, triggers, función `is_handle_available`, RLS y permisos por columna). · M · Traza: RF-17, RF-20, RF-21, RNF-09
 - [x] **T012** Aplicar la migración y hacer que pase el script de T010. · S
-- [ ] **T013** Configurar Auth: confirmación de correo **desactivada** por ahora, contraseña mínima de 8, JWT de 24 h, rotación de refresh tokens ⚠️. · S · Traza: RNF-02, RNF-04
-- [ ] **T014** Redactar las plantillas de correo en español (confirmación y recuperación) mostrando `{{ .Token }}`. · S · Traza: RF-17, RF-19
+- [x] **T013** Configurar Auth: confirmación de correo **desactivada** por ahora, contraseña mínima de 8, JWT de 24 h, rotación de refresh tokens ⚠️. · S · Traza: RNF-02, RNF-04
+- [x] **T014** Redactar las plantillas de correo en español (confirmación y recuperación) mostrando `{{ .Token }}`. · S · Traza: RF-17, RF-19
 **Punto de control:** el script de RLS pasa y existen dos usuarios de prueba.
  
 ---
