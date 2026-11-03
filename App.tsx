@@ -1,10 +1,25 @@
 import React, { useState } from 'react';
+import { router } from 'expo-router';
 import { DashboardScreen } from './src/screens/DashboardScreen';
 import { CommissionDetailScreen } from './src/screens/CommissionDetailScreen';
+import { signOut } from './src/features/auth/api';
 import { Commission } from './src/types';
 
 export default function App() {
   const [selectedCommission, setSelectedCommission] = useState<Commission | null>(null);
+  const [logoutError, setLogoutError] = useState<string | null>(null);
+
+  const handleSignOut = async () => {
+    setLogoutError(null);
+    const result = await signOut();
+
+    if (result.error !== null) {
+      setLogoutError(result.error);
+      return;
+    }
+
+    router.replace('/login');
+  };
 
   return selectedCommission ? (
     <CommissionDetailScreen
@@ -12,6 +27,10 @@ export default function App() {
       onBack={() => setSelectedCommission(null)}
     />
   ) : (
-    <DashboardScreen onSelectCommission={(item) => setSelectedCommission(item)} />
+    <DashboardScreen
+      onLogout={handleSignOut}
+      logoutError={logoutError}
+      onSelectCommission={(item) => setSelectedCommission(item)}
+    />
   );
 }

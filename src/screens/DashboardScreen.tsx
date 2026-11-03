@@ -5,6 +5,7 @@ import {
   View,
   FlatList,
   TouchableOpacity,
+  Pressable,
   StatusBar,
 } from 'react-native';
 
@@ -38,7 +39,15 @@ const INITIAL_COMMISSIONS: Commission[] = [
   },
 ];
 
-export const DashboardScreen = ({ onSelectCommission }: { onSelectCommission: (c: Commission) => void }) => {
+export const DashboardScreen = ({
+  logoutError,
+  onLogout,
+  onSelectCommission,
+}: {
+  logoutError: string | null;
+  onLogout: () => void;
+  onSelectCommission: (c: Commission) => void;
+}) => {
   const [profile] = useState<ArtistProfile>({
     name: 'A2 / Artista Digital',
     slotsLimit: 3,
@@ -71,6 +80,20 @@ export const DashboardScreen = ({ onSelectCommission }: { onSelectCommission: (c
             {profile.activeSlots} / {profile.slotsLimit}
           </Text>
         </View>
+      </View>
+      <View style={styles.logoutContainer}>
+        <Pressable
+          accessibilityRole="button"
+          onPress={onLogout}
+          style={styles.logoutButton}
+        >
+          <Text style={styles.logoutText}>Cerrar sesión</Text>
+        </Pressable>
+        {logoutError && (
+          <Text accessibilityRole="alert" style={styles.logoutError}>
+            {logoutError}
+          </Text>
+        )}
       </View>
 
       <View style={styles.listContainer}>
@@ -118,6 +141,10 @@ const styles = StyleSheet.create({
   },
   brandTitle: { fontSize: 24, fontWeight: '800', color: '#6C5CE7' },
   artistName: { fontSize: 14, color: '#636E72', marginTop: 2 },
+  logoutContainer: { alignItems: 'flex-end', paddingHorizontal: 20, paddingTop: 10 },
+  logoutButton: { paddingVertical: 6 },
+  logoutText: { color: '#B91C1C', fontSize: 14, fontWeight: '600' },
+  logoutError: { color: '#B91C1C', fontSize: 13, marginTop: 4 },
   slotsCard: {
     backgroundColor: '#F1F2F6',
     paddingHorizontal: 12,

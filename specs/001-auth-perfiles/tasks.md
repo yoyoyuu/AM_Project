@@ -55,8 +55,8 @@
  
 - [x] **T030** `register.tsx`: correo, contraseña, casilla de aviso de privacidad (bloquea el envío), errores en español. · M · Traza: RF-17, RNF-09
 - [x] **T032** `login.tsx`: mensaje genérico ante credenciales incorrectas y bloqueo por demasiados intentos. · M · Traza: RF-18
-- [ ] **T033** Layouts y **guardas**: sin sesión → login; perfil sin nombre → `profile-setup`; todo en orden → inicio. (La regla de "correo sin verificar" se agrega en T031.) Depende de T025. · L · Traza: RF-18, RF-20
-- [ ] **T034** Cerrar sesión: elimina la sesión almacenada y reemplaza la pila para que el botón atrás no regrese a la app. · S · Traza: RF-18
+- [x] **T033** Layouts y **guardas**: sin sesión → login; perfil sin nombre → `profile-setup`; todo en orden → inicio. (La regla de "correo sin verificar" se agrega en T031.) Depende de T025. · L · Traza: RF-18, RF-20
+- [x] **T034** Cerrar sesión: elimina la sesión almacenada y reemplaza la pila para que el botón atrás no regrese a la app. · S · Traza: RF-18
 - [ ] **T037** `profile-setup.tsx`: nombre (2 a 50) y errores en español. · S · Traza: RF-20
 - [ ] **T038** `artist-setup.tsx`: handle (3 a 30, formato y reservados), disponibilidad en vivo con debounce, errores de duplicado y reservado, advertencia al cambiarlo. · L · Traza: RF-21
 - [ ] **T039** `index.tsx` placeholder: si no es artista, dos opciones ("Quiero pedir una comisión", pendiente de la spec 003, y "Quiero ofrecer comisiones", que lleva a `artist-setup`); si es artista, panel básico con su nombre y handle. Incluye botón de cerrar sesión. · M · Traza: RF-21
