@@ -45,7 +45,7 @@
 - [x] **T021** `messages.ts` con todos los mensajes de la tabla de errores de la spec, literales. · S
 - [x] **T022** Pruebas y luego `schemas.ts` (Zod): registro, login, nombre y handle con reservados. · M · Traza: RF-17, RF-18, RF-20, RF-21
 - [x] **T023** Pruebas y luego `errors.ts`: traduce errores de Supabase y Postgres (`23505`, `23514`) a mensajes de `messages.ts` ⚠️. · M · Traza: tabla de errores
-- [ ] **T024** `api.ts`: `signUp` (con metadatos de privacidad), `signIn`, `signOut` ⚠️. Depende de T020 y T023. · M · Traza: RF-17, RF-18
+- [x] **T024** `api.ts`: `signUp` (con metadatos de privacidad), `signIn`, `signOut` ⚠️. Depende de T020 y T023. · M · Traza: RF-17, RF-18
 - [ ] **T025** `AuthProvider`, `useProfile` y `useAppMode` (sesión, `onAuthStateChange`, perfil, activar artista, modo local). Depende de T020 y T024. · M · Traza: RF-18, RF-20, RF-21, RF-22
 **Punto de control:** pruebas unitarias en verde y se puede registrar e iniciar sesión contra Supabase desde una pantalla temporal.
  
