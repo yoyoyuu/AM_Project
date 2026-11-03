@@ -1,4 +1,5 @@
 import { zodResolver } from '@hookform/resolvers/zod';
+import { router } from 'expo-router';
 import { useState } from 'react';
 import { Controller, useForm } from 'react-hook-form';
 import {
@@ -35,7 +36,10 @@ export default function LoginScreen() {
 
     if (result.error !== null) {
       setSubmissionError(result.error);
+      return;
     }
+
+    router.replace('/');
   };
 
   return (

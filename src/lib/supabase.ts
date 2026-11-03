@@ -1,7 +1,12 @@
 import 'react-native-url-polyfill/auto';
 
 import AsyncStorage from '@react-native-async-storage/async-storage';
-import CryptoJS from 'crypto-js';
+import {
+  AESEncryptionKey,
+  AESSealedData,
+  aesDecryptAsync,
+  aesEncryptAsync,
+} from 'expo-crypto';
 import * as SecureStore from 'expo-secure-store';
 import { AppState } from 'react-native';
 import { createClient, type SupabaseClient } from '@supabase/supabase-js';
@@ -24,10 +29,16 @@ const sessionStorage = {
     }
 
     const encryptionKey = await getEncryptionKey();
-    const decryptedValue = CryptoJS.AES.decrypt(
-      encryptedValue,
-      encryptionKey,
-    ).toString(CryptoJS.enc.Utf8);
+    if (encryptedValue.startsWith('U2FsdGVkX1')) {
+      await AsyncStorage.removeItem(key);
+      return null;
+    }
+
+    const sealedData = AESSealedData.fromCombined(encryptedValue);
+    const decryptedBase64 = await aesDecryptAsync(sealedData, encryptionKey, {
+      output: 'base64',
+    });
+    const decryptedValue = decodeBase64(decryptedBase64);
 
     if (!decryptedValue) {
       throw new Error('No se pudo descifrar la sesión almacenada.');
@@ -38,7 +49,11 @@ const sessionStorage = {
 
   async setItem(key: string, value: string): Promise<void> {
     const encryptionKey = await getEncryptionKey();
-    const encryptedValue = CryptoJS.AES.encrypt(value, encryptionKey).toString();
+    const sealedData = await aesEncryptAsync(
+      encodeBase64(value),
+      encryptionKey,
+    );
+    const encryptedValue = await sealedData.combined('base64');
     await AsyncStorage.setItem(key, encryptedValue);
   },
 
@@ -47,15 +62,24 @@ const sessionStorage = {
   },
 };
 
-async function getEncryptionKey(): Promise<string> {
+async function getEncryptionKey(): Promise<AESEncryptionKey> {
   const storedKey = await SecureStore.getItemAsync(encryptionKeyName);
   if (storedKey !== null) {
-    return storedKey;
+    return AESEncryptionKey.import(storedKey, 'hex');
   }
 
-  const generatedKey = CryptoJS.lib.WordArray.random(32).toString();
+  const encryptionKey = await AESEncryptionKey.generate(256);
+  const generatedKey = await encryptionKey.encoded('hex');
   await SecureStore.setItemAsync(encryptionKeyName, generatedKey);
-  return generatedKey;
+  return encryptionKey;
+}
+
+function encodeBase64(value: string): string {
+  return btoa(unescape(encodeURIComponent(value)));
+}
+
+function decodeBase64(value: string): string {
+  return decodeURIComponent(escape(atob(value)));
 }
 
 export const supabase: SupabaseClient = createClient(

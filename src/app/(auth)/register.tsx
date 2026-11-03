@@ -1,5 +1,6 @@
 import { zodResolver } from '@hookform/resolvers/zod';
 import { Checkbox } from 'expo-checkbox';
+import { router } from 'expo-router';
 import { useState } from 'react';
 import { Controller, useForm } from 'react-hook-form';
 import {
@@ -42,6 +43,11 @@ export default function RegisterScreen() {
     const result = await signUp(input);
     if (result.error !== null) {
       setSubmissionError(result.error);
+      return;
+    }
+
+    if (result.data?.session !== null && result.data?.session !== undefined) {
+      router.replace('/');
       return;
     }
 

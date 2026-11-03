@@ -1,7 +1,6 @@
 import { Redirect } from 'expo-router';
 import { ActivityIndicator, StyleSheet, Text, View } from 'react-native';
 
-import App from '../../App';
 import { useAuth } from '../features/auth/AuthProvider';
 import { useProfile } from '../features/auth/useProfile';
 
@@ -39,7 +38,7 @@ export default function IndexRoute() {
     return <Redirect href="/(app)/profile-setup" />;
   }
 
-  return <App />;
+  return <Redirect href="/(app)" />;
 }
 
 const styles = StyleSheet.create({
