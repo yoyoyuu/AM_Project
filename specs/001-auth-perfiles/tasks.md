@@ -41,7 +41,7 @@
  
 ## Fase 2 — Núcleo del cliente
  
-- [ ] **T020** Cliente de Supabase en `src/lib/supabase.ts`: variables de entorno, almacenamiento cifrado de la sesión ⚠️, `detectSessionInUrl: false` y `AppState` para el refresco. · M · Traza: RF-18, RNF-04
+- [x] **T020** Cliente de Supabase en `src/lib/supabase.ts`: variables de entorno, almacenamiento cifrado de la sesión ⚠️, `detectSessionInUrl: false` y `AppState` para el refresco. · M · Traza: RF-18, RNF-04
 - [ ] **T021** `messages.ts` con todos los mensajes de la tabla de errores de la spec, literales. · S
 - [ ] **T022** Pruebas y luego `schemas.ts` (Zod): registro, login, nombre y handle con reservados. · M · Traza: RF-17, RF-18, RF-20, RF-21
 - [ ] **T023** Pruebas y luego `errors.ts`: traduce errores de Supabase y Postgres (`23505`, `23514`) a mensajes de `messages.ts` ⚠️. · M · Traza: tabla de errores
