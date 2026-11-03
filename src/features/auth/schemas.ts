@@ -65,9 +65,7 @@ export const handleSchema = z
 export const registrationSchema = z.object({
   email: emailSchema,
   password: passwordSchema,
-  privacyAccepted: z.literal(true, {
-    error: messages.privacyNotAccepted,
-  }),
+  privacyAccepted: z.boolean().refine(Boolean, messages.privacyNotAccepted),
 });
 
 export const loginSchema = z.object({
