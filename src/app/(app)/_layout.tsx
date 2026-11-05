@@ -13,5 +13,10 @@ export default function AppLayout() {
     return <Redirect href="/login" />;
   }
 
-  return <Stack />;
+  return (
+    <Stack>
+      <Stack.Screen name="index" options={{ title: 'Inicio' }} />
+      <Stack.Screen name="buscar" options={{ title: 'Buscar artista' }} />
+    </Stack>
+  );
 }

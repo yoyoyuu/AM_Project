@@ -202,7 +202,7 @@ Actualizar `errors.ts` y los comentarios ⚠️ del `plan.md` con los valores re
  
 ---
  
-### T113 — Crear pantalla `catalogo/nuevo.tsx` (formulario de creación)
+### [x] T113 — Crear pantalla `catalogo/nuevo.tsx` (formulario de creación)
  
 **RF:** RF-02
 **Archivos:**
@@ -215,7 +215,7 @@ Actualizar `errors.ts` y los comentarios ⚠️ del `plan.md` con los valores re
  
 ---
  
-### T114 — Crear pantalla `catalogo/[id].tsx` (editar / pausar / eliminar)
+### [x] T114 — Crear pantalla `catalogo/[id].tsx` (editar / pausar / eliminar)
  
 **RF:** RF-02
 **Archivos:**
@@ -230,7 +230,7 @@ Actualizar `errors.ts` y los comentarios ⚠️ del `plan.md` con los valores re
  
 ---
  
-### T115 — Crear pantalla `catalogo/tos.tsx` (editor de TOS)
+### [x] T115 — Crear pantalla `catalogo/tos.tsx` (editor de TOS)
  
 **RF:** RF-03
 **Archivos:**
@@ -245,7 +245,7 @@ Actualizar `errors.ts` y los comentarios ⚠️ del `plan.md` con los valores re
  
 ## Bloque E — Pantalla de búsqueda pública
  
-### T116 — Crear pantalla `buscar.tsx` (búsqueda por handle y perfil público)
+### [x] T116 — Crear pantalla `buscar.tsx` (búsqueda por handle y perfil público)
  
 **RF:** RF-02B
 **Archivos:**
@@ -267,7 +267,7 @@ Actualizar `errors.ts` y los comentarios ⚠️ del `plan.md` con los valores re
  
 ## Bloque F — Acceso a "Buscar" desde la navegación
  
-### T117 — Agregar enlace a "Buscar" en la navegación principal
+### [x] T117 — Agregar enlace a "Buscar" en la navegación principal
  
 **RF:** RF-02B
 **Archivos:**
@@ -283,7 +283,7 @@ Actualizar `errors.ts` y los comentarios ⚠️ del `plan.md` con los valores re
  
 ## Bloque G — Integración con navegación del catálogo artista
  
-### T118 — Agregar acceso al catálogo y TOS desde el panel del artista
+### [x] T118 — Agregar acceso al catálogo y TOS desde el panel del artista
  
 **RF:** RF-02, RF-03
 **Archivos:**
@@ -298,7 +298,7 @@ Actualizar `errors.ts` y los comentarios ⚠️ del `plan.md` con los valores re
  
 ## Bloque H — Pruebas unitarias
  
-### T119 — Tests unitarios de `schemas.ts`
+### [x] T119 — Tests unitarios de `schemas.ts`
  
 **RF:** RF-02, RF-03, RF-02B
 **Archivos:**
@@ -315,7 +315,7 @@ Meta: ≥ 60 % de cobertura en `schemas.ts`.
  
 ---
  
-### T120 — Tests unitarios de `errors.ts`
+### [x] T120 — Tests unitarios de `errors.ts`
  
 **RF:** RF-02, RF-03, RF-02B
 **Archivos:**

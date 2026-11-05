@@ -104,12 +104,30 @@ export default function AppHomeScreen() {
             </Text>
           )}
           {mode === 'artist' ? (
-            <View style={styles.card}>
+            <View>
+              <View style={styles.card}>
               <Text style={styles.cardTitle}>Tu perfil de artista</Text>
               <Text style={styles.handle}>@{profile.handle}</Text>
               <Text style={styles.cardText}>
                 Tu perfil está activo y listo para ofrecer comisiones.
               </Text>
+              </View>
+              <Pressable
+                accessibilityRole="button"
+                onPress={() => router.push('/(app)/catalogo')}
+                style={styles.button}
+              >
+                <Text style={styles.buttonText}>Gestionar catálogo</Text>
+              </Pressable>
+              <Pressable
+                accessibilityRole="button"
+                onPress={() => router.push('/(app)/catalogo/tos')}
+                style={styles.secondaryButton}
+              >
+                <Text style={styles.secondaryButtonText}>
+                  Mis términos de servicio
+                </Text>
+              </Pressable>
             </View>
           ) : (
             <View style={styles.card}>
@@ -144,6 +162,14 @@ export default function AppHomeScreen() {
           </Pressable>
         </View>
       )}
+
+      <Pressable
+        accessibilityRole="button"
+        onPress={() => router.push('/(app)/buscar')}
+        style={styles.searchButton}
+      >
+        <Text style={styles.searchButtonText}>Buscar artista</Text>
+      </Pressable>
 
       {logoutError && (
         <Text accessibilityRole="alert" style={styles.error}>
@@ -274,6 +300,7 @@ const styles = StyleSheet.create({
     backgroundColor: '#6C5CE7',
     borderRadius: 10,
     justifyContent: 'center',
+    marginTop: 16,
     minHeight: 52,
     paddingHorizontal: 16,
   },
@@ -282,6 +309,21 @@ const styles = StyleSheet.create({
     fontSize: 16,
     fontWeight: '700',
     textAlign: 'center',
+  },
+  searchButton: {
+    alignItems: 'center',
+    borderColor: '#6C5CE7',
+    borderRadius: 10,
+    borderWidth: 1,
+    justifyContent: 'center',
+    marginTop: 16,
+    minHeight: 50,
+    paddingHorizontal: 16,
+  },
+  searchButtonText: {
+    color: '#6C5CE7',
+    fontSize: 16,
+    fontWeight: '700',
   },
   error: {
     color: '#B91C1C',
