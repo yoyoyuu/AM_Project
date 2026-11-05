@@ -330,7 +330,7 @@ Meta: ≥ 60 % de cobertura en `schemas.ts`.
  
 ## Bloque I — Lint, tipos y checklist final
  
-### T121 — Verificar `expo lint` y `tsc` sin errores
+### [x] T121 — Verificar `expo lint` y `tsc` sin errores
  
 **RF:** Todos
 **Archivos:** Todos los archivos del módulo `src/features/catalogo/` y `src/app/(app)/catalogo/`

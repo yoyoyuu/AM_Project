@@ -32,7 +32,7 @@ export default function NewServiceScreen() {
         delivery_days: values.delivery_days,
         status: 'active',
       });
-      router.replace('./');
+      router.navigate('/catalogo');
     } catch (error) {
       return catalogoErrors.handle(error);
     }

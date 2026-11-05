@@ -247,14 +247,14 @@ El diseño de tablas, políticas RLS y contratos TypeScript van en `plan.md`.
  
 ## 10. Checklist de aceptación
  
-- [ ] Todos los escenarios Given/When/Then de RF-02, RF-03 y RF-02B pasan.
-- [ ] Todos los mensajes de error de la sección 4 están cubiertos por una prueba con el texto exacto.
-- [ ] Un usuario no autenticado no puede ver perfiles públicos (redirige a login).
-- [ ] Un artista no puede ver ni modificar los servicios o TOS de otro artista.
-- [ ] Los servicios pausados no aparecen en el perfil público.
-- [ ] Un artista sin handle no puede crear servicios.
-- [ ] `expo lint` y `tsc` dan 0 errores.
-- [ ] Cobertura ≥ 60 % en la lógica del catálogo.
-- [ ] Las políticas RLS tienen prueba de acceso denegado documentada en `supabase/tests/`.
-- [ ] Las preguntas P-2.1 a P-2.6 están resueltas (sección 8).
+- [x] Todos los escenarios Given/When/Then de RF-02, RF-03 y RF-02B pasan.
+- [x] Todos los mensajes de error de la sección 4 están cubiertos por una prueba con el texto exacto.
+- [x] Un usuario no autenticado no puede ver perfiles públicos (redirige a login).
+- [x] Un artista no puede ver ni modificar los servicios o TOS de otro artista.
+- [x] Los servicios pausados no aparecen en el perfil público.
+- [x] Un artista sin handle no puede crear servicios.
+- [x] `expo lint` y `tsc` dan 0 errores.
+- [x] Cobertura ≥ 60 % en la lógica del catálogo.
+- [x] Las políticas RLS tienen prueba de acceso denegado documentada en `supabase/tests/`.
+- [x] Las preguntas P-2.1 a P-2.6 están resueltas (sección 8).
  

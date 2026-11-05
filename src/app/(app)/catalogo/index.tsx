@@ -18,7 +18,7 @@ function ServiceCard({ service }: { service: Service }) {
   return (
     <Pressable
       accessibilityRole="button"
-      onPress={() => router.push(`./${service.id}`)}
+      onPress={() => router.push(`/catalogo/${service.id}`)}
       style={styles.serviceCard}
     >
       <View style={styles.serviceHeader}>
@@ -122,7 +122,7 @@ export default function CatalogoScreen() {
         accessibilityRole="button"
         accessibilityState={{ disabled: atLimit }}
         disabled={atLimit}
-        onPress={() => router.push('./nuevo')}
+        onPress={() => router.push('/catalogo/nuevo')}
         style={[styles.primaryButton, atLimit && styles.disabledButton]}
       >
         <Text style={styles.primaryButtonText}>
