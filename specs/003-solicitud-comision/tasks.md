@@ -96,7 +96,7 @@ Implementar `compressImage(asset: LocalImageAsset)` usando `expo-image-manipulat
 
 ---
 
-### T008 — Hook de permisos de galería
+### [x] T008 — Hook de permisos de galería
 **Trazabilidad:** RF-14 · Principio 8
 **Archivos a crear:**
 - `src/features/solicitud/hooks/useGalleryPermission.ts`
@@ -110,7 +110,7 @@ Implementar `requestGalleryPermission()` usando `expo-image-picker`. Si el permi
 
 ## Bloque 3 — Lógica de negocio y datos
 
-### T009 — Hook de mutación `useSubmitCommission`
+### [x] T009 — Hook de mutación `useSubmitCommission`
 **Trazabilidad:** RF-06 · RF-14
 **Archivos a crear:**
 - `src/features/solicitud/hooks/useSubmitCommission.ts`
@@ -129,7 +129,7 @@ Los mensajes de error lanzados deben coincidir literalmente con los de `003-spec
 
 ## Bloque 4 — Componentes de UI
 
-### T010 — Componente `ServiceSummaryCard`
+### [x] T010 — Componente `ServiceSummaryCard`
 **Trazabilidad:** RF-06 (visualización de precio y tiempo)
 **Archivos a crear:**
 - `src/features/solicitud/components/ServiceSummaryCard.tsx`
@@ -141,7 +141,7 @@ Componente de solo lectura que recibe `{ title: string, base_price: number, esti
 
 ---
 
-### T011 — Componente `TosAcceptanceBlock`
+### [x] T011 — Componente `TosAcceptanceBlock`
 **Trazabilidad:** RF-06 (aceptación de TOS) · Escenarios 3.1 y 3.4
 **Archivos a crear:**
 - `src/features/solicitud/components/TosAcceptanceBlock.tsx`
