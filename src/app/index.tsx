@@ -21,7 +21,7 @@ export default function IndexRoute() {
   }
 
   if (!session) {
-    return <Redirect href="/login" />;
+    return <Redirect href="/welcome" />;
   }
 
   if (profileError) {
