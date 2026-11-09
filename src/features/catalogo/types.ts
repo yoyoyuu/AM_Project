@@ -35,6 +35,7 @@ export interface PublicServiceItem {
 }
 
 export interface ArtistPublicProfile {
+  artist_id: string;
   display_name: string;
   handle: string;
   services: PublicServiceItem[];

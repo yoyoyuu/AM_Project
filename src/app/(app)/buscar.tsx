@@ -8,6 +8,7 @@ import {
   TextInput,
   View,
 } from 'react-native';
+import { router } from 'expo-router';
 
 import { catalogoErrors } from '../../features/catalogo/errors';
 import { MESSAGES } from '../../features/catalogo/messages';
@@ -115,6 +116,25 @@ export default function SearchArtistScreen() {
                       {service.delivery_days === 1 ? 'día' : 'días'}
                     </Text>
                   </View>
+                  <Pressable
+                    accessibilityRole="button"
+                    onPress={() =>
+                      router.push({
+                        pathname: '/commission/request/[serviceId]',
+                        params: {
+                          serviceId: service.id,
+                          handle: profile.handle,
+                          artistId: profile.artist_id,
+                        },
+                      })
+                    }
+                    style={({ pressed }) => [
+                      styles.requestButton,
+                      pressed && styles.requestButtonPressed,
+                    ]}
+                  >
+                    <Text style={styles.requestButtonText}>Solicitar comisión</Text>
+                  </Pressable>
                 </View>
               ))
             )}
@@ -262,5 +282,21 @@ const styles = StyleSheet.create({
     color: '#374151',
     fontSize: 15,
     lineHeight: 23,
+  },
+  requestButton: {
+    alignItems: 'center',
+    backgroundColor: '#6C5CE7',
+    borderRadius: 8,
+    justifyContent: 'center',
+    marginTop: 12,
+    minHeight: 44,
+  },
+  requestButtonPressed: {
+    opacity: 0.85,
+  },
+  requestButtonText: {
+    color: '#FFFFFF',
+    fontSize: 15,
+    fontWeight: '700',
   },
 });

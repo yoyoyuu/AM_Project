@@ -153,7 +153,7 @@ Recibe `{ tosText: string | null, onAcceptChange: (accepted: boolean) => void }`
 
 ---
 
-### T012 — Componente `ReferenceImageThumbnail`
+### [x] T012 — Componente `ReferenceImageThumbnail`
 **Trazabilidad:** RF-14 · Escenario 3.15
 **Archivos a crear:**
 - `src/features/solicitud/components/ReferenceImageThumbnail.tsx`
@@ -165,7 +165,7 @@ Recibe `{ uri: string, onRemove: () => void }`. Muestra una miniatura cuadrada d
 
 ---
 
-### T013 — Componente `ReferenceImagePicker`
+### [x] T013 — Componente `ReferenceImagePicker`
 **Trazabilidad:** RF-14 · Escenarios 3.9 a 3.15
 **Archivos a crear:**
 - `src/features/solicitud/components/ReferenceImagePicker.tsx`
@@ -184,7 +184,7 @@ Renderiza las miniaturas con `ReferenceImageThumbnail` en fila horizontal con sc
 
 ## Bloque 5 — Pantallas y rutas
 
-### T014 — Ruta de Expo Router para la solicitud
+### [x] T014 — Ruta de Expo Router para la solicitud
 **Trazabilidad:** RF-06
 **Archivos a crear:**
 - `src/app/commission/request/[serviceId].tsx`
@@ -200,7 +200,7 @@ Ruta dinámica que recibe `serviceId` como parámetro. Debe:
 
 ---
 
-### T015 — Pantalla `CommissionRequestScreen`
+### [x] T015 — Pantalla `CommissionRequestScreen`
 **Trazabilidad:** RF-06 · RF-14
 **Archivos a crear:**
 - `src/features/solicitud/screens/CommissionRequestScreen.tsx`
@@ -223,7 +223,7 @@ Al error, mostrar el mensaje literal del error en un toast o banner.
 
 ---
 
-### T016 — Pantalla `CommissionSuccessScreen`
+### [x] T016 — Pantalla `CommissionSuccessScreen`
 **Trazabilidad:** RF-06 · Escenario 3.1
 **Archivos a crear:**
 - `src/features/solicitud/screens/CommissionSuccessScreen.tsx`
@@ -237,7 +237,7 @@ Pantalla de confirmación sin estado de formulario. Muestra el mensaje "Tu solic
 
 ## Bloque 6 — Pruebas
 
-### T017 — Tests unitarios de Zod y mensajes de error
+### [x] T017 — Tests unitarios de Zod y mensajes de error
 **Trazabilidad:** RF-06 · Principio 9
 **Archivos a crear:**
 - `src/features/solicitud/__tests__/schemas.test.ts`
@@ -249,7 +249,7 @@ Tests con Jest que validan todos los caminos del esquema Zod: descripción vací
 
 ---
 
-### T018 — Tests unitarios de `compressImage`
+### [x] T018 — Tests unitarios de `compressImage` ✅
 **Trazabilidad:** RF-14 · P-3.1 · Principio 9
 **Archivos a crear:**
 - `src/features/solicitud/__tests__/compressImage.test.ts`
@@ -261,7 +261,7 @@ Tests que comprueban: (a) el archivo de salida es JPEG, (b) el tamaño del archi
 
 ---
 
-### T019 — Tests de integración del hook `useSubmitCommission` (mock)
+### [x] T019 — Tests de integración del hook `useSubmitCommission` (mock) ✅
 **Trazabilidad:** RF-06 · RF-14 · Principio 9
 **Archivos a crear:**
 - `src/features/solicitud/__tests__/useSubmitCommission.test.ts`

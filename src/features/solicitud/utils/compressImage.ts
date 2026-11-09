@@ -1,12 +1,24 @@
 import { ImageManipulator, SaveFormat } from 'expo-image-manipulator';
-import { Image } from 'react-native';
 
 import type { LocalImageAsset } from '../types';
 
 const MAX_DIMENSION = 1920;
 const JPEG_QUALITY = 0.75;
 
-function getImageSize(uri: string): Promise<{ width: number; height: number }> {
+// Lazy require keeps react-native out of the module-level import graph,
+// which lets jest-expo/node tests inject getDimensions without triggering
+// the react-native → react-native-web resolution that fails without that package.
+export function getImageSize(uri: string): Promise<{ width: number; height: number }> {
+  // eslint-disable-next-line @typescript-eslint/no-require-imports
+  const { Image } = require('react-native') as {
+    Image: {
+      getSize: (
+        uri: string,
+        success: (w: number, h: number) => void,
+        failure?: (e: unknown) => void,
+      ) => void;
+    };
+  };
   return new Promise((resolve, reject) => {
     Image.getSize(uri, (width, height) => resolve({ width, height }), reject);
   });
@@ -14,8 +26,9 @@ function getImageSize(uri: string): Promise<{ width: number; height: number }> {
 
 export async function compressImage(
   asset: LocalImageAsset,
-): Promise<{ blob: Blob; size: number }> {
-  const { width, height } = await getImageSize(asset.uri);
+  getDimensions: (uri: string) => Promise<{ width: number; height: number }> = getImageSize,
+): Promise<{ uri: string }> {
+  const { width, height } = await getDimensions(asset.uri);
 
   const context = ImageManipulator.manipulate(asset.uri);
 
@@ -32,7 +45,5 @@ export async function compressImage(
     compress: JPEG_QUALITY,
   });
 
-  const response = await fetch(result.uri);
-  const blob = await response.blob();
-  return { blob, size: blob.size };
+  return { uri: result.uri };
 }
