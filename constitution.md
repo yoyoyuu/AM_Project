@@ -1,6 +1,6 @@
 # Constitución de Koma
  
-**Versión:** 1.1 · **Fecha:** 2026-11-02 · **Equipo:** Eqüipo--
+**Versión:** 1.2 · **Fecha:** 2026-11-12 · **Equipo:** Eqüipo--
 **Base:** Plan de negocios 2026-2 y SRS ISO 29148 v4.0 (con las correcciones de la sección 8)
  
 Este documento fija los principios que **no se negocian** durante el desarrollo. Toda spec, plan y tarea debe cumplirlos. Si una spec los contradice, se corrige la spec o se enmienda esta constitución (sección 9), nunca se ignora.
@@ -14,7 +14,7 @@ Koma centraliza el registro, el seguimiento y el cierre de comisiones de arte di
 - **Una sola cuenta por persona.** Artista y cliente son **roles** de la misma cuenta. Se es artista al activar el perfil de artista (con un handle público); cualquier usuario puede pedir comisiones.
 - **El cliente encuentra al artista** por su handle (o QR) dentro de la app y solicita la comisión ahí.
 - **Las notificaciones son push**, para artista y cliente. El correo se usa solo para la autenticación (verificación y recuperación).
-**Fecha límite del MVP:** 13 de noviembre de 2026 (RC-04). Existe la posibilidad de extenderla al 22 de noviembre, **pendiente de confirmación escrita de las docentes**. Se planifica para tener algo demostrable el día 13.
+**Fecha límite del MVP:** Existe la posibilidad de terminarla al 22 de noviembre, se planifica para tener algo demostrable el día 13.
  
 ## 2. Principios no negociables
  
@@ -62,14 +62,17 @@ koma/
 │     └─ tasks.md     # tareas pequeñas trazables a RF/RNF
 ├─ src/
 │  ├─ app/            # SOLO rutas de Expo Router
-│  ├─ features/       # lógica y componentes por feature (auth, catalogo...)
-│  ├─ components/     # componentes compartidos
-│  └─ lib/            # clientes y utilidades (supabase.ts)
+│  │  ├─ (auth)/      # rutas públicas
+│  │  └─ (app)/       # rutas protegidas (guard de sesión)
+│  ├─ features/       # lógica y componentes por feature
+│  │  └─ <feature>/   # hooks, components, screens, schemas, types
+│  └─ lib/            # clientes compartidos
 ├─ supabase/
 │  ├─ migrations/     # SQL versionado, incluye políticas RLS
-│  ├─ functions/      # Edge Functions
+│  ├─ storage/        # configuración de buckets
+│  ├─ templates/      # plantillas de correo de Supabase Auth
 │  └─ tests/          # scripts de pruebas de RLS
-└─ docs/              # SRS y plan de negocios
+└─ assets/            # íconos y splash screen
 ```
  
 ## 5. Convenciones
@@ -127,4 +130,5 @@ Resolver y avisar a las docentes antes de la entrega final:
 |---|---|---|
 | 1.0 | 2026-11-02 | Versión inicial |
 | 1.1 | 2026-11-02 | App solo Android; una cuenta para artista y cliente; push como canal principal; funciones nativas (galería, cámara); nuevo mapa de features |
+| 1.2 | 2026-11-12 | Estructura del repositorio actualizada: carpeta `backend/` eliminada, `docs/` eliminada, rutas de `commission/` movidas dentro del grupo `(app)/`, feature `gestion/` agregada al árbol |
  

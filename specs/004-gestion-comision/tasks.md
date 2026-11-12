@@ -74,7 +74,7 @@ Implementar las 8 pruebas definidas en el plan §3.1:
  
 ---
  
-### T045 — Definir tipos TypeScript de dominio extendidos
+### T045 — Definir tipos TypeScript de dominio extendidos ✅
  
 **RF/RNF:** Principio 3 (TypeScript estricto) · Plan §4.1
 **Depende de:** T042
@@ -87,7 +87,7 @@ Crear el archivo con los tipos: `CommissionStatus`, `CreativeStage`, `CREATIVE_S
  
 ---
  
-### T046 — Implementar máquina de estados TypeScript
+### T046 — Implementar máquina de estados TypeScript ✅
  
 **RF/RNF:** RF-07-C, RF-07-D, RF-07-E · Plan §4.2
 **Depende de:** T045
@@ -100,7 +100,7 @@ Implementar `applyTransition(currentStatus, currentStage, action): TransitionRes
  
 ---
  
-### T047 — Tests unitarios de la máquina de estados
+### T047 — Tests unitarios de la máquina de estados ✅
  
 **RF/RNF:** RNF-08 (cobertura ≥ 60 %) · Plan §4.2
 **Depende de:** T046
@@ -121,7 +121,7 @@ Escribir tests con Jest que cubran:
  
 ---
  
-### T048 — Definir esquema Zod y tipos de formulario de rechazo
+### T048 — Definir esquema Zod y tipos de formulario de rechazo ✅
  
 **RF/RNF:** RF-07-D · Plan §4.3
 **Depende de:** T045

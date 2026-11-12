@@ -1,11 +1,6 @@
-export type CommissionStatus =
-  | 'PENDIENTE'
-  | 'ACEPTADA'
-  | 'RECHAZADA'
-  | 'EN_PROGRESO'
-  | 'EN_REVISION'
-  | 'COMPLETADA'
-  | 'CANCELADA';
+import type { CommissionStatus } from '../gestion/types';
+
+export type { CommissionStatus };
 
 export type IntendedUse = 'personal' | 'comercial';
 

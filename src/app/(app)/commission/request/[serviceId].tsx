@@ -1,9 +1,9 @@
 import { useLocalSearchParams } from 'expo-router';
 import { ActivityIndicator, StyleSheet, Text, View } from 'react-native';
 
-import { useArtistPublicProfile } from '../../../features/catalogo/queries';
-import { CommissionRequestScreen } from '../../../features/solicitud/screens/CommissionRequestScreen';
-import { useProfile } from '../../../features/auth/useProfile';
+import { useArtistPublicProfile } from '../../../../features/catalogo/queries';
+import { CommissionRequestScreen } from '../../../../features/solicitud/screens/CommissionRequestScreen';
+import { useProfile } from '../../../../features/auth/useProfile';
 
 function ErrorState({ message }: { message: string }) {
   return (
