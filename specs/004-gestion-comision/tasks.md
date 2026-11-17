@@ -253,7 +253,7 @@ Bottom sheet (o modal) que contiene:
  
 ---
  
-### T057 — Componente `PendingCommissionCard`
+### T057 — Componente `PendingCommissionCard` ✅
  
 **RF/RNF:** RF-07-A · Plan §5
 **Depende de:** T052
@@ -268,7 +268,7 @@ Tarjeta presionable que muestra: nombre del servicio, handle del cliente, fecha 
  
 ## Fase 4 — Pantallas
  
-### T058 — Pantalla `ArtistCommissionsScreen` (lista de pendientes)
+### T058 — Pantalla `ArtistCommissionsScreen` (lista de pendientes) ✅
  
 **RF/RNF:** RF-07-A, Escenarios 4.1, 4.2, 4.3 · Plan §5
 **Depende de:** T049, T057
@@ -286,7 +286,7 @@ Pantalla principal del panel del artista con:
  
 ---
  
-### T059 — Pantalla `CommissionDetailScreen`
+### T059 — Pantalla `CommissionDetailScreen` ✅
  
 **RF/RNF:** RF-07-B, RF-07-C, RF-07-D, Escenarios 4.4–4.12 · Plan §5
 **Depende de:** T050, T051, T053, T054, T055, T056
@@ -307,7 +307,7 @@ Pantalla de detalle de la comisión con:
  
 ---
  
-### T060 — Pantalla `CommissionWorkScreen` (gestión de etapas)
+### T060 — Pantalla `CommissionWorkScreen` (gestión de etapas) ✅
  
 **RF/RNF:** RF-07-E, Escenarios 4.13–4.17 · Plan §5
 **Depende de:** T051, T053, T055
@@ -326,7 +326,7 @@ Pantalla de trabajo activo con:
  
 ---
  
-### T061 — Pantalla `CommissionCompletedScreen`
+### T061 — Pantalla `CommissionCompletedScreen` ✅
  
 **RF/RNF:** RF-07-E (Escenario 4.14) · Plan §5
 **Depende de:** T052
