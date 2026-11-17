@@ -9,10 +9,10 @@
 
 ## Bloque 1 — Base de datos
 
-### T001 — Migración: índices de acceso del cliente
+### T001 — Migración: índices de acceso del cliente ✅
 **Traza:** RNF-01 (tiempo de carga ≤ 2 s), RF-05-A (consulta de lista)
-**Archivos a crear:**
-- `supabase/migrations/005_client_tracking_indexes.sql`
+**Archivos creados:**
+- `supabase/migrations/007_client_tracking_indexes.sql` (renombrado a 007 para evitar conflicto de orden con 005_commission_management.sql)
 
 **Contenido:** crear los dos índices compuestos definidos en `plan.md` sección 2.2:
 ```sql
@@ -26,9 +26,9 @@ Verificar que la migración aplica sin errores en entorno local con `supabase db
 
 ---
 
-### T002 — Pruebas RLS: acceso de lectura del cliente
+### T002 — Pruebas RLS: acceso de lectura del cliente ✅
 **Traza:** RNF-04 (acceso solo a comisiones propias), Principio 6 (sin tokens anónimos), RF-05-A, RF-05-B
-**Archivos a crear:**
+**Archivos creados:**
 - `supabase/tests/005_rls_client_test.sql`
 
 **Contenido:** las 6 pruebas definidas en `plan.md` sección 2.3, que verifican:
