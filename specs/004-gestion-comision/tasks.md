@@ -359,7 +359,7 @@ Verificar que las rutas de Expo Router están correctamente anidadas bajo el lay
  
 ---
  
-### T063 — Validación de lint y tipos
+### T063 — Validación de lint y tipos ✅
  
 **RF/RNF:** Principio 3 (TypeScript estricto), RNF-08 · Constitución §6
 **Depende de:** T058, T059, T060, T061, T062
@@ -372,7 +372,7 @@ Ejecutar `expo lint` y `tsc --noEmit` sobre toda la base de código. Corregir to
  
 ---
  
-### T064 — Verificar cobertura de pruebas ≥ 60 %
+### T064 — Verificar cobertura de pruebas ≥ 60 % ✅
  
 **RF/RNF:** RNF-08 · Constitución §6
 **Depende de:** T047, T048
