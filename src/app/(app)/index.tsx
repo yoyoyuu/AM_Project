@@ -114,10 +114,17 @@ export default function AppHomeScreen() {
               </View>
               <Pressable
                 accessibilityRole="button"
-                onPress={() => router.push('/(app)/catalogo')}
+                onPress={() => router.push('/artist/commissions')}
                 style={styles.button}
               >
-                <Text style={styles.buttonText}>Gestionar catálogo</Text>
+                <Text style={styles.buttonText}>Mis comisiones</Text>
+              </Pressable>
+              <Pressable
+                accessibilityRole="button"
+                onPress={() => router.push('/(app)/catalogo')}
+                style={styles.secondaryButton}
+              >
+                <Text style={styles.secondaryButtonText}>Gestionar catálogo</Text>
               </Pressable>
               <Pressable
                 accessibilityRole="button"

@@ -31,13 +31,13 @@ export interface Commission {
 export interface CommissionWithDetails extends Commission {
   service: {
     title: string;
-    base_price: number;
-    estimated_days: number;
+    price_mxn: number;
+    delivery_days: number;
   };
   client_profile: {
     handle: string;
     display_name: string | null;
-  };
+  } | null;
   references: CommissionReference[];
 }
 

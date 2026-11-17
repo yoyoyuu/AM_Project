@@ -26,7 +26,7 @@ export function PendingCommissionCard({ commission }: Props) {
       style={({ pressed }) => [styles.card, pressed && styles.cardPressed]}
       onPress={handlePress}
       accessibilityRole="button"
-      accessibilityLabel={`Comisión ${commission.service.title} de ${commission.client_profile.handle}`}
+      accessibilityLabel={`Comisión ${commission.service.title} de ${commission.client_profile?.handle ?? 'cliente'}`}
     >
       <View style={styles.row}>
         <Text style={styles.serviceTitle} numberOfLines={1}>
@@ -36,7 +36,7 @@ export function PendingCommissionCard({ commission }: Props) {
       </View>
 
       <Text style={styles.clientHandle} numberOfLines={1}>
-        @{commission.client_profile.handle}
+        {commission.client_profile ? `@${commission.client_profile.handle}` : 'Cliente desconocido'}
       </Text>
 
       <Text style={styles.date}>{formatDate(commission.created_at)}</Text>

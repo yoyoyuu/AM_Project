@@ -142,11 +142,11 @@ export function CommissionDetailScreen() {
           </View>
           <View style={styles.serviceMetaRow}>
             <Text style={styles.serviceMeta}>
-              ${commission.service.base_price} MXN
+              ${commission.service.price_mxn} MXN
             </Text>
             <Text style={styles.serviceMeta}>
-              {commission.service.estimated_days}{' '}
-              {commission.service.estimated_days === 1 ? 'día' : 'días'}
+              {commission.service.delivery_days}{' '}
+              {commission.service.delivery_days === 1 ? 'día' : 'días'}
             </Text>
           </View>
         </View>
@@ -156,12 +156,15 @@ export function CommissionDetailScreen() {
         {/* Client */}
         <View style={styles.section}>
           <Text style={styles.sectionTitle}>Cliente</Text>
-          <DetailRow
-            label="Handle"
-            value={`@${commission.client_profile.handle}`}
-          />
-          {commission.client_profile.display_name && (
-            <DetailRow label="Nombre" value={commission.client_profile.display_name} />
+          {commission.client_profile ? (
+            <>
+              <DetailRow label="Handle" value={`@${commission.client_profile.handle}`} />
+              {commission.client_profile.display_name && (
+                <DetailRow label="Nombre" value={commission.client_profile.display_name} />
+              )}
+            </>
+          ) : (
+            <DetailRow label="Handle" value="Cliente desconocido" />
           )}
         </View>
 
