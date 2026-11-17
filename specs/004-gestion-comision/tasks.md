@@ -344,7 +344,7 @@ Pantalla de estado terminal que muestra:
  
 ## Fase 5 — Integración y calidad
  
-### T062 — Integrar ruta en la navegación del artista (Expo Router)
+### T062 — Integrar ruta en la navegación del artista (Expo Router) ✅
  
 **RF/RNF:** Principio 3 (Expo Router) · Plan §5
 **Depende de:** T058, T059, T060, T061
