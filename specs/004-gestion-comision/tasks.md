@@ -136,7 +136,7 @@ Implementar `rejectCommissionSchema` y exportar `RejectCommissionFormValues`. El
  
 ## Fase 2 — Hooks de datos
  
-### T049 — Hook `usePendingCommissions`
+### T049 — Hook `usePendingCommissions` ✅
  
 **RF/RNF:** RF-07-A · Plan §4.4
 **Depende de:** T045
