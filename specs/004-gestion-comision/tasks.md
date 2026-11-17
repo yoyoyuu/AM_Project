@@ -149,7 +149,7 @@ Implementar el hook usando TanStack Query con la query key `['commissions', 'pen
  
 ---
  
-### T050 — Hook `useCommissionDetail`
+### T050 — Hook `useCommissionDetail` ✅
  
 **RF/RNF:** RF-07-B · Plan §4.4
 **Depende de:** T045
@@ -162,7 +162,7 @@ Implementar el hook con query key `['commissions', 'detail', commissionId]`. Inc
  
 ---
  
-### T051 — Hook `useCommissionAction`
+### T051 — Hook `useCommissionAction` ✅
  
 **RF/RNF:** RF-07-C, RF-07-D, RF-07-E · Plan §4.4
 **Depende de:** T046, T049, T050
@@ -181,7 +181,7 @@ Implementar la mutación que:
  
 ## Fase 3 — Componentes reutilizables
  
-### T052 — Componente `CommissionStatusBadge`
+### T052 — Componente `CommissionStatusBadge` ✅
  
 **RF/RNF:** RF-07-A, RF-07-B · Plan §5
 **Depende de:** T045
@@ -198,7 +198,7 @@ Acepta `status: CommissionStatus` como prop.
  
 ---
  
-### T053 — Componente `CreativeStageIndicator`
+### T053 — Componente `CreativeStageIndicator` ✅
  
 **RF/RNF:** RF-07-E · Plan §5
 **Depende de:** T045
@@ -211,7 +211,7 @@ Indicador de progreso de 3 pasos horizontales (Boceto → Delineado → Color / 
  
 ---
  
-### T054 — Componente `ReferenceGallery`
+### T054 — Componente `ReferenceGallery` ✅
  
 **RF/RNF:** RF-07-B · Plan §5
 **Depende de:** T050
@@ -224,7 +224,7 @@ Grid de miniaturas de imágenes de referencia usando `Image` de React Native. Ca
  
 ---
  
-### T055 — Componente `ConfirmActionDialog`
+### T055 — Componente `ConfirmActionDialog` ✅
  
 **RF/RNF:** RF-07-C, RF-07-D, RF-07-E (confirmaciones) · Plan §5
 **Depende de:** (ninguna)
@@ -237,7 +237,7 @@ Diálogo modal reutilizable con título, mensaje, botón de confirmación y bot�
  
 ---
  
-### T056 — Componente `RejectCommissionSheet`
+### T056 — Componente `RejectCommissionSheet` ✅
  
 **RF/RNF:** RF-07-D · Plan §5
 **Depende de:** T048, T055
