@@ -14,11 +14,12 @@ create temp table t005_users (
   user_artist   uuid not null,
   user_stranger uuid not null
 );
+grant select on t005_users to authenticated;
 
 insert into t005_users (user_client, user_artist, user_stranger)
 values (
   'a2db0764-5b01-4608-abea-8cdada298bcd',
-  '1e1d819f-1ee6-44b5-b538-23a20dd83bd8',
+  'b1f8d193-59ab-4e8a-9816-2a5c7fdb487e',
   'c9e8f1a2-3b4d-4e5f-6a7b-8c9d0e1f2a3b'
 );
 
@@ -39,6 +40,7 @@ $$;
 
 -- Setup: crear servicio para user_artist (bypass RLS, corre como postgres)
 create temp table t005_service (id uuid not null);
+grant select on t005_service to authenticated;
 
 with svc as (
   insert into public.services (artist_id, title, price_mxn, delivery_days)
@@ -56,6 +58,7 @@ insert into t005_service (id) select id from svc;
 --   commission_a — estado PENDIENTE (para pruebas de lectura)
 --   commission_b — estado RECHAZADA con rejection_reason (para prueba 5)
 create temp table t005_commissions (commission_a uuid, commission_b uuid);
+grant select on t005_commissions to authenticated;
 
 with ins as (
   insert into public.commissions (client_id, artist_id, service_id, description, intended_use)
@@ -77,7 +80,7 @@ with ins as (
   returning id
 )
 insert into t005_commissions (commission_a, commission_b)
-select min(id), max(id) from ins;
+select arr[1], arr[2] from (select array_agg(id) as arr from ins) sub;
 
 -- Poner commission_b en estado RECHAZADA con motivo
 update public.commissions

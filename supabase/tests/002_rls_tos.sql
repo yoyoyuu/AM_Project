@@ -13,7 +13,8 @@ create temp table t103_users (
 
 insert into t103_users (user_a, user_b)
 values (
-  'a2db0764-5b01-4608-abea-8cdada298bcd',
+  'b1f8d193-59ab-4e8a-9816-2a5c7fdb487e',
+  -- PENDIENTE: reemplazar con un segundo artista (is_artist=true, handle no nulo)
   '1e1d819f-1ee6-44b5-b538-23a20dd83bd8'
 );
 

@@ -14,7 +14,7 @@ create temp table t104_artist (
 insert into t104_artist (artist_id, handle)
 select id, handle
 from public.profiles
-where id = 'a2db0764-5b01-4608-abea-8cdada298bcd'
+where id = 'b1f8d193-59ab-4e8a-9816-2a5c7fdb487e'
   and handle is not null;
 
 do $$

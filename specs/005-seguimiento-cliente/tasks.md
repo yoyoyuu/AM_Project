@@ -45,9 +45,9 @@ Ejecutar con `supabase test db` y confirmar que todos los asserts pasan.
 
 ## Bloque 2 — Tipos y lógica de presentación
 
-### T003 — Tipos TypeScript del módulo de seguimiento
+### T003 — Tipos TypeScript del módulo de seguimiento ✅
 **Traza:** RF-05-A, RF-05-B (contratos de datos)
-**Archivos a crear:**
+**Archivos creados:**
 - `src/features/seguimiento/types.ts`
 
 **Contenido:** definir `ClientCommissionSummary`, `ClientCommissionDetail`, `CommissionReferenceView` y `CommissionGroups` según `plan.md` sección 3.1. Re-exportar `CommissionStatus`, `CreativeStage` y `CREATIVE_STAGE_ORDER` desde `@/features/gestion/types`.
@@ -56,9 +56,9 @@ Verificar con `tsc --noEmit` que no hay errores de tipos.
 
 ---
 
-### T004 — Mapeadores de presentación (badges, stepper, fechas, agrupación)
+### T004 — Mapeadores de presentación (badges, stepper, fechas, agrupación) ✅
 **Traza:** RF-05-A (badges, agrupación, fechas), RF-05-B (stepper), spec sección 5
-**Archivos a crear:**
+**Archivos creados:**
 - `src/features/seguimiento/presenters.ts`
 
 **Contenido:**
@@ -80,9 +80,9 @@ Verificar cobertura ≥ 60 % en este archivo. Ejecutar `expo lint` sin errores.
 
 ## Bloque 3 — Hooks de datos
 
-### T005 — Hook `useMyCommissions`
+### T005 — Hook `useMyCommissions` ✅
 **Traza:** RF-05-A (lista de comisiones), RF-05-C (revalidación por foco y pull-to-refresh)
-**Archivos a crear:**
+**Archivos creados:**
 - `src/features/seguimiento/hooks/useMyCommissions.ts`
 
 **Contenido:** implementar el hook según `plan.md` sección 3.3:
@@ -96,9 +96,9 @@ Verificar con `tsc --noEmit`.
 
 ---
 
-### T006 — Hook `useCommissionTrackingDetail`
+### T006 — Hook `useCommissionTrackingDetail` ✅
 **Traza:** RF-05-B (vista de detalle, galería de referencias, datos del encargo)
-**Archivos a crear:**
+**Archivos creados:**
 - `src/features/seguimiento/hooks/useCommissionTrackingDetail.ts`
 
 **Contenido:** implementar el hook según `plan.md` sección 3.3:
@@ -114,10 +114,11 @@ Verificar con `tsc --noEmit`.
 
 ## Bloque 4 — Componentes UI
 
-### T007 — Componente `CommissionStatusBadge`
+### T007 — Componente `CommissionStatusBadge` ✅
 **Traza:** RF-05-A (badge en tarjeta), RF-05-B (badge en encabezado de detalle), spec sección 5.1
-**Archivos a crear:**
+**Archivos creados:**
 - `src/features/seguimiento/components/CommissionStatusBadge.tsx`
+- `src/features/seguimiento/__tests__/CommissionStatusBadge.test.ts`
 
 **Props:** `status: CommissionStatus`.
 Usa `getStatusBadge(status)` del presentador para obtener `label` y `colorKey`.
@@ -127,9 +128,9 @@ Cubrir con snapshot test o test de accesibilidad básica.
 
 ---
 
-### T008 — Componente `CommissionCard`
+### T008 — Componente `CommissionCard` ✅
 **Traza:** RF-05-A (tarjeta de resumen en la lista), spec sección 3
-**Archivos a crear:**
+**Archivos creados:**
 - `src/features/seguimiento/components/CommissionCard.tsx`
 
 **Props:** `commission: ClientCommissionSummary`, `onPress: () => void`.
@@ -137,9 +138,9 @@ Debe mostrar: título del servicio, handle del artista, `CommissionStatusBadge`,
 
 ---
 
-### T009 — Componente `CommissionsGroupSection`
+### T009 — Componente `CommissionsGroupSection` ✅
 **Traza:** RF-05-A (agrupación por estado)
-**Archivos a crear:**
+**Archivos creados:**
 - `src/features/seguimiento/components/CommissionsGroupSection.tsx`
 
 **Props:** `title: string`, `commissions: ClientCommissionSummary[]`, `onPressItem: (id: string) => void`.
@@ -148,9 +149,9 @@ Renderiza el título del grupo y la lista de `CommissionCard`.
 
 ---
 
-### T010 — Componente `CommissionsEmptyState`
+### T010 — Componente `CommissionsEmptyState` ✅
 **Traza:** RF-05-A (estado vacío), spec sección 6
-**Archivos a crear:**
+**Archivos creados:**
 - `src/features/seguimiento/components/CommissionsEmptyState.tsx`
 
 **Props:** `onExploreArtists: () => void`.
@@ -158,18 +159,18 @@ Muestra el mensaje literal: `"Aún no has solicitado ninguna comisión"` y el bo
 
 ---
 
-### T011 — Componente `CommissionListSkeleton`
+### T011 — Componente `CommissionListSkeleton` ✅
 **Traza:** RF-05-C (indicadores de carga)
-**Archivos a crear:**
+**Archivos creados:**
 - `src/features/seguimiento/components/CommissionListSkeleton.tsx`
 
 Renderiza 3 tarjetas skeleton animadas (placeholder de carga). Se muestra mientras `isLoading = true` en `useMyCommissions`.
 
 ---
 
-### T012 — Componente `CreativeStepper`
+### T012 — Componente `CreativeStepper` ✅
 **Traza:** RF-05-B (indicador visual de etapas), spec sección 5.2 y 5.3
-**Archivos a crear:**
+**Archivos creados:**
 - `src/features/seguimiento/components/CreativeStepper.tsx`
 
 **Props:** `steps: StepConfig[]` (resultado de `buildStepperConfig`).
@@ -177,9 +178,9 @@ Renderiza los 3 pasos en horizontal o vertical. Cada paso muestra: ícono de est
 
 ---
 
-### T013 — Componente `RejectionBlock`
+### T013 — Componente `RejectionBlock` ✅
 **Traza:** RF-05-B (bloque de rechazo), spec sección 6
-**Archivos a crear:**
+**Archivos creados:**
 - `src/features/seguimiento/components/RejectionBlock.tsx`
 
 **Props:** `rejectionReason: string | null`.
@@ -189,9 +190,9 @@ Incluye el encabezado `"Solicitud rechazada"` siempre.
 
 ---
 
-### T014 — Componente `CommissionDetailSkeleton`
+### T014 — Componente `CommissionDetailSkeleton` ✅
 **Traza:** RF-05-C (indicadores de carga en el detalle)
-**Archivos a crear:**
+**Archivos creados:**
 - `src/features/seguimiento/components/CommissionDetailSkeleton.tsx`
 
 Renderiza placeholders animados para el encabezado de estado, el stepper, los bloques de datos del servicio y los datos del encargo. Se muestra mientras `isLoading = true` en `useCommissionTrackingDetail`.
@@ -200,9 +201,9 @@ Renderiza placeholders animados para el encabezado de estado, el stepper, los bl
 
 ## Bloque 5 — Pantallas
 
-### T015 — Pantalla `MyCommissionsScreen`
+### T015 — Pantalla `MyCommissionsScreen` ✅
 **Traza:** RF-05-A (tablero principal), RF-05-C (pull-to-refresh, revalidación)
-**Archivos a crear:**
+**Archivos creados:**
 - `src/features/seguimiento/screens/MyCommissionsScreen.tsx`
 
 **Lógica:**
@@ -219,9 +220,9 @@ Renderiza placeholders animados para el encabezado de estado, el stepper, los bl
 
 ---
 
-### T016 — Pantalla `CommissionTrackingDetailScreen`
+### T016 — Pantalla `CommissionTrackingDetailScreen` ✅
 **Traza:** RF-05-B (vista detallada, stepper, bloque de rechazo, galería)
-**Archivos a crear:**
+**Archivos creados:**
 - `src/features/seguimiento/screens/CommissionTrackingDetailScreen.tsx`
 
 **Lógica:**
@@ -244,18 +245,19 @@ Renderiza placeholders animados para el encabezado de estado, el stepper, los bl
 
 ## Bloque 6 — Rutas Expo Router
 
-### T017 — Ruta tab: lista de comisiones del cliente
+### T017 — Ruta tab: lista de comisiones del cliente ✅
 **Traza:** RF-05-A (acceso desde la navegación principal)
-**Archivos a crear:**
+**Archivos creados:**
+- `src/app/(tabs)/_layout.tsx` (Stack con auth redirect — necesario para proteger el grupo)
 - `src/app/(tabs)/commissions/index.tsx`
 
 **Contenido:** wrapper mínimo que renderiza `<MyCommissionsScreen />`. Configurar el título de la tab como "Mis Comisiones".
 
 ---
 
-### T018 — Ruta anidada: detalle de seguimiento
+### T018 — Ruta anidada: detalle de seguimiento ✅
 **Traza:** RF-05-B (acceso al detalle desde la lista)
-**Archivos a crear:**
+**Archivos creados:**
 - `src/app/(tabs)/commissions/[commissionId].tsx`
 
 **Contenido:** wrapper que extrae el parámetro `commissionId` y renderiza `<CommissionTrackingDetailScreen commissionId={commissionId} />`. Configurar el título de la pantalla como "Detalle del encargo".
@@ -264,7 +266,7 @@ Renderiza placeholders animados para el encabezado de estado, el stepper, los bl
 
 ## Bloque 7 — Verificación final
 
-### T019 — Verificación de lint, tipos y cobertura
+### T019 — Verificación de lint, tipos y cobertura ✅
 **Traza:** RNF-08 (cobertura ≥ 60 %), todos los RF
 **Archivos a modificar / verificar:**
 - Todos los archivos creados en T003–T018.

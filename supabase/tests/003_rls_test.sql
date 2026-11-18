@@ -19,7 +19,7 @@ create temp table t003_users (
 insert into t003_users (user_client, user_artist, user_stranger)
 values (
   'a2db0764-5b01-4608-abea-8cdada298bcd',
-  '1e1d819f-1ee6-44b5-b538-23a20dd83bd8',
+  'b1f8d193-59ab-4e8a-9816-2a5c7fdb487e',
   'c9e8f1a2-3b4d-4e5f-6a7b-8c9d0e1f2a3b'
 );
 
