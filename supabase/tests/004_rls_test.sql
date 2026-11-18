@@ -14,6 +14,7 @@ create temp table t004_users (
   user_artist   uuid not null,
   user_stranger uuid not null
 );
+grant select on t004_users to authenticated;
 
 insert into t004_users (user_client, user_artist, user_stranger)
 values (
@@ -39,6 +40,7 @@ $$;
 
 -- Setup: crear servicio para user_artist (bypass RLS, corre como postgres)
 create temp table t004_service (id uuid not null);
+grant select on t004_service to authenticated;
 
 with svc as (
   insert into public.services (artist_id, title, price_mxn, delivery_days)
@@ -56,6 +58,7 @@ insert into t004_service (id) select id from svc;
 --   commission_a — para pruebas de lectura y cambio de estado (aceptar)
 --   commission_b — para prueba de rechazo con motivo
 create temp table t004_commissions (commission_a uuid, commission_b uuid);
+grant select on t004_commissions to authenticated;
 
 with ins as (
   insert into public.commissions (client_id, artist_id, service_id, description, intended_use)
@@ -77,7 +80,7 @@ with ins as (
   returning id
 )
 insert into t004_commissions (commission_a, commission_b)
-select min(id), max(id) from ins;
+select arr[1], arr[2] from (select array_agg(id) as arr from ins) sub;
 
 -- ============================================================
 -- Prueba 1: artista puede leer sus propias comisiones pendientes

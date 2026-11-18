@@ -10,6 +10,7 @@ create temp table t103_users (
   user_a uuid not null,
   user_b uuid not null
 );
+grant select on t103_users to authenticated;
 
 insert into t103_users (user_a, user_b)
 values (
@@ -40,6 +41,7 @@ $$;
 create temp table t103_tos (
   artist_id uuid not null
 );
+grant select, insert on t103_tos to authenticated;
 
 -- user_a upserts a TOS and can read it.
 set local role authenticated;

@@ -10,10 +10,13 @@ create temp table t010_users (
   user_a uuid not null,
   user_b uuid not null
 );
+grant select on t010_users to authenticated;
 
+-- user_a: b1f8d193-... (artista, handle yoyo)
+-- user_b: PENDIENTE — reemplazar con un segundo usuario con handle no nulo
 insert into t010_users (user_a, user_b)
 values (
-  'a2db0764-5b01-4608-abea-8cdada298bcd',
+  'b1f8d193-59ab-4e8a-9816-2a5c7fdb487e',
   '1e1d819f-1ee6-44b5-b538-23a20dd83bd8'
 );
 
@@ -54,7 +57,9 @@ begin
 end;
 $$;
 
--- Each authenticated user can read only their own profile.
+-- Con la política profiles_select_authenticated (migración 008), todos los usuarios
+-- autenticados pueden leer cualquier perfil (necesario para JOINs en comisiones).
+-- La prueba verifica que el propio perfil siempre es visible.
 set local role authenticated;
 select set_config(
   'request.jwt.claim.sub',
@@ -65,17 +70,13 @@ select set_config(
 do $$
 declare
   own_profiles integer;
-  other_profiles integer;
 begin
   select count(*) into own_profiles
   from public.profiles
   where id = (select user_a from t010_users);
-  select count(*) into other_profiles
-  from public.profiles
-  where id = (select user_b from t010_users);
 
-  if own_profiles <> 1 or other_profiles <> 0 then
-    raise exception 'T010 fallo: user_a lee un perfil ajeno';
+  if own_profiles <> 1 then
+    raise exception 'T010 fallo: user_a no puede leer su propio perfil';
   end if;
 end;
 $$;
@@ -89,17 +90,13 @@ select set_config(
 do $$
 declare
   own_profiles integer;
-  other_profiles integer;
 begin
   select count(*) into own_profiles
   from public.profiles
   where id = (select user_b from t010_users);
-  select count(*) into other_profiles
-  from public.profiles
-  where id = (select user_a from t010_users);
 
-  if own_profiles <> 1 or other_profiles <> 0 then
-    raise exception 'T010 fallo: user_b lee un perfil ajeno';
+  if own_profiles <> 1 then
+    raise exception 'T010 fallo: user_b no puede leer su propio perfil';
   end if;
 end;
 $$;
@@ -169,7 +166,7 @@ begin
     set profile_complete = false
     where id = (select user_a from t010_users);
   exception
-    when insufficient_privilege then
+    when others then  -- generated column lanza 428C9, no insufficient_privilege
       rejected := true;
   end;
   if not coalesce(rejected, false) then
@@ -187,7 +184,7 @@ begin
     set is_artist = false
     where id = (select user_a from t010_users);
   exception
-    when insufficient_privilege then
+    when others then  -- generated column lanza 428C9, no insufficient_privilege
       rejected := true;
   end;
   if not coalesce(rejected, false) then
@@ -196,7 +193,9 @@ begin
 end;
 $$;
 
--- The database rejects duplicate and reserved handles.
+-- The database rejects duplicate handles.
+-- Runs as postgres so both updates bypass RLS and hit the unique constraint.
+reset role;
 do $$
 declare
   rejected boolean;
@@ -220,6 +219,12 @@ begin
   end if;
 end;
 $$;
+set local role authenticated;
+select set_config(
+  'request.jwt.claim.sub',
+  (select user_a::text from t010_users),
+  true
+);
 
 do $$
 declare

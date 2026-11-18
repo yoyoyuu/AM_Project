@@ -15,6 +15,7 @@ create temp table t003_users (
   user_artist  uuid not null,
   user_stranger uuid not null
 );
+grant select on t003_users to authenticated;
 
 insert into t003_users (user_client, user_artist, user_stranger)
 values (
@@ -41,6 +42,7 @@ $$;
 -- Setup: create a service owned by user_artist (requires artist profile with handle).
 -- This insert runs as the postgres superuser to bypass RLS on services.
 create temp table t003_service (id uuid not null);
+grant select on t003_service to authenticated;
 
 with svc as (
   insert into public.services (artist_id, title, price_mxn, delivery_days)

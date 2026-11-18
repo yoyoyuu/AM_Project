@@ -11,6 +11,7 @@ create temp table t102_users (
   user_b uuid not null,
   user_without_handle uuid
 );
+grant select on t102_users to authenticated;
 
 insert into t102_users (user_a, user_b, user_without_handle)
 values (
@@ -226,21 +227,23 @@ end;
 $$;
 
 -- The 21st service is rejected by check_services_limit.
+-- Uses user_b (artista2, fresh account) to avoid interference with user_a's
+-- existing services.
 reset role;
 set local role authenticated;
 select set_config(
   'request.jwt.claim.sub',
-  (select user_a::text from t102_users),
+  (select user_b::text from t102_users),
   true
 );
 
 insert into public.services (artist_id, title, price_mxn, delivery_days)
 select
-  (select user_a from t102_users),
+  (select user_b from t102_users),
   'T102 servicio ' || series,
   100,
   7
-from generate_series(1, 19) as series;
+from generate_series(1, 20) as series;
 
 do $$
 declare
@@ -250,7 +253,7 @@ begin
   begin
     insert into public.services (artist_id, title, price_mxn, delivery_days)
     values (
-      (select user_a from t102_users),
+      (select user_b from t102_users),
       'T102 servicio 21',
       100,
       7

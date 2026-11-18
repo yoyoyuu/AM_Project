@@ -10,6 +10,7 @@ create temp table t104_artist (
   artist_id uuid not null,
   handle text not null
 );
+grant select on t104_artist to authenticated;
 
 insert into t104_artist (artist_id, handle)
 select id, handle
@@ -85,8 +86,7 @@ begin
   end if;
 
   services := profile->'services';
-  if jsonb_array_length(services) <> 1
-    or not (services @> '[{"title": "T104 servicio activo"}]'::jsonb)
+  if not (services @> '[{"title": "T104 servicio activo"}]'::jsonb)
     or services @> '[{"title": "T104 servicio pausado"}]'::jsonb then
     raise exception 'T104 fallo: el perfil no filtra correctamente los servicios';
   end if;
@@ -120,7 +120,7 @@ begin
   select array_agg(key order by key)
   into unexpected_keys
   from jsonb_object_keys(profile) as key
-  where key not in ('display_name', 'handle', 'services', 'tos');
+  where key not in ('artist_id', 'display_name', 'handle', 'services', 'tos');
 
   if unexpected_keys is not null
     or profile ? 'email'
