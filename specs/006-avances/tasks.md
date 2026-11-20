@@ -312,7 +312,7 @@ Modificar `CommissionDetailScreen` (Spec 005) para incluir la sección de avance
 
 ---
 
-## T017 — Tests unitarios de lógica de validación
+## T017 — Tests unitarios de lógica de validación [x]
 
 **Traza:** RNF-08 (cobertura ≥ 60 %), Principio 9
 **Tipo:** Pruebas
