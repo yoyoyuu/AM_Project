@@ -194,7 +194,7 @@ Chip visual que muestra el nombre de la etapa creativa del avance:
 
 ---
 
-## T011 — Componente `AdvanceImageGrid`
+## T011 — Componente `AdvanceImageGrid` [x]
 
 **Traza:** RF-09-B (escenarios 6.8, 6.9)
 **Tipo:** Componente UI
