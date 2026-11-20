@@ -185,7 +185,7 @@ Implementar `compressPaymentProof()` con la API contextual de `expo-image-manipu
 
 ---
 
-### T013 — Query `useCommissionPayment`
+### T013 — Query `useCommissionPayment` [x]
 
 **Traza:** RF-11-A (Escenarios 7.1, 7.3, 7.21), RF-12-A
 **Archivos a crear:**
@@ -198,7 +198,7 @@ Hook con clave `['commissions','payment',id]`, `select` de las columnas de pago 
 
 ---
 
-### T014 — Mutación `useSubmitPaymentProof`
+### T014 — Mutación `useSubmitPaymentProof` [x]
 
 **Traza:** RF-21-A (Escenarios 7.5, 7.6, 7.9, 7.10), RF-20-A (Escenarios 7.23, 7.24)
 **Archivos a crear:**
