@@ -172,7 +172,7 @@ Implementar `PaymentError` y `toPaymentError(action, error)` con la tabla de `pl
 
 ## Fase C — Pagos (cliente y artista)
 
-### T012 — Optimización del comprobante
+### T012 — Optimización del comprobante [x]
 
 **Traza:** RF-21-A, RF-20-A, Principio 2
 **Archivos a crear:**
