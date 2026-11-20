@@ -156,7 +156,7 @@ Implementar el hook `useCommissionAdvances(commissionId: string)` con TanStack Q
 
 ---
 
-## T009 — Hook `useUploadAdvance` (mutación)
+## T009 — Hook `useUploadAdvance` (mutación) [x]
 
 **Traza:** RF-09-A (escenarios 6.1, 6.2, 6.4, 6.5, 6.7)
 **Tipo:** Lógica de datos
