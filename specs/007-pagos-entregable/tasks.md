@@ -211,7 +211,7 @@ Pipeline de `plan.md` §4.11: comprimir → subir a `payment-proofs/{commissionI
 
 ---
 
-### T015 — Mutaciones `useVerifyPayment` y `useRequestPaymentCorrection` + query `usePaymentProofUrl`
+### T015 — Mutaciones `useVerifyPayment` y `useRequestPaymentCorrection` + query `usePaymentProofUrl` [x]
 
 **Traza:** RF-11-B (Escenarios 7.13–7.16), RF-15-A (Escenarios 7.18, 7.22), RNF-SEG-7.3
 **Archivos a crear:**
@@ -226,7 +226,7 @@ Según `plan.md` §4.11. `useVerifyPayment` devuelve el `CommissionStatus` resul
 
 ---
 
-### T016 — Componentes de estado de pago (`PaymentStatusBadge`, `PaymentProofViewer`)
+### T016 — Componentes de estado de pago (`PaymentStatusBadge`, `PaymentProofViewer`) [x]
 
 **Traza:** RF-11-A, RF-11-B, RF-15-A (Escenario 7.21)
 **Archivos a crear:**
