@@ -259,7 +259,7 @@ Bottom sheet con React Hook Form + `paymentProofSchema`:
 
 ---
 
-### T018 — `ClientPaymentPanel`
+### T018 — `ClientPaymentPanel` [x]
 
 **Traza:** RF-11-A (Escenarios 7.1, 7.3), RF-15-A (Escenario 7.21), RF-20-A
 **Archivos a crear:**
