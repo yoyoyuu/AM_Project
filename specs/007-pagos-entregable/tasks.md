@@ -86,7 +86,7 @@ Implementar los casos P1–P22 de `plan.md` §3.6 dentro de una transacción con
 
 ## Fase B — Código base compartido
 
-### T006 — Configuración nativa de permisos
+### T006 — Configuración nativa de permisos [x]
 
 **Traza:** Principio 8, RF-12-B, RF-21-A, RF-24-A
 **Archivos a modificar:**

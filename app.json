@@ -30,7 +30,16 @@
       [
         "expo-image-picker",
         {
-          "photosPermission": "Koma necesita acceso a tu galería para que puedas adjuntar imágenes de tus avances."
+          "photosPermission": "Koma necesita acceso a tu galería para que puedas adjuntar imágenes a tus comisiones.",
+          "cameraPermission": false
+        }
+      ],
+      [
+        "expo-media-library",
+        {
+          "savePhotosPermission": "Koma necesita permiso para guardar la ilustración final en la galería de tu dispositivo.",
+          "isAccessMediaLocationEnabled": false,
+          "granularPermissions": ["photo"]
         }
       ]
     ],
