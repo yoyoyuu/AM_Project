@@ -114,7 +114,7 @@ Definir `PaymentStatus`, `CommissionPayment` y `PaymentRpcErrorCode` (`plan.md` 
 
 ---
 
-### T008 — Presenters de pagos y entregables
+### T008 — Presenters de pagos y entregables [x]
 
 **Traza:** RF-11-A, RF-12-A, RF-24-A
 **Archivos a crear:**
@@ -128,7 +128,7 @@ Implementar las funciones puras de `plan.md` §4.3: `getPaymentBadge`, `canClien
 
 ---
 
-### T009 — Esquemas Zod de comprobante y corrección
+### T009 — Esquemas Zod de comprobante y corrección [x]
 
 **Traza:** RF-21-A (Escenario 7.12), RF-15-A (Escenarios 7.19, 7.20)
 **Archivos a crear:**
@@ -141,7 +141,7 @@ Implementar `paymentProofSchema` (referencia ≤ 60, nota ≤ 300, opcionales) y
 
 ---
 
-### T010 — Traducción de errores de RPC
+### T010 — Traducción de errores de RPC [x]
 
 **Traza:** RF-11-B (Escenarios 7.15, 7.16), RF-15-A (Escenario 7.22), RF-21-A (Escenarios 7.9, 7.10), RF-24-A (Escenarios 7.26, 7.27, 7.29)
 **Archivos a crear:**
@@ -154,7 +154,7 @@ Implementar `PaymentError` y `toPaymentError(action, error)` con la tabla de `pl
 
 ---
 
-### T011 — Utilidades de medios y Storage compartidas
+### T011 — Utilidades de medios y Storage compartidas [x]
 
 **Traza:** RF-21-A, RF-24-A, RF-20-A, Principio 8, RNF-09 (sin EXIF)
 **Archivos a crear:**
