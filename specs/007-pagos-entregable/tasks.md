@@ -241,7 +241,7 @@ Según `plan.md` §4.11. `useVerifyPayment` devuelve el `CommissionStatus` resul
 
 ---
 
-### T017 — `SubmitPaymentProofSheet` (cliente)
+### T017 — `SubmitPaymentProofSheet` (cliente) [x]
 
 **Traza:** RF-21-A (Escenarios 7.5–7.9, 7.12), RF-20-A, Principio 8
 **Archivos a crear:**
