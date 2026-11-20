@@ -9,6 +9,7 @@ import {
   View,
 } from 'react-native';
 
+import { AdvancesList } from '../../avances/components/AdvancesList';
 import { buildStepperConfig, formatRelativeDate } from '../presenters';
 import { useCommissionTrackingDetail } from '../hooks/useCommissionTrackingDetail';
 import { CommissionDetailSkeleton } from '../components/CommissionDetailSkeleton';
@@ -123,6 +124,11 @@ export function CommissionTrackingDetailScreen({ commissionId }: Props) {
           <CreativeStepper steps={steps} />
         </View>
       )}
+
+      {/* Avances del artista */}
+      <Block title="Avances">
+        <AdvancesList commissionId={commissionId} role="client" />
+      </Block>
 
       {/* Bloque de rechazo */}
       {showRejection && (

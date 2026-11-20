@@ -11,6 +11,8 @@ import {
 } from 'react-native';
 
 import { useAuth } from '../../auth/AuthProvider';
+import { AdvancesList } from '../../avances/components/AdvancesList';
+import { UploadAdvanceSheet } from '../../avances/components/UploadAdvanceSheet';
 import { CommissionStatusBadge } from '../components/CommissionStatusBadge';
 import { ConfirmActionDialog } from '../components/ConfirmActionDialog';
 import { CreativeStageIndicator } from '../components/CreativeStageIndicator';
@@ -29,6 +31,7 @@ export function CommissionWorkScreen() {
   const { mutate: executeAction, isPending: isActing } = useCommissionAction();
 
   const [showConfirmDialog, setShowConfirmDialog] = useState(false);
+  const [showUploadSheet, setShowUploadSheet] = useState(false);
 
   // Redirect to completed screen if commission is already COMPLETADA
   useEffect(() => {
@@ -137,6 +140,14 @@ export function CommissionWorkScreen() {
         <View style={styles.divider} />
 
         <View style={styles.actions}>
+          {commission.status === 'EN_PROGRESO' && currentStage !== null && (
+            <Pressable
+              style={styles.uploadButton}
+              onPress={() => setShowUploadSheet(true)}
+            >
+              <Text style={styles.uploadLabel}>Agregar avance</Text>
+            </Pressable>
+          )}
           <Pressable
             style={[styles.advanceButton, isActing && styles.buttonDisabled]}
             disabled={isActing || currentStage === null}
@@ -146,6 +157,13 @@ export function CommissionWorkScreen() {
               {isLastStage ? 'Completar comisión' : 'Completar etapa'}
             </Text>
           </Pressable>
+        </View>
+
+        <View style={styles.divider} />
+
+        <View style={styles.section}>
+          <Text style={styles.sectionTitle}>Avances</Text>
+          <AdvancesList commissionId={commission.id} role="artist" />
         </View>
       </ScrollView>
 
@@ -157,14 +175,38 @@ export function CommissionWorkScreen() {
         onConfirm={handleAdvanceConfirm}
         onCancel={() => setShowConfirmDialog(false)}
       />
+
+      {commission.status === 'EN_PROGRESO' && currentStage !== null && (
+        <UploadAdvanceSheet
+          visible={showUploadSheet}
+          commissionId={commission.id}
+          artistId={user?.id ?? ''}
+          currentStatus={commission.status}
+          currentStage={currentStage}
+          onClose={() => setShowUploadSheet(false)}
+        />
+      )}
     </>
   );
 }
 
 const styles = StyleSheet.create({
   actions: {
+    gap: 10,
     padding: 16,
     paddingBottom: 32,
+  },
+  uploadButton: {
+    alignItems: 'center',
+    borderColor: '#6C5CE7',
+    borderRadius: 10,
+    borderWidth: 1.5,
+    paddingVertical: 12,
+  },
+  uploadLabel: {
+    color: '#6C5CE7',
+    fontSize: 15,
+    fontWeight: '600',
   },
   advanceButton: {
     alignItems: 'center',

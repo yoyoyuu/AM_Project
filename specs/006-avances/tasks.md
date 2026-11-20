@@ -212,7 +212,7 @@ Grid de miniaturas de imágenes para un avance (1 a 3 imágenes):
 
 ---
 
-## T012 — Componente `AdvanceCard`
+## T012 — Componente `AdvanceCard` [x]
 
 **Traza:** RF-09-B (escenarios 6.8, 6.9)
 **Tipo:** Componente UI
@@ -231,7 +231,7 @@ Tarjeta que representa un avance individual en el historial:
 
 ---
 
-## T013 — Componente `AdvancesList`
+## T013 — Componente `AdvancesList` [x]
 
 **Traza:** RF-09-B (escenarios 6.8, 6.9, 6.10, 6.11)
 **Tipo:** Componente UI
@@ -252,7 +252,7 @@ Lista de avances reutilizable para artista y cliente:
 
 ---
 
-## T014 — Componente `UploadAdvanceSheet`
+## T014 — Componente `UploadAdvanceSheet` [x]
 
 **Traza:** RF-09-A (escenarios 6.1, 6.2, 6.3, 6.4, 6.5, 6.6)
 **Tipo:** Componente UI + lógica de flujo
@@ -277,7 +277,7 @@ Bottom sheet que gestiona el flujo completo de subida de un avance:
 
 ---
 
-## T015 — Integrar `AdvancesList` en `CommissionWorkScreen` (artista)
+## T015 — Integrar `AdvancesList` en `CommissionWorkScreen` (artista) [x]
 
 **Traza:** RF-09-A, RF-09-B (escenarios 6.1, 6.9, 6.11)
 **Tipo:** Integración en pantalla existente
@@ -295,7 +295,7 @@ Modificar `CommissionWorkScreen` para incluir la sección de avances:
 
 ---
 
-## T016 — Integrar `AdvancesList` en `CommissionDetailScreen` (cliente)
+## T016 — Integrar `AdvancesList` en `CommissionDetailScreen` (cliente) [x]
 
 **Traza:** RF-09-B (escenarios 6.8, 6.10, 6.12)
 **Tipo:** Integración en pantalla existente
