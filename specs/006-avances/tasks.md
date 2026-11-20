@@ -177,7 +177,7 @@ Implementar el hook `useUploadAdvance()` con TanStack Query `useMutation` según
 
 ---
 
-## T010 — Componente `AdvanceStageBadge`
+## T010 — Componente `AdvanceStageBadge` [x]
 
 **Traza:** RF-09-B (escenarios 6.8, 6.9)
 **Tipo:** Componente UI
