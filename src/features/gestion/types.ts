@@ -1,3 +1,5 @@
+import type { PaymentStatus } from '../pagos/types';
+
 export type CommissionStatus =
   | 'PENDIENTE'
   | 'EN_PROGRESO'
@@ -24,6 +26,9 @@ export interface Commission {
   intended_use: 'personal' | 'comercial';
   additional_notes: string | null;
   terms_accepted_at: string | null;
+  payment_status: PaymentStatus;
+  deliverable_path: string | null;
+  delivered_at: string | null;
   created_at: string;
   updated_at: string;
 }

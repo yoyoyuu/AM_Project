@@ -99,7 +99,7 @@ Agregar/ajustar los config plugins de `expo-image-picker` y `expo-media-library`
 
 ---
 
-### T007 — Tipos de dominio de pagos y extensión de `Commission`
+### T007 — Tipos de dominio de pagos y extensión de `Commission` [x]
 
 **Traza:** RF-11-A, RF-12-A
 **Archivos a crear:**
