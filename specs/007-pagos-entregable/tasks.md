@@ -318,7 +318,7 @@ Según `plan.md` §4.11: preparar → subir a `commission-deliverables/{id}/fina
 
 ---
 
-### T022 — `ArtistDeliverablePanel`
+### T022 — `ArtistDeliverablePanel` [x]
 
 **Traza:** RF-24-A (Escenarios 7.25–7.29), RF-24-B (Escenario 7.31), Principio 8
 **Archivos a crear:**
@@ -331,7 +331,7 @@ Visible solo si `canArtistUploadDeliverable` o si ya existe entregable. Flujo: d
 
 ---
 
-### T023 — Permiso de escritura y guardado en galería
+### T023 — Permiso de escritura y guardado en galería [x]
 
 **Traza:** RF-12-B (Escenarios 7.38–7.42), Principio 8, RNF-SEG-7.3
 **Archivos a crear:**
