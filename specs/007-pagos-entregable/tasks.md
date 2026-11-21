@@ -390,7 +390,7 @@ Según `plan.md` §4.12: permiso `writeOnly` (consulta antes de pedir; respeta `
 
 ## Fase F — Calidad
 
-### T026 — Pruebas unitarias
+### T026 — Pruebas unitarias [x]
 
 **Traza:** RNF-08 (≥ 60 %), Principio 9; Escenarios 7.6, 7.9, 7.12, 7.15, 7.19, 7.20, 7.27, 7.28, 7.33, 7.39–7.42
 **Archivos a crear:**
