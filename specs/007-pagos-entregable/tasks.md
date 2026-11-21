@@ -346,7 +346,7 @@ Según `plan.md` §4.12: permiso `writeOnly` (consulta antes de pedir; respeta `
 
 ---
 
-### T024 — `DeliverableLockedCard`, `SaveToGalleryButton` y `ClientDeliverablePanel`
+### T024 — `DeliverableLockedCard`, `SaveToGalleryButton` y `ClientDeliverablePanel` [x]
 
 **Traza:** RF-12-A (Escenarios 7.33–7.35), RF-12-B (Escenarios 7.38–7.42)
 **Archivos a crear:**
