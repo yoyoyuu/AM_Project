@@ -304,7 +304,7 @@ Implementar `prepareDeliverableImage()` (`plan.md` §4.9): original sin recompre
 
 ---
 
-### T021 — `useSubmitDeliverable` y `useDeliverablePreviewUrl`
+### T021 — `useSubmitDeliverable` y `useDeliverablePreviewUrl` [x]
 
 **Traza:** RF-24-A (Escenarios 7.25, 7.29), RF-24-B (Escenario 7.31), RF-12-A, RNF-SEG-7.3
 **Archivos a crear:**
