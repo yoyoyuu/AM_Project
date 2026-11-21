@@ -272,7 +272,7 @@ Sección «Pago y entrega» del cliente: título, aviso «Koma no procesa pagos�
 
 ---
 
-### T019 — `ConfirmPaymentDialog`, `RequestCorrectionSheet` y `ArtistPaymentPanel`
+### T019 — `ConfirmPaymentDialog`, `RequestCorrectionSheet` y `ArtistPaymentPanel` [x]
 
 **Traza:** RF-11-B (Escenarios 7.13–7.16), RF-15-A (Escenarios 7.18–7.20, 7.22)
 **Archivos a crear:**
