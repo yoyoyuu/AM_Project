@@ -1,4 +1,5 @@
 import type { CommissionStatus, CreativeStage } from '../gestion/types';
+import type { PaymentStatus } from '../pagos/types';
 
 export type { CommissionStatus, CreativeStage } from '../gestion/types';
 export { CREATIVE_STAGE_ORDER } from '../gestion/types';
@@ -8,6 +9,7 @@ export interface ClientCommissionSummary {
   status: CommissionStatus;
   current_stage: CreativeStage | null;
   rejection_reason: string | null;
+  payment_status: PaymentStatus;
   service_title: string;
   artist_handle: string;
   artist_display_name: string | null;

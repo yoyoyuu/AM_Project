@@ -43,9 +43,10 @@ describe('applyTransition — ADVANCE_STAGE', () => {
     expect(result).toEqual({ newStatus: 'EN_PROGRESO', newStage: 'FINAL' });
   });
 
-  it('completing FINAL transitions to COMPLETADA with no stage', () => {
-    const result = applyTransition('EN_PROGRESO', 'FINAL', 'ADVANCE_STAGE');
-    expect(result).toEqual({ newStatus: 'COMPLETADA', newStage: null });
+  it('completing FINAL throws — deliverable must be uploaded to close commission', () => {
+    expect(() => applyTransition('EN_PROGRESO', 'FINAL', 'ADVANCE_STAGE')).toThrow(
+      'Sube el entregable final para cerrar la comisión',
+    );
   });
 
   it('throws when advancing stage on a non-EN_PROGRESO commission', () => {

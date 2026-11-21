@@ -157,12 +157,13 @@ function makeCommission(
   return {
     current_stage: null,
     rejection_reason: null,
+    payment_status: 'UNPAID' as const,
     service_title: 'Servicio test',
     artist_handle: '@artista',
     artist_display_name: null,
     created_at: overrides.updated_at,
     ...overrides,
-  };
+  } as ClientCommissionSummary;
 }
 
 describe('groupCommissions — empty', () => {

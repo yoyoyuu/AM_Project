@@ -1,5 +1,5 @@
-import { router, useLocalSearchParams } from 'expo-router';
-import { useEffect, useState } from 'react';
+import { useLocalSearchParams } from 'expo-router';
+import { useState } from 'react';
 import {
   ActivityIndicator,
   Alert,
@@ -13,6 +13,9 @@ import {
 import { useAuth } from '../../auth/AuthProvider';
 import { AdvancesList } from '../../avances/components/AdvancesList';
 import { UploadAdvanceSheet } from '../../avances/components/UploadAdvanceSheet';
+import { ArtistDeliverablePanel } from '../../entregables/components/ArtistDeliverablePanel';
+import { ArtistPaymentPanel } from '../../pagos/components/ArtistPaymentPanel';
+import { useCommissionPayment } from '../../pagos/hooks/useCommissionPayment';
 import { CommissionStatusBadge } from '../components/CommissionStatusBadge';
 import { ConfirmActionDialog } from '../components/ConfirmActionDialog';
 import { CreativeStageIndicator } from '../components/CreativeStageIndicator';
@@ -28,20 +31,11 @@ export function CommissionWorkScreen() {
   const { user } = useAuth();
 
   const { data: commission, isPending, isError } = useCommissionDetail(commissionId ?? '');
+  const { data: payment } = useCommissionPayment(commissionId ?? '');
   const { mutate: executeAction, isPending: isActing } = useCommissionAction();
 
   const [showConfirmDialog, setShowConfirmDialog] = useState(false);
   const [showUploadSheet, setShowUploadSheet] = useState(false);
-
-  // Redirect to completed screen if commission is already COMPLETADA
-  useEffect(() => {
-    if (commission?.status === 'COMPLETADA') {
-      router.replace({
-        pathname: '/artist/commissions/[commissionId]/completed',
-        params: { commissionId: commissionId ?? '' },
-      });
-    }
-  }, [commission?.status, commissionId]);
 
   if (isPending) {
     return (
@@ -57,15 +51,6 @@ export function CommissionWorkScreen() {
         <Text accessibilityRole="alert" style={styles.errorText}>
           {ERROR_GENERIC}
         </Text>
-      </View>
-    );
-  }
-
-  // Suppress UI while redirecting
-  if (commission.status === 'COMPLETADA') {
-    return (
-      <View style={styles.centered}>
-        <ActivityIndicator color="#6C5CE7" />
       </View>
     );
   }
@@ -92,19 +77,8 @@ export function CommissionWorkScreen() {
         action: 'ADVANCE_STAGE',
       },
       {
-        onSuccess: ({ newStatus, newStage }) => {
-          if (newStatus === 'COMPLETADA') {
-            Alert.alert('¡Comisión completada! El cliente será notificado', undefined, [
-              {
-                text: 'OK',
-                onPress: () =>
-                  router.replace({
-                    pathname: '/artist/commissions/[commissionId]/completed',
-                    params: { commissionId: commission.id },
-                  }),
-              },
-            ]);
-          } else if (newStage !== null) {
+        onSuccess: ({ newStage }) => {
+          if (newStage !== null) {
             Alert.alert(`Etapa completada. Ahora estás en: ${getStageName(newStage)}`);
           }
         },
@@ -148,15 +122,15 @@ export function CommissionWorkScreen() {
               <Text style={styles.uploadLabel}>Agregar avance</Text>
             </Pressable>
           )}
-          <Pressable
-            style={[styles.advanceButton, isActing && styles.buttonDisabled]}
-            disabled={isActing || currentStage === null}
-            onPress={() => setShowConfirmDialog(true)}
-          >
-            <Text style={styles.advanceLabel}>
-              {isLastStage ? 'Completar comisión' : 'Completar etapa'}
-            </Text>
-          </Pressable>
+          {!isLastStage && (
+            <Pressable
+              style={[styles.advanceButton, isActing && styles.buttonDisabled]}
+              disabled={isActing || currentStage === null}
+              onPress={() => setShowConfirmDialog(true)}
+            >
+              <Text style={styles.advanceLabel}>Completar etapa</Text>
+            </Pressable>
+          )}
         </View>
 
         <View style={styles.divider} />
@@ -165,6 +139,19 @@ export function CommissionWorkScreen() {
           <Text style={styles.sectionTitle}>Avances</Text>
           <AdvancesList commissionId={commission.id} role="artist" />
         </View>
+
+        {(commission.status === 'EN_PROGRESO' || commission.status === 'COMPLETADA') && payment && (
+          <>
+            <View style={styles.divider} />
+            <View style={styles.section}>
+              <ArtistPaymentPanel payment={payment} />
+            </View>
+            <View style={styles.divider} />
+            <View style={styles.section}>
+              <ArtistDeliverablePanel payment={payment} />
+            </View>
+          </>
+        )}
       </ScrollView>
 
       <ConfirmActionDialog

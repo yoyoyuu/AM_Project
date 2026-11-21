@@ -366,7 +366,7 @@ Según `plan.md` §4.12: permiso `writeOnly` (consulta antes de pedir; respeta `
 
 ## Fase E — Integración con specs anteriores
 
-### T025 — Integración en specs 004 y 005
+### T025 — Integración en specs 004 y 005 [x]
 
 **Traza:** RF-24-B (Escenario 7.32), RF-11-A (Escenario 7.1), RF-12-A (Escenario 7.35); impacto spec §10
 **Archivos a modificar:**

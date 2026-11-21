@@ -40,7 +40,8 @@ export function applyTransition(
       const isLastStage = currentIndex === CREATIVE_STAGE_ORDER.length - 1;
 
       if (isLastStage) {
-        return { newStatus: 'COMPLETADA', newStage: null };
+        // Spec 007, RF-24-B: closure happens in RPCs verify_payment/submit_deliverable
+        throw new Error('Sube el entregable final para cerrar la comisión');
       }
 
       const nextStage = CREATIVE_STAGE_ORDER[currentIndex + 1];

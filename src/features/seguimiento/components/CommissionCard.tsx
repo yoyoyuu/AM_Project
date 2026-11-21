@@ -1,5 +1,6 @@
 import { Pressable, StyleSheet, Text, View } from 'react-native';
 
+import { PaymentStatusBadge } from '../../pagos/components/PaymentStatusBadge';
 import { formatRelativeDate } from '../presenters';
 import type { ClientCommissionSummary } from '../types';
 import { CommissionStatusBadge } from './CommissionStatusBadge';
@@ -42,6 +43,12 @@ export function CommissionCard({ commission, onPress }: Props) {
         </Text>
       )}
 
+      {status === 'EN_PROGRESO' && (
+        <View style={styles.paymentBadgeRow}>
+          <PaymentStatusBadge status={commission.payment_status} />
+        </View>
+      )}
+
       <Text style={styles.date}>{formatRelativeDate(updated_at)}</Text>
     </Pressable>
   );
@@ -81,6 +88,9 @@ const styles = StyleSheet.create({
     fontSize: 16,
     fontWeight: '600',
     marginRight: 8,
+  },
+  paymentBadgeRow: {
+    marginTop: 6,
   },
   stage: {
     color: '#3B82F6',

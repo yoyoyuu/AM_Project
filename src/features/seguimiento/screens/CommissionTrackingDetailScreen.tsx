@@ -10,6 +10,9 @@ import {
 } from 'react-native';
 
 import { AdvancesList } from '../../avances/components/AdvancesList';
+import { ClientDeliverablePanel } from '../../entregables/components/ClientDeliverablePanel';
+import { ClientPaymentPanel } from '../../pagos/components/ClientPaymentPanel';
+import { useCommissionPayment } from '../../pagos/hooks/useCommissionPayment';
 import { buildStepperConfig, formatRelativeDate } from '../presenters';
 import { useCommissionTrackingDetail } from '../hooks/useCommissionTrackingDetail';
 import { CommissionDetailSkeleton } from '../components/CommissionDetailSkeleton';
@@ -74,6 +77,7 @@ function ReferenceGallery({ references }: { references: CommissionReferenceView[
 
 export function CommissionTrackingDetailScreen({ commissionId }: Props) {
   const { data, isLoading, isError, refetch } = useCommissionTrackingDetail(commissionId);
+  const { data: payment } = useCommissionPayment(commissionId);
 
   if (isLoading) {
     return (
@@ -129,6 +133,15 @@ export function CommissionTrackingDetailScreen({ commissionId }: Props) {
       <Block title="Avances">
         <AdvancesList commissionId={commissionId} role="client" />
       </Block>
+
+      {/* Pago y entregable */}
+      {(data.status === 'EN_PROGRESO' || data.status === 'COMPLETADA') && payment && (
+        <>
+          <ClientPaymentPanel payment={payment} />
+          <View style={styles.blockPadding} />
+          <ClientDeliverablePanel payment={payment} />
+        </>
+      )}
 
       {/* Bloque de rechazo */}
       {showRejection && (
