@@ -291,7 +291,7 @@ Sección «Pago y entrega» del cliente: título, aviso «Koma no procesa pagos�
 
 ## Fase D — Entregable final
 
-### T020 — Preparación del entregable
+### T020 — Preparación del entregable [x]
 
 **Traza:** RF-24-A (Escenarios 7.25, 7.27, 7.28), Principio 2
 **Archivos a crear:**
