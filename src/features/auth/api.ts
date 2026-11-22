@@ -1,6 +1,7 @@
 import { getAuthErrorMessage } from './errors';
 import type { LoginInput, RegistrationInput } from './schemas';
 import { supabase } from '../../lib/supabase';
+import { unregisterCurrentDevice } from '../notificaciones/pushToken';
 
 type AuthResponse<T> = {
   data: T | null;
@@ -47,6 +48,10 @@ export async function signIn(
 }
 
 export async function signOut(): Promise<AuthResponse<null>> {
+  // RF-25-B: desvincular el dispositivo ANTES de cerrar sesión (JWT aún vigente para RLS DELETE).
+  // Nunca lanza y nunca tarda más de 3 s (UNREGISTER_TIMEOUT_MS).
+  await unregisterCurrentDevice();
+
   const { error } = await supabase.auth.signOut();
 
   return {

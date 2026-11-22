@@ -233,7 +233,7 @@ Según `plan.md` §6.7: (1) `syncPushRegistration()` silencioso si el permiso es
 
 ---
 
-### T015 — Componentes de permiso y perfil
+### T015 — Componentes de permiso y perfil ✓
 
 **Traza:** RF-25-A (Escenarios 8.1, 8.2, 8.3, 8.5, 8.6, 8.9), Principio 8
 **Archivos a crear:**
@@ -250,7 +250,7 @@ Según `plan.md` §6.7: (1) `syncPushRegistration()` silencioso si el permiso es
 
 ## Fase E — Integración con la Spec 001
 
-### T016 — Cierre de sesión con desvinculación
+### T016 — Cierre de sesión con desvinculación ✓
 
 **Traza:** RF-25-B (Escenarios 8.10, 8.11, 8.12), RNF-NOT-8.2, Principio 7
 **Archivos a modificar:**
@@ -263,7 +263,7 @@ En `signOut()`, llamar `await unregisterCurrentDevice()` **antes** de `supabase.
 
 ---
 
-### T017 — Montaje en el layout autenticado y el inicio
+### T017 — Montaje en el layout autenticado y el inicio ✓
 
 **Traza:** RF-25-A, RF-28-A
 **Archivos a modificar:**

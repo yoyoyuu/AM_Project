@@ -5,12 +5,16 @@ import {
   Pressable,
   StyleSheet,
   Text,
+  ToastAndroid,
   View,
 } from 'react-native';
 
 import { signOut } from '../../features/auth/api';
 import { useAppMode, type AppMode } from '../../features/auth/useAppMode';
 import { useProfile } from '../../features/auth/useProfile';
+import { NotificationPermissionPrompt } from '../../features/notificaciones/components/NotificationPermissionPrompt';
+
+const showToast = (message: string) => ToastAndroid.show(message, ToastAndroid.SHORT);
 
 export default function AppHomeScreen() {
   const { isLoading, profile } = useProfile();
@@ -61,6 +65,7 @@ export default function AppHomeScreen() {
 
   return (
     <View style={styles.container}>
+      <NotificationPermissionPrompt showToast={showToast} />
       <Text style={styles.brand}>Koma</Text>
       <Text style={styles.title}>
         Hola, {profile.display_name}

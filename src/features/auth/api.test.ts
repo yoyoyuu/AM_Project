@@ -13,6 +13,10 @@ jest.mock('../../lib/supabase', () => ({
   },
 }));
 
+jest.mock('../notificaciones/pushToken', () => ({
+  unregisterCurrentDevice: jest.fn().mockResolvedValue(undefined),
+}));
+
 const mockedAuth = supabase.auth as jest.Mocked<typeof supabase.auth>;
 
 const mockUser: User = {
