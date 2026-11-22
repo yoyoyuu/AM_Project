@@ -179,7 +179,7 @@ Copiar `plan.md` §4.2: `PUSH_EVENTS`, `EVENT_CONTENT` (los 7 textos literales d
 
 ---
 
-### T011 — Token: registro y desvinculación
+### T011 — Token: registro y desvinculación ✓
 
 **Traza:** RF-25-A (Escenarios 8.1, 8.7, 8.8, 8.9), RF-25-B (Escenarios 8.10, 8.12), RNF-NOT-8.2
 **Archivos a crear:**
