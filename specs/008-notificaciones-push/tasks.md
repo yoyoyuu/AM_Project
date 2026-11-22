@@ -293,7 +293,7 @@ Insertar `<NotificationSettingsRow />` antes del botón «Cerrar sesión». Sin 
 
 ## Fase F — Calidad
 
-### T019 — Pruebas unitarias del cliente
+### T019 — Pruebas unitarias del cliente ✓
 
 **Traza:** RNF-08 (≥ 60 %), Principio 9; Escenarios 8.2, 8.6, 8.8, 8.10, 8.12, 8.23, 8.24, 8.26
 **Archivos a crear:**
@@ -310,7 +310,7 @@ Insertar `<NotificationSettingsRow />` antes del botón «Cerrar sesión». Sin 
 
 ---
 
-### T020 — Pruebas unitarias de la Edge Function
+### T020 — Pruebas unitarias de la Edge Function ✓
 
 **Traza:** RNF-NOT-8.1, RNF-NOT-8.4, RNF-NOT-8.5, RNF-08; Escenarios 8.13–8.22 (contenido)
 **Archivos a crear:**
@@ -328,7 +328,7 @@ Insertar `<NotificationSettingsRow />` antes del botón «Cerrar sesión». Sin 
 
 ---
 
-### T021 — Casos de prueba manuales en dispositivo Android
+### T021 — Casos de prueba manuales en dispositivo Android ✓
 
 **Traza:** Principio 9; Escenarios 8.1–8.26
 **Archivos a crear:**
