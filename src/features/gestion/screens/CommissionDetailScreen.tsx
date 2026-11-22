@@ -156,15 +156,17 @@ export function CommissionDetailScreen() {
         {/* Client */}
         <View style={styles.section}>
           <Text style={styles.sectionTitle}>Cliente</Text>
-          {commission.client_profile ? (
+          {commission.client_profile?.handle ? (
             <>
               <DetailRow label="Handle" value={`@${commission.client_profile.handle}`} />
               {commission.client_profile.display_name && (
                 <DetailRow label="Nombre" value={commission.client_profile.display_name} />
               )}
             </>
+          ) : commission.client_profile?.display_name ? (
+            <DetailRow label="Nombre" value={commission.client_profile.display_name} />
           ) : (
-            <DetailRow label="Handle" value="Cliente desconocido" />
+            <DetailRow label="Cliente" value="Sin handle" />
           )}
         </View>
 

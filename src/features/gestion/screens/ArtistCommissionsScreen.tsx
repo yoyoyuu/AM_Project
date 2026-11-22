@@ -1,7 +1,7 @@
 import {
   ActivityIndicator,
-  FlatList,
   RefreshControl,
+  ScrollView,
   StyleSheet,
   Text,
   View,
@@ -9,23 +9,42 @@ import {
 
 import { useAuth } from '../../auth/AuthProvider';
 import { PendingCommissionCard } from '../components/PendingCommissionCard';
+import { useActiveCommissions } from '../hooks/useActiveCommissions';
 import { usePendingCommissions } from '../hooks/usePendingCommissions';
 import type { CommissionWithDetails } from '../types';
-
-const ERROR_MESSAGE =
-  'No se pudo completar la acción, comprueba tu conexión e inténtalo de nuevo';
-const EMPTY_MESSAGE = 'No tienes solicitudes pendientes';
 
 export function ArtistCommissionsScreen() {
   const { user } = useAuth();
   const artistId = user?.id ?? '';
 
-  const { data, isPending, isError, refetch, isRefetching } =
-    usePendingCommissions(artistId);
+  const {
+    data: pendingData,
+    isPending: loadingPending,
+    isError: errorPending,
+    refetch: refetchPending,
+    isRefetching: refetchingPending,
+  } = usePendingCommissions(artistId);
 
-  const commissions: CommissionWithDetails[] = data ?? [];
+  const {
+    data: activeData,
+    isPending: loadingActive,
+    isError: errorActive,
+    refetch: refetchActive,
+    isRefetching: refetchingActive,
+  } = useActiveCommissions(artistId);
 
-  if (isPending) {
+  const pending: CommissionWithDetails[] = pendingData ?? [];
+  const active: CommissionWithDetails[] = activeData ?? [];
+
+  const isLoading = loadingPending || loadingActive;
+  const isRefreshing = refetchingPending || refetchingActive;
+
+  const handleRefresh = () => {
+    void refetchPending();
+    void refetchActive();
+  };
+
+  if (isLoading) {
     return (
       <View style={styles.centered}>
         <ActivityIndicator color="#6C5CE7" size="large" />
@@ -33,39 +52,46 @@ export function ArtistCommissionsScreen() {
     );
   }
 
-  if (isError) {
-    return (
-      <View style={styles.centered}>
-        <Text accessibilityRole="alert" style={styles.errorText}>
-          {ERROR_MESSAGE}
-        </Text>
-      </View>
-    );
-  }
-
   return (
-    <View style={styles.container}>
-      <Text style={styles.title}>Solicitudes pendientes</Text>
-      <FlatList
-        contentContainerStyle={
-          commissions.length === 0 ? styles.emptyList : styles.list
-        }
-        data={commissions}
-        keyExtractor={(item) => item.id}
-        ListEmptyComponent={
-          <Text style={styles.emptyText}>{EMPTY_MESSAGE}</Text>
-        }
-        refreshControl={
-          <RefreshControl
-            refreshing={isRefetching}
-            onRefresh={() => void refetch()}
-            tintColor="#6C5CE7"
-          />
-        }
-        renderItem={({ item }) => <PendingCommissionCard commission={item} />}
-        showsVerticalScrollIndicator={false}
-      />
-    </View>
+    <ScrollView
+      style={styles.container}
+      contentContainerStyle={styles.content}
+      refreshControl={
+        <RefreshControl
+          refreshing={isRefreshing}
+          onRefresh={handleRefresh}
+          tintColor="#6C5CE7"
+        />
+      }
+    >
+      {/* En progreso */}
+      {(active.length > 0 || errorActive) && (
+        <View style={styles.section}>
+          <Text style={styles.sectionTitle}>En progreso</Text>
+          {errorActive ? (
+            <Text style={styles.errorText}>No se pudieron cargar las comisiones activas</Text>
+          ) : (
+            active.map((item) => (
+              <PendingCommissionCard key={item.id} commission={item} />
+            ))
+          )}
+        </View>
+      )}
+
+      {/* Solicitudes pendientes */}
+      <View style={styles.section}>
+        <Text style={styles.sectionTitle}>Solicitudes pendientes</Text>
+        {errorPending ? (
+          <Text style={styles.errorText}>No se pudieron cargar las solicitudes</Text>
+        ) : pending.length === 0 ? (
+          <Text style={styles.emptyText}>No tienes solicitudes pendientes</Text>
+        ) : (
+          pending.map((item) => (
+            <PendingCommissionCard key={item.id} commission={item} />
+          ))
+        )}
+      </View>
+    </ScrollView>
   );
 }
 
@@ -78,34 +104,30 @@ const styles = StyleSheet.create({
   },
   container: {
     flex: 1,
-    paddingTop: 16,
   },
-  emptyList: {
-    alignItems: 'center',
-    flexGrow: 1,
-    justifyContent: 'center',
-    padding: 24,
+  content: {
+    paddingBottom: 32,
+    paddingTop: 16,
   },
   emptyText: {
     color: '#6B7280',
-    fontSize: 16,
-    textAlign: 'center',
+    fontSize: 15,
+    paddingHorizontal: 16,
+    paddingVertical: 8,
   },
   errorText: {
     color: '#B91C1C',
-    fontSize: 15,
-    lineHeight: 22,
-    textAlign: 'center',
-  },
-  list: {
-    paddingBottom: 24,
-    paddingTop: 8,
-  },
-  title: {
-    color: '#111827',
-    fontSize: 22,
-    fontWeight: '700',
+    fontSize: 14,
     paddingHorizontal: 16,
-    paddingBottom: 8,
+  },
+  section: {
+    marginBottom: 24,
+  },
+  sectionTitle: {
+    color: '#111827',
+    fontSize: 18,
+    fontWeight: '700',
+    marginBottom: 8,
+    paddingHorizontal: 16,
   },
 });

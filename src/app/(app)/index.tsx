@@ -137,11 +137,20 @@ export default function AppHomeScreen() {
               </Pressable>
             </View>
           ) : (
-            <View style={styles.card}>
-              <Text style={styles.cardTitle}>Modo cliente</Text>
-              <Text style={styles.cardText}>
-                Explora artistas y solicita una comisión.
-              </Text>
+            <View>
+              <View style={styles.card}>
+                <Text style={styles.cardTitle}>Modo cliente</Text>
+                <Text style={styles.cardText}>
+                  Explora artistas y solicita una comisión.
+                </Text>
+              </View>
+              <Pressable
+                accessibilityRole="button"
+                onPress={() => router.push('/(tabs)/commissions')}
+                style={styles.button}
+              >
+                <Text style={styles.buttonText}>Mis comisiones</Text>
+              </Pressable>
             </View>
           )}
         </View>
@@ -150,20 +159,17 @@ export default function AppHomeScreen() {
           <Text style={styles.subtitle}>¿Qué quieres hacer?</Text>
           <Pressable
             accessibilityRole="button"
-            onPress={() => undefined}
-            style={styles.secondaryButton}
+            onPress={() => router.push('/(tabs)/commissions')}
+            style={styles.button}
           >
-            <Text style={styles.secondaryButtonText}>
-              Quiero pedir una comisión
-            </Text>
-            <Text style={styles.pendingText}>Próximamente</Text>
+            <Text style={styles.buttonText}>Mis comisiones</Text>
           </Pressable>
           <Pressable
             accessibilityRole="button"
             onPress={() => router.push('/(app)/artist-setup')}
-            style={styles.button}
+            style={[styles.secondaryButton, { marginTop: 12 }]}
           >
-            <Text style={styles.buttonText}>
+            <Text style={styles.secondaryButtonText}>
               Quiero ofrecer comisiones
             </Text>
           </Pressable>
@@ -296,11 +302,6 @@ const styles = StyleSheet.create({
     color: '#374151',
     fontSize: 16,
     fontWeight: '600',
-  },
-  pendingText: {
-    color: '#6B7280',
-    fontSize: 13,
-    marginTop: 5,
   },
   button: {
     alignItems: 'center',

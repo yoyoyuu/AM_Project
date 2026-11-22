@@ -15,10 +15,17 @@ function formatDate(isoString: string): string {
 
 export function PendingCommissionCard({ commission }: Props) {
   const handlePress = () => {
-    router.push({
-      pathname: '/artist/commissions/[commissionId]',
-      params: { commissionId: commission.id },
-    });
+    if (commission.status === 'PENDIENTE') {
+      router.push({
+        pathname: '/artist/commissions/[commissionId]',
+        params: { commissionId: commission.id },
+      });
+    } else {
+      router.push({
+        pathname: '/artist/commissions/[commissionId]/work',
+        params: { commissionId: commission.id },
+      });
+    }
   };
 
   return (
@@ -36,7 +43,9 @@ export function PendingCommissionCard({ commission }: Props) {
       </View>
 
       <Text style={styles.clientHandle} numberOfLines={1}>
-        {commission.client_profile ? `@${commission.client_profile.handle}` : 'Cliente desconocido'}
+        {commission.client_profile?.handle
+          ? `@${commission.client_profile.handle}`
+          : commission.client_profile?.display_name ?? 'Cliente desconocido'}
       </Text>
 
       <Text style={styles.date}>{formatDate(commission.created_at)}</Text>
