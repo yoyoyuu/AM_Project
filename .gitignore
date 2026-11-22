@@ -46,6 +46,10 @@ coverage/
 /ios
 /android
 
+# Firebase (nunca versionar — Principio 5 / Spec 008)
+google-services.json
+*-firebase-adminsdk-*.json
+
 # spec docs
 /docs
 

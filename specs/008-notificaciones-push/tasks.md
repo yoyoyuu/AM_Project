@@ -126,7 +126,7 @@ Copiar `plan.md` §4.2: `PUSH_EVENTS`, `EVENT_CONTENT` (los 7 textos literales d
 
 ## Fase C — Configuración nativa y FCM
 
-### T008 — Instalar `expo-notifications`, configuración de app y FCM
+### T008 — Instalar `expo-notifications`, configuración de app y FCM ✓
 
 **Traza:** RF-25-A, RI-02, Principios 3 y 5
 **Archivos a crear:**
@@ -152,7 +152,7 @@ Copiar `plan.md` §4.2: `PUSH_EVENTS`, `EVENT_CONTENT` (los 7 textos literales d
 
 ## Fase D — Cliente (`src/features/notificaciones/`)
 
-### T009 — Constantes y mensajes literales
+### T009 — Constantes y mensajes literales ✓
 
 **Traza:** RF-25-A, RF-25-B, spec §8
 **Archivos a crear:**
