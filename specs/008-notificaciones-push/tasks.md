@@ -192,7 +192,7 @@ Copiar `plan.md` §4.2: `PUSH_EVENTS`, `EVENT_CONTENT` (los 7 textos literales d
 
 ---
 
-### T012 — Parseo de datos y resolución de rutas
+### T012 — Parseo de datos y resolución de rutas ✓
 
 **Traza:** RF-28-A (Escenarios 8.23, 8.24, 8.26), RNF-NOT-8.2
 **Archivos a crear:**
@@ -205,7 +205,7 @@ Copiar `plan.md` §4.2: `PUSH_EVENTS`, `EVENT_CONTENT` (los 7 textos literales d
 
 ---
 
-### T013 — Handler de presentación en primer plano
+### T013 — Handler de presentación en primer plano ✓
 
 **Traza:** RF-28-A (Escenario 8.25), RNF-NOT-8.2
 **Archivos a crear:**
@@ -220,7 +220,7 @@ Copiar `plan.md` §4.2: `PUSH_EVENTS`, `EVENT_CONTENT` (los 7 textos literales d
 
 ---
 
-### T014 — Hook `usePushNotifications`
+### T014 — Hook `usePushNotifications` ✓
 
 **Traza:** RF-25-A (Escenarios 8.7, 8.9), RF-28-A (Escenarios 8.23–8.26)
 **Archivos a crear:**
