@@ -108,7 +108,7 @@ Copiar `plan.md` §4.2: `PUSH_EVENTS`, `EVENT_CONTENT` (los 7 textos literales d
 
 ---
 
-### T007 — Secretos y despliegue en Supabase
+### T007 — Secretos y despliegue en Supabase ✓
 
 **Traza:** RI-02, Principio 5, RNF-NOT-8.3
 **Archivos:** ninguno (configuración del entorno; checklist `plan.md` §3.6 y §7.2)
