@@ -278,7 +278,7 @@ En `signOut()`, llamar `await unregisterCurrentDevice()` **antes** de `supabase.
 
 ---
 
-### T018 — Fila de notificaciones en el perfil
+### T018 — Fila de notificaciones en el perfil ✓
 
 **Traza:** RF-25-A (Escenarios 8.5, 8.6)
 **Archivos a modificar:**

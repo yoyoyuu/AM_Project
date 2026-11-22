@@ -13,6 +13,7 @@ import { signOut } from '../../features/auth/api';
 import { useAppMode, type AppMode } from '../../features/auth/useAppMode';
 import { useProfile } from '../../features/auth/useProfile';
 import { NotificationPermissionPrompt } from '../../features/notificaciones/components/NotificationPermissionPrompt';
+import { NotificationSettingsRow } from '../../features/notificaciones/components/NotificationSettingsRow';
 
 const showToast = (message: string) => ToastAndroid.show(message, ToastAndroid.SHORT);
 
@@ -188,6 +189,8 @@ export default function AppHomeScreen() {
       >
         <Text style={styles.searchButtonText}>Buscar artista</Text>
       </Pressable>
+
+      <NotificationSettingsRow showToast={showToast} />
 
       {logoutError && (
         <Text accessibilityRole="alert" style={styles.error}>
