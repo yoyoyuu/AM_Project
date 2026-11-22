@@ -90,7 +90,7 @@ Copiar `plan.md` §4.2: `PUSH_EVENTS`, `EVENT_CONTENT` (los 7 textos literales d
 
 ---
 
-### T006 — Handler de la Edge Function y configuración
+### T006 — Handler de la Edge Function y configuración ✓
 
 **Traza:** RF-08-A, RF-10-A, RF-26-A, RF-27-A, RNF-NOT-8.4 (3 reintentos), RNF-NOT-8.5, RI-02, Principio 5
 **Archivos a crear:**

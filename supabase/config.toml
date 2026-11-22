@@ -1,0 +1,6 @@
+# Supabase CLI config — generado para Spec 008 (Notificaciones Push)
+# Si corres `supabase init` en el futuro, fusiona manualmente los bloques que agregue.
+
+[functions.send-push-notification]
+# La llama pg_net (no un usuario); la autenticación es la cabecera x-koma-webhook-secret.
+verify_jwt = false
