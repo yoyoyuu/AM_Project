@@ -12,7 +12,7 @@
 
 ## Fase A — Base de datos (Supabase)
 
-### T001 — Migración: tabla `device_tokens`, RLS y RPC de registro
+### T001 — Migración: tabla `device_tokens`, RLS y RPC de registro ✓
 
 **Traza:** RF-25-A, RNF-NOT-8.2, RNF-04, Principio 5
 **Archivos a crear:**
@@ -29,7 +29,7 @@ Secciones 1 y 2 de `plan.md` §3.1–§3.2:
 
 ---
 
-### T002 — Migración: pg_net, encolado, resolución de eventos y triggers
+### T002 — Migración: pg_net, encolado, resolución de eventos y triggers ✓
 
 **Traza:** RF-08-A, RF-10-A, RF-26-A, RF-27-A, RNF-NOT-8.4
 **Archivos a modificar:**
@@ -49,7 +49,7 @@ Secciones 3–6 de `plan.md` §3.3–§3.5:
 
 ---
 
-### T003 — Pruebas SQL de RLS de `device_tokens`
+### T003 — Pruebas SQL de RLS de `device_tokens` ✓
 
 **Traza:** RNF-04, RNF-NOT-8.2, RF-25-A (Escenario 8.8), RF-25-B (Escenario 8.10); Principio 9
 **Archivos a crear:**
