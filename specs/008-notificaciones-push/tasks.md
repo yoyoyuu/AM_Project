@@ -166,7 +166,7 @@ Copiar `plan.md` §4.2: `PUSH_EVENTS`, `EVENT_CONTENT` (los 7 textos literales d
 
 ---
 
-### T010 — Canal de Android y permiso
+### T010 — Canal de Android y permiso ✓
 
 **Traza:** RF-25-A (Escenarios 8.1, 8.2, 8.6), RNF-NOT-8.1, Principio 8
 **Archivos a crear:**
