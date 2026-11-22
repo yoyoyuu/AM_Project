@@ -77,7 +77,7 @@ Implementar E1–E12 de `plan.md` §5.2: resolución pura de los 7 eventos y de 
 
 ## Fase B — Edge Function
 
-### T005 — Lógica pura de la Edge Function
+### T005 — Lógica pura de la Edge Function ✓
 
 **Traza:** RNF-NOT-8.1, RNF-NOT-8.5, RF-28-A, RI-02
 **Archivos a crear:**
