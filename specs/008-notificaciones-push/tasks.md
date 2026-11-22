@@ -62,7 +62,7 @@ Implementar los casos D1–D11 de `plan.md` §5.1 dentro de `BEGIN … ROLLBACK`
 
 ---
 
-### T004 — Pruebas SQL de eventos y encolado
+### T004 — Pruebas SQL de eventos y encolado ✓
 
 **Traza:** RF-08-A, RF-10-A, RF-26-A, RF-27-A, RNF-NOT-8.4; Escenarios 8.13–8.22 (servidor); Principio 9
 **Archivos a crear:**
