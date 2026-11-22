@@ -417,7 +417,7 @@ Según `plan.md` §4.12: permiso `writeOnly` (consulta antes de pedir; respeta `
 
 ---
 
-### T027 — Casos de prueba manuales en dispositivo Android
+### T027 — Casos de prueba manuales en dispositivo Android [x]
 
 **Traza:** Principio 9; todos los escenarios con interacción nativa (7.5, 7.7, 7.13, 7.14, 7.18, 7.21, 7.23, 7.25, 7.31, 7.34, 7.35, 7.38, 7.39, 7.40, 7.41)
 **Archivos a crear:**
