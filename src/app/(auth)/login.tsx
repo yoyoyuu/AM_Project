@@ -5,13 +5,13 @@ import { Controller, useForm } from 'react-hook-form';
 import {
   ActivityIndicator,
   Pressable,
-  ScrollView,
   StyleSheet,
   Text,
   TextInput,
   View,
 } from 'react-native';
 
+import { KeyboardAwareScroll } from '../../components/ui';
 import { signIn } from '../../features/auth/api';
 import { messages } from '../../features/auth/messages';
 import { loginSchema, type LoginInput } from '../../features/auth/schemas';
@@ -44,10 +44,7 @@ export default function LoginScreen() {
   };
 
   return (
-    <ScrollView
-      contentContainerStyle={styles.content}
-      keyboardShouldPersistTaps="handled"
-    >
+    <KeyboardAwareScroll contentContainerStyle={styles.content}>
       <View style={styles.container}>
         <Text style={styles.brand}>Koma</Text>
         <Text style={styles.title}>Inicia sesión</Text>
@@ -128,7 +125,7 @@ export default function LoginScreen() {
         </Pressable>
 
       </View>
-    </ScrollView>
+    </KeyboardAwareScroll>
   );
 }
 

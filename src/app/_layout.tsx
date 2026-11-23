@@ -27,7 +27,7 @@ export default function RootLayout() {
     <QueryClientProvider client={queryClient}>
       <AuthProvider>
         <PushBridge />
-        <Stack />
+        <Stack screenOptions={{ headerShown: false }} />
       </AuthProvider>
     </QueryClientProvider>
   );

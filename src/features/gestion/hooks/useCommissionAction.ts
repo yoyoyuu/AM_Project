@@ -4,6 +4,7 @@ import { supabase } from '../../../lib/supabase';
 import { applyTransition } from '../stateMachine';
 import type { CommissionAction } from '../stateMachine';
 import type { CommissionStatus, CreativeStage } from '../types';
+import { commissionPaymentQueryKey } from '../../pagos/hooks/useCommissionPayment';
 import { commissionDetailQueryKey } from './useCommissionDetail';
 import { pendingCommissionsQueryKey } from './usePendingCommissions';
 
@@ -57,6 +58,9 @@ export function useCommissionAction() {
       });
       queryClient.invalidateQueries({
         queryKey: commissionDetailQueryKey(variables.commissionId),
+      });
+      queryClient.invalidateQueries({
+        queryKey: commissionPaymentQueryKey(variables.commissionId),
       });
     },
   });

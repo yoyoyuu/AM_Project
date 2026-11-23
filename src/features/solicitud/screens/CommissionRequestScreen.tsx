@@ -5,13 +5,13 @@ import { Controller, useForm } from 'react-hook-form';
 import {
   ActivityIndicator,
   Pressable,
-  ScrollView,
   StyleSheet,
   Text,
   TextInput,
   View,
 } from 'react-native';
 
+import { KeyboardAwareScroll } from '../../../components/ui';
 import type { PublicServiceItem } from '../../catalogo/types';
 import { ServiceSummaryCard } from '../components/ServiceSummaryCard';
 import { TosAcceptanceBlock } from '../components/TosAcceptanceBlock';
@@ -88,10 +88,7 @@ export function CommissionRequestScreen({
   const tosAccepted = !hasArtistTos; // si no hay TOS, el botón no depende de ella
 
   return (
-    <ScrollView
-      contentContainerStyle={styles.content}
-      keyboardShouldPersistTaps="handled"
-    >
+    <KeyboardAwareScroll contentContainerStyle={styles.content}>
       <View style={styles.container}>
         <Text style={styles.title}>Solicitar comisión</Text>
 
@@ -266,7 +263,7 @@ export function CommissionRequestScreen({
           )}
         </Pressable>
       </View>
-    </ScrollView>
+    </KeyboardAwareScroll>
   );
 }
 

@@ -6,3 +6,5 @@ export { TextField } from './TextField';
 export type { TextFieldProps } from './TextField';
 export { Badge } from './Badge';
 export type { BadgeProps } from './Badge';
+export { KeyboardAwareScroll } from './KeyboardAwareScroll';
+export type { KeyboardAwareScrollProps } from './KeyboardAwareScroll';

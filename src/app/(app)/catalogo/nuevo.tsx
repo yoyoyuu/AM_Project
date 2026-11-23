@@ -3,13 +3,13 @@ import { Controller } from 'react-hook-form';
 import {
   ActivityIndicator,
   Pressable,
-  ScrollView,
   StyleSheet,
   Text,
   TextInput,
   View,
 } from 'react-native';
 
+import { KeyboardAwareScroll } from '../../../components/ui';
 import { catalogoErrors } from '../../../features/catalogo/errors';
 import { useCreateService } from '../../../features/catalogo/queries';
 import { useServiceForm } from '../../../features/catalogo/hooks/useServiceForm';
@@ -40,10 +40,7 @@ export default function NewServiceScreen() {
   };
 
   return (
-    <ScrollView
-      contentContainerStyle={styles.content}
-      keyboardShouldPersistTaps="handled"
-    >
+    <KeyboardAwareScroll contentContainerStyle={styles.content}>
       <View style={styles.container}>
         <Text style={styles.brand}>Koma</Text>
         <Text style={styles.title}>Nuevo servicio</Text>
@@ -159,7 +156,7 @@ export default function NewServiceScreen() {
           )}
         </Pressable>
       </View>
-    </ScrollView>
+    </KeyboardAwareScroll>
   );
 }
 

@@ -5,12 +5,12 @@ import { Controller, useForm, useWatch } from 'react-hook-form';
 import {
   ActivityIndicator,
   Pressable,
-  ScrollView,
   StyleSheet,
   Text,
   TextInput,
   View,
 } from 'react-native';
+import { KeyboardAwareScroll } from '../../components/ui';
 import { z } from 'zod';
 
 import { getAuthErrorMessage } from '../../features/auth/errors';
@@ -121,10 +121,7 @@ export default function ArtistSetupScreen() {
   };
 
   return (
-    <ScrollView
-      contentContainerStyle={styles.content}
-      keyboardShouldPersistTaps="handled"
-    >
+    <KeyboardAwareScroll contentContainerStyle={styles.content}>
       <View style={styles.container}>
         <Text style={styles.brand}>Koma</Text>
         <Text style={styles.title}>Ofrece tus comisiones</Text>
@@ -229,7 +226,7 @@ export default function ArtistSetupScreen() {
           </Pressable>
         )}
       </View>
-    </ScrollView>
+    </KeyboardAwareScroll>
   );
 }
 

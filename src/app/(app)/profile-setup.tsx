@@ -5,7 +5,6 @@ import { Controller, useForm } from 'react-hook-form';
 import {
   ActivityIndicator,
   Pressable,
-  ScrollView,
   StyleSheet,
   Text,
   TextInput,
@@ -13,6 +12,7 @@ import {
 } from 'react-native';
 import { z } from 'zod';
 
+import { KeyboardAwareScroll } from '../../components/ui';
 import { useProfile } from '../../features/auth/useProfile';
 import { messages } from '../../features/auth/messages';
 import { displayNameSchema } from '../../features/auth/schemas';
@@ -52,10 +52,7 @@ export default function ProfileSetupScreen() {
   };
 
   return (
-    <ScrollView
-      contentContainerStyle={styles.content}
-      keyboardShouldPersistTaps="handled"
-    >
+    <KeyboardAwareScroll contentContainerStyle={styles.content}>
       <View style={styles.container}>
         <Text style={styles.brand}>Koma</Text>
         <Text style={styles.title}>Completa tu perfil</Text>
@@ -108,7 +105,7 @@ export default function ProfileSetupScreen() {
           )}
         </Pressable>
       </View>
-    </ScrollView>
+    </KeyboardAwareScroll>
   );
 }
 

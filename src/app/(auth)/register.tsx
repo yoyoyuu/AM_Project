@@ -6,13 +6,13 @@ import { Controller, useForm } from 'react-hook-form';
 import {
   ActivityIndicator,
   Pressable,
-  ScrollView,
   StyleSheet,
   Text,
   TextInput,
   View,
 } from 'react-native';
 
+import { KeyboardAwareScroll } from '../../components/ui';
 import { signUp } from '../../features/auth/api';
 import { messages } from '../../features/auth/messages';
 import {
@@ -56,10 +56,7 @@ export default function RegisterScreen() {
   };
 
   return (
-    <ScrollView
-      contentContainerStyle={styles.content}
-      keyboardShouldPersistTaps="handled"
-    >
+    <KeyboardAwareScroll contentContainerStyle={styles.content}>
       <View style={styles.container}>
         <Text style={styles.brand}>Koma</Text>
         <Text style={styles.title}>Crea tu cuenta</Text>
@@ -168,7 +165,7 @@ export default function RegisterScreen() {
         </Pressable>
 
       </View>
-    </ScrollView>
+    </KeyboardAwareScroll>
   );
 }
 
