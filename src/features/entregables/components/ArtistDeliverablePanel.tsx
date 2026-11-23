@@ -1,4 +1,3 @@
-import { Image } from 'expo-image';
 import * as ImagePicker from 'expo-image-picker';
 import { useState } from 'react';
 import {
@@ -17,6 +16,7 @@ import type { CommissionPayment } from '../../pagos/types';
 import { canArtistUploadDeliverable, formatFileSize } from '../presenters';
 import { useSubmitDeliverable } from '../hooks/useSubmitDeliverable';
 import { useDeliverablePreviewUrl } from '../hooks/useDeliverablePreviewUrl';
+import { DeliverableImagePreview } from './DeliverableImagePreview';
 
 interface Props {
   payment: CommissionPayment;
@@ -115,21 +115,7 @@ export function ArtistDeliverablePanel({ payment }: Props) {
 
       {hasDeliverable && (
         <View style={styles.preview}>
-          {previewLoading ? (
-            <View style={styles.previewPlaceholder}>
-              <ActivityIndicator size="small" color="#6B7280" />
-            </View>
-          ) : previewUrl ? (
-            <Image
-              source={{ uri: previewUrl }}
-              style={styles.previewImage}
-              contentFit="cover"
-            />
-          ) : (
-            <View style={styles.previewPlaceholder}>
-              <Text style={styles.previewFallback}>Vista previa no disponible</Text>
-            </View>
-          )}
+          <DeliverableImagePreview url={previewUrl} loading={previewLoading} />
 
           <View style={styles.meta}>
             {payment.delivered_at ? (
@@ -206,23 +192,6 @@ const styles = StyleSheet.create({
   },
   preview: {
     marginTop: 12,
-  },
-  previewFallback: {
-    color: '#9CA3AF',
-    fontSize: 13,
-  },
-  previewImage: {
-    borderRadius: 10,
-    height: 180,
-    width: '100%',
-  },
-  previewPlaceholder: {
-    alignItems: 'center',
-    backgroundColor: '#F3F4F6',
-    borderRadius: 10,
-    height: 180,
-    justifyContent: 'center',
-    width: '100%',
   },
   title: {
     color: '#111827',

@@ -1,9 +1,9 @@
-import { Image } from 'expo-image';
-import { ActivityIndicator, StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, Text, View } from 'react-native';
 
 import type { CommissionPayment } from '../../pagos/types';
 import { formatFileSize, getClientDeliverableView } from '../presenters';
 import { useDeliverablePreviewUrl } from '../hooks/useDeliverablePreviewUrl';
+import { DeliverableImagePreview } from './DeliverableImagePreview';
 import { DeliverableLockedCard } from './DeliverableLockedCard';
 import { SaveToGalleryButton } from './SaveToGalleryButton';
 
@@ -27,21 +27,7 @@ function UnlockedDeliverable({ payment }: { payment: CommissionPayment }) {
 
   return (
     <View style={styles.unlockedContainer}>
-      {isLoading ? (
-        <View style={styles.previewPlaceholder}>
-          <ActivityIndicator size="small" color="#6B7280" />
-        </View>
-      ) : url ? (
-        <Image
-          source={{ uri: url }}
-          style={styles.previewImage}
-          contentFit="cover"
-        />
-      ) : (
-        <View style={styles.previewPlaceholder}>
-          <Text style={styles.previewFallback}>Vista previa no disponible</Text>
-        </View>
-      )}
+      <DeliverableImagePreview url={url} loading={isLoading} />
 
       <Text style={styles.unlockedTitle}>Tu entregable está listo</Text>
 
@@ -106,23 +92,6 @@ const styles = StyleSheet.create({
     color: '#6B7280',
     fontSize: 13,
     fontStyle: 'italic',
-  },
-  previewFallback: {
-    color: '#9CA3AF',
-    fontSize: 13,
-  },
-  previewImage: {
-    borderRadius: 10,
-    height: 200,
-    width: '100%',
-  },
-  previewPlaceholder: {
-    alignItems: 'center',
-    backgroundColor: '#F3F4F6',
-    borderRadius: 10,
-    height: 200,
-    justifyContent: 'center',
-    width: '100%',
   },
   title: {
     color: '#111827',
