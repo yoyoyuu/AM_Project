@@ -1,5 +1,6 @@
 import { StyleSheet, Text, View } from 'react-native';
 
+import { colors } from '../../../theme';
 import { getStageName } from '../stateMachine';
 import { CREATIVE_STAGE_ORDER } from '../types';
 import type { CreativeStage } from '../types';
@@ -11,7 +12,7 @@ interface Props {
 export function CreativeStageIndicator({ currentStage }: Props) {
   const activeIndex =
     currentStage === null
-      ? CREATIVE_STAGE_ORDER.length // null = completada → todos marcados
+      ? CREATIVE_STAGE_ORDER.length
       : CREATIVE_STAGE_ORDER.indexOf(currentStage);
 
   return (
@@ -29,9 +30,13 @@ export function CreativeStageIndicator({ currentStage }: Props) {
                 isActive && styles.dotActive,
               ]}
             >
-              <Text style={[styles.dotLabel, (isCompleted || isActive) && styles.dotLabelActive]}>
-                {index + 1}
-              </Text>
+              {isCompleted ? (
+                <Text style={styles.dotLabelActive}>✓</Text>
+              ) : (
+                <Text style={[styles.dotLabel, isActive && styles.dotLabelActive]}>
+                  {index + 1}
+                </Text>
+              )}
             </View>
             <Text
               style={[
@@ -54,53 +59,51 @@ export function CreativeStageIndicator({ currentStage }: Props) {
 }
 
 const styles = StyleSheet.create({
-  row: {
-    alignItems: 'flex-start',
-    flexDirection: 'row',
-    gap: 0,
-  },
-  stepWrapper: {
-    alignItems: 'center',
-    flex: 1,
-    position: 'relative',
-  },
+  row: { alignItems: 'flex-start', flexDirection: 'row' },
+  stepWrapper: { alignItems: 'center', flex: 1, position: 'relative' },
   dot: {
     alignItems: 'center',
-    backgroundColor: '#E5E7EB',
+    backgroundColor: colors.surface,
+    borderColor: colors.borderStrong,
+    borderWidth: 2,
     borderRadius: 16,
     height: 32,
     justifyContent: 'center',
     width: 32,
   },
   dotActive: {
-    backgroundColor: '#3B82F6',
+    backgroundColor: colors.primary,
+    borderColor: colors.primary,
   },
   dotCompleted: {
-    backgroundColor: '#10B981',
+    backgroundColor: colors.success,
+    borderColor: colors.success,
   },
   dotLabel: {
-    color: '#6B7280',
+    color: colors.textMuted,
     fontSize: 14,
     fontWeight: '700',
   },
   dotLabelActive: {
     color: '#FFFFFF',
+    fontSize: 14,
+    fontWeight: '700',
   },
   stepName: {
-    color: '#6B7280',
+    color: colors.textSecondary,
     fontSize: 11,
     marginTop: 4,
     textAlign: 'center',
   },
   stepNameActive: {
-    color: '#1D4ED8',
+    color: colors.primaryStrong,
     fontWeight: '700',
   },
   stepNameCompleted: {
-    color: '#059669',
+    color: colors.successStrong,
   },
   connector: {
-    backgroundColor: '#E5E7EB',
+    backgroundColor: colors.borderStrong,
     height: 2,
     position: 'absolute',
     right: -1,
@@ -108,6 +111,6 @@ const styles = StyleSheet.create({
     width: '50%',
   },
   connectorCompleted: {
-    backgroundColor: '#10B981',
+    backgroundColor: colors.success,
   },
 });

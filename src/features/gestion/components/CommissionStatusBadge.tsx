@@ -1,5 +1,4 @@
-import { StyleSheet, Text, View } from 'react-native';
-
+import { Badge } from '../../../components/ui';
 import type { CommissionStatus } from '../types';
 
 interface Props {
@@ -15,33 +14,20 @@ const LABEL: Record<CommissionStatus, string> = {
   EN_REVISION: 'En revisión',
 };
 
-const COLOR: Record<CommissionStatus, { background: string; text: string }> = {
-  PENDIENTE: { background: '#FEF3C7', text: '#92400E' },
-  EN_PROGRESO: { background: '#DBEAFE', text: '#1E40AF' },
-  RECHAZADA: { background: '#FEE2E2', text: '#991B1B' },
-  COMPLETADA: { background: '#D1FAE5', text: '#065F46' },
-  CANCELADA: { background: '#F3F4F6', text: '#374151' },
-  EN_REVISION: { background: '#EDE9FE', text: '#5B21B6' },
+const TONE: Record<CommissionStatus, 'success' | 'primary' | 'neutral'> = {
+  PENDIENTE: 'neutral',
+  EN_PROGRESO: 'neutral',
+  EN_REVISION: 'neutral',
+  COMPLETADA: 'success',
+  RECHAZADA: 'primary',
+  CANCELADA: 'neutral',
+};
+
+const ICON: Partial<Record<CommissionStatus, string>> = {
+  COMPLETADA: '✓',
+  RECHAZADA: '!',
 };
 
 export function CommissionStatusBadge({ status }: Props) {
-  const { background, text } = COLOR[status];
-  return (
-    <View style={[styles.badge, { backgroundColor: background }]}>
-      <Text style={[styles.label, { color: text }]}>{LABEL[status]}</Text>
-    </View>
-  );
+  return <Badge tone={TONE[status]} label={LABEL[status]} icon={ICON[status]} />;
 }
-
-const styles = StyleSheet.create({
-  badge: {
-    alignSelf: 'flex-start',
-    borderRadius: 999,
-    paddingHorizontal: 10,
-    paddingVertical: 3,
-  },
-  label: {
-    fontSize: 12,
-    fontWeight: '600',
-  },
-});
