@@ -101,10 +101,10 @@ export default function NewServiceScreen() {
             <TextInput
               keyboardType="numeric"
               onBlur={onBlur}
-              onChangeText={(text) => onChange(text ? Number(text) : NaN)}
+              onChangeText={(text) => onChange(text ? Number(text) : undefined)}
               placeholder="Ej. 500"
               style={[styles.input, errors.price_mxn && styles.inputError]}
-              value={value === undefined ? '' : String(value)}
+              value={value === undefined || Number.isNaN(value) ? '' : String(value)}
             />
           )}
         />
@@ -120,13 +120,13 @@ export default function NewServiceScreen() {
             <TextInput
               keyboardType="numeric"
               onBlur={onBlur}
-              onChangeText={(text) => onChange(text ? Number(text) : NaN)}
+              onChangeText={(text) => onChange(text ? Number(text) : undefined)}
               placeholder="Ej. 7"
               style={[
                 styles.input,
                 errors.delivery_days && styles.inputError,
               ]}
-              value={value === undefined ? '' : String(value)}
+              value={value === undefined || Number.isNaN(value) ? '' : String(value)}
             />
           )}
         />

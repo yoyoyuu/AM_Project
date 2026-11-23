@@ -20,7 +20,9 @@ export function useSubmitCommission() {
       const { artistId, serviceId, form, images, hasArtistTos } = payload;
 
       // 1. Obtener el UUID del cliente (requerido por la política RLS).
-      const { data: { user } } = await supabase.auth.getUser();
+      //    getSession() es síncrono-cacheado (sin HTTP round-trip). RLS valida auth.uid() en el servidor.
+      const { data: { session } } = await supabase.auth.getSession();
+      const user = session?.user ?? null;
       if (!user) {
         throw new Error(
           'No se pudo enviar la solicitud, comprueba tu conexión e inténtalo de nuevo',

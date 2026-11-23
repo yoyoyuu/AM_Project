@@ -6,7 +6,7 @@ import { useSubmitCommission } from '../hooks/useSubmitCommission';
 
 jest.mock('../../../lib/supabase', () => ({
   supabase: {
-    auth: { getUser: jest.fn() },
+    auth: { getSession: jest.fn() },
     storage: { from: jest.fn() },
     from: jest.fn(),
   },
@@ -32,7 +32,7 @@ jest.mock('@tanstack/react-query', () => ({
 // eslint-disable-next-line @typescript-eslint/no-require-imports
 const { supabase } = require('../../../lib/supabase') as {
   supabase: {
-    auth: { getUser: jest.Mock };
+    auth: { getSession: jest.Mock };
     storage: { from: jest.Mock };
     from: jest.Mock;
   };
@@ -74,7 +74,10 @@ function makePayload(overrides?: Partial<SubmitCommissionPayload>): SubmitCommis
 const CLIENT_ID = 'cccccccc-0000-0000-0000-000000000000';
 
 function mockAuth() {
-  supabase.auth.getUser.mockResolvedValue({ data: { user: { id: CLIENT_ID } }, error: null });
+  supabase.auth.getSession.mockResolvedValue({
+    data: { session: { user: { id: CLIENT_ID } } },
+    error: null,
+  });
 }
 
 // Sets up the full happy-path supabase mock chain

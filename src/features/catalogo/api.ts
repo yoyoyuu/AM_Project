@@ -8,20 +8,22 @@ import type {
 } from './types';
 
 async function getAuthenticatedUserId(): Promise<string> {
+  // getSession() lee la sesión cacheada localmente (sin HTTP round-trip).
+  // La autenticidad del user_id la re-valida RLS en el servidor en cada INSERT/UPDATE.
   const {
-    data: { user },
+    data: { session },
     error,
-  } = await supabase.auth.getUser();
+  } = await supabase.auth.getSession();
 
   if (error) {
     throw error;
   }
 
-  if (user === null) {
+  if (session === null) {
     throw new Error('No hay una sesión autenticada.');
   }
 
-  return user.id;
+  return session.user.id;
 }
 
 export async function getMyServices(): Promise<Service[]> {

@@ -14,6 +14,12 @@ jest.mock('../utils/compressAdvanceImage', () => ({
   compressAdvanceImage: jest.fn(),
 }));
 
+jest.mock('expo-file-system', () => ({
+  File: jest.fn().mockImplementation(() => ({
+    base64: jest.fn().mockResolvedValue('AAAA'),
+  })),
+}));
+
 jest.mock('@tanstack/react-query', () => ({
   useMutation: jest.fn((opts: { mutationFn: (p: unknown) => Promise<unknown> }) => ({
     mutateAsync: (payload: unknown) => opts.mutationFn(payload),

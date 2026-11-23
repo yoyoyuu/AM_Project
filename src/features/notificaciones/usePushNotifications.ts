@@ -33,19 +33,28 @@ export function usePushNotifications(userId: string | null, onArtistTarget?: () 
   // 2. Rotación del token de FCM ⇒ se vuelve a registrar
   useEffect(() => {
     if (!userId) return;
-    const sub = addPushTokenListener(() => {
-      void syncPushRegistration().catch(() => undefined);
-    });
-    return () => sub.remove();
+    try {
+      const sub = addPushTokenListener(() => {
+        void syncPushRegistration().catch(() => undefined);
+      });
+      return () => sub.remove();
+    } catch (e) {
+      // Expo Go (SDK 53+) no soporta push nativo; la app sigue funcionando sin notificaciones.
+      console.warn('[push] addPushTokenListener unavailable:', e);
+    }
   }, [userId]);
 
   // 3. Aviso recibido con la app abierta ⇒ refrescar datos (Escenario 8.25).
   //    Todas las queries de pago/entregable cuelgan del prefijo ['commissions'] (DT-7.7).
   useEffect(() => {
-    const sub = addNotificationReceivedListener(() => {
-      void queryClient.invalidateQueries({ queryKey: ['commissions'] });
-    });
-    return () => sub.remove();
+    try {
+      const sub = addNotificationReceivedListener(() => {
+        void queryClient.invalidateQueries({ queryKey: ['commissions'] });
+      });
+      return () => sub.remove();
+    } catch (e) {
+      console.warn('[push] addNotificationReceivedListener unavailable:', e);
+    }
   }, [queryClient]);
 
   // 4. Toque del aviso: app en segundo plano o cerrada (cold start) — RF-28-A
@@ -55,17 +64,25 @@ export function usePushNotifications(userId: string | null, onArtistTarget?: () 
     const handle = (response: NotificationResponse) => {
       const data = parsePushData(response.notification.request.content.data);
       const route = data ? resolveNotificationRoute(data, userId) : null;
-      clearLastNotificationResponse();
+      try {
+        clearLastNotificationResponse();
+      } catch {
+        /* unavailable in Expo Go */
+      }
       if (!route || !data) return;
       if (data.target !== 'client_tracking') onArtistTarget?.();
       void queryClient.invalidateQueries({ queryKey: ['commissions'] });
       router.push(route);
     };
 
-    const last = getLastNotificationResponse();
-    if (last) handle(last);
+    try {
+      const last = getLastNotificationResponse();
+      if (last) handle(last);
 
-    const sub = addNotificationResponseReceivedListener(handle);
-    return () => sub.remove();
+      const sub = addNotificationResponseReceivedListener(handle);
+      return () => sub.remove();
+    } catch (e) {
+      console.warn('[push] response listeners unavailable:', e);
+    }
   }, [userId, router, queryClient, onArtistTarget]);
 }

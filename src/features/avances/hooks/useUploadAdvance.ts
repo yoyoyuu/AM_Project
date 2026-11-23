@@ -1,4 +1,5 @@
 import { useMutation, useQueryClient } from '@tanstack/react-query';
+import { File } from 'expo-file-system';
 
 import { supabase } from '../../../lib/supabase';
 import type { CommissionStatus, CreativeStage } from '../../gestion/types';
@@ -43,6 +44,7 @@ export function useUploadAdvance() {
         .single();
 
       if (advanceError || !advance) {
+        console.error('[UPLOAD ADVANCE] advance insert failed:', advanceError);
         throw new Error('No se pudo subir el avance. Comprueba tu conexión e inténtalo de nuevo');
       }
 
@@ -53,20 +55,28 @@ export function useUploadAdvance() {
         compressed.map(async (img, index) => {
           const path = `${commissionId}/${advanceId}/${index}.webp`;
 
-          const response = await fetch(img.uri);
-          const blob = await response.blob();
+          // RN's Blob no setea MIME correctamente; Supabase Storage lo rechaza.
+          // Leer como base64 → Uint8Array y subir bytes directo (mismo patrón que useSubmitCommission).
+          const base64 = await new File(img.uri).base64();
+          const binaryStr = atob(base64);
+          const bytes = new Uint8Array(binaryStr.length);
+          for (let i = 0; i < binaryStr.length; i++) {
+            bytes[i] = binaryStr.charCodeAt(i);
+          }
 
           const { error: storageError } = await supabase.storage
             .from('commission-advances')
-            .upload(path, blob, { contentType: 'image/webp', upsert: false });
+            .upload(path, bytes, { contentType: 'image/webp', upsert: false });
 
           if (storageError) throw storageError;
 
           return { path, fileSize: img.fileSize, sortOrder: index };
         }),
       ).catch(async (err) => {
+        console.error('[UPLOAD ADVANCE] storage upload failed:', err);
         // Limpiar el registro del avance si la subida de archivos falla
-        await supabase.from('commission_advances').delete().eq('id', advanceId);
+        const { error: cleanupError } = await supabase.from('commission_advances').delete().eq('id', advanceId);
+        if (cleanupError) console.error('[UPLOAD ADVANCE] advance cleanup failed:', cleanupError);
         throw new Error('No se pudo subir el avance. Comprueba tu conexión e inténtalo de nuevo');
       });
 
@@ -83,13 +93,16 @@ export function useUploadAdvance() {
         .insert(fileInserts);
 
       if (filesError) {
+        console.error('[UPLOAD ADVANCE] files insert failed:', filesError);
+        console.error('[UPLOAD ADVANCE] file inserts payload:', JSON.stringify(fileInserts));
         // Limpiar archivos de Storage y el registro del avance
         await Promise.allSettled(
           uploadResults.map((r) =>
             supabase.storage.from('commission-advances').remove([r.path]),
           ),
         );
-        await supabase.from('commission_advances').delete().eq('id', advanceId);
+        const { error: cleanupError } = await supabase.from('commission_advances').delete().eq('id', advanceId);
+        if (cleanupError) console.error('[UPLOAD ADVANCE] advance cleanup failed:', cleanupError);
         throw new Error('No se pudo subir el avance. Comprueba tu conexión e inténtalo de nuevo');
       }
 

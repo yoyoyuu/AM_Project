@@ -200,9 +200,9 @@ export default function ServiceDetailScreen() {
             <TextInput
               keyboardType="numeric"
               onBlur={onBlur}
-              onChangeText={(text) => onChange(text ? Number(text) : NaN)}
+              onChangeText={(text) => onChange(text ? Number(text) : undefined)}
               style={[styles.input, errors.price_mxn && styles.inputError]}
-              value={value === undefined ? '' : String(value)}
+              value={value === undefined || Number.isNaN(value) ? '' : String(value)}
             />
           )}
         />
@@ -218,12 +218,12 @@ export default function ServiceDetailScreen() {
             <TextInput
               keyboardType="numeric"
               onBlur={onBlur}
-              onChangeText={(text) => onChange(text ? Number(text) : NaN)}
+              onChangeText={(text) => onChange(text ? Number(text) : undefined)}
               style={[
                 styles.input,
                 errors.delivery_days && styles.inputError,
               ]}
-              value={value === undefined ? '' : String(value)}
+              value={value === undefined || Number.isNaN(value) ? '' : String(value)}
             />
           )}
         />
