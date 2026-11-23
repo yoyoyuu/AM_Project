@@ -75,23 +75,23 @@ export default function SearchArtistScreen() {
           </Text>
         )}
 
-        {profileQuery.isPending && (
+        {hasSearched && profileQuery.isFetching && (
           <View style={styles.status}>
             <ActivityIndicator color={colors.primary} />
           </View>
         )}
 
-        {profileQuery.isError && (
+        {hasSearched && profileQuery.isError && (
           <Text accessibilityRole="alert" style={styles.error}>
             {catalogoErrors.handle(profileQuery.error)}
           </Text>
         )}
 
-        {hasSearched && !profileQuery.isPending && !profileQuery.isError && profile === null && (
+        {hasSearched && !profileQuery.isFetching && !profileQuery.isError && profile === null && (
           <Text style={styles.emptyMessage}>{MESSAGES.handleNotFound}</Text>
         )}
 
-        {hasSearched && !profileQuery.isPending && !profileQuery.isError && profile && (
+        {hasSearched && !profileQuery.isFetching && !profileQuery.isError && profile && (
           <View style={styles.profile}>
             <View style={styles.profileHeader}>
               <Text style={styles.profileName}>{profile.display_name}</Text>
