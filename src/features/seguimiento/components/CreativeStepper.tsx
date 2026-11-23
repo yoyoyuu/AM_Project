@@ -1,15 +1,15 @@
 import { StyleSheet, Text, View } from 'react-native';
 
-import { colors } from '../../../theme';
 import type { StepConfig, StepState } from '../presenters';
+import { colors } from '../../../theme';
 
 interface Props {
   steps: StepConfig[];
 }
 
 const STEP_COLORS: Record<StepState, { bg: string; border: string; text: string }> = {
-  completed: { bg: colors.success, border: colors.success, text: '#FFFFFF' },
-  active: { bg: colors.primary, border: colors.primary, text: '#FFFFFF' },
+  completed: { bg: colors.success, border: colors.success, text: colors.surface },
+  active: { bg: colors.primary, border: colors.primary, text: colors.surface },
   pending: { bg: colors.surface, border: colors.borderStrong, text: colors.textMuted },
 };
 

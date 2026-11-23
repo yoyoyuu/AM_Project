@@ -14,6 +14,7 @@ import { catalogoErrors } from '../../features/catalogo/errors';
 import { MESSAGES } from '../../features/catalogo/messages';
 import { useArtistPublicProfile } from '../../features/catalogo/queries';
 import { searchHandleSchema } from '../../features/catalogo/schemas';
+import { colors } from '../../theme';
 
 export default function SearchArtistScreen() {
   const [query, setQuery] = useState('');
@@ -76,7 +77,7 @@ export default function SearchArtistScreen() {
 
         {profileQuery.isPending && (
           <View style={styles.status}>
-            <ActivityIndicator color="#6C5CE7" />
+            <ActivityIndicator color={colors.primary} />
           </View>
         )}
 
@@ -159,18 +160,18 @@ const styles = StyleSheet.create({
     padding: 24,
   },
   brand: {
-    color: '#6C5CE7',
+    color: colors.primary,
     fontSize: 28,
     fontWeight: '800',
     marginBottom: 20,
   },
   title: {
-    color: '#1F2937',
+    color: colors.text,
     fontSize: 28,
     fontWeight: '700',
   },
   subtitle: {
-    color: '#6B7280',
+    color: colors.textSecondary,
     fontSize: 16,
     lineHeight: 23,
     marginBottom: 20,
@@ -181,21 +182,21 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
   },
   input: {
-    borderColor: '#D1D5DB',
+    borderColor: colors.borderStrong,
     borderRadius: 10,
     borderWidth: 1,
-    color: '#111827',
+    color: colors.text,
     flex: 1,
     fontSize: 16,
     minHeight: 50,
     paddingHorizontal: 14,
   },
   inputError: {
-    borderColor: '#B91C1C',
+    borderColor: colors.danger,
   },
   searchButton: {
     alignItems: 'center',
-    backgroundColor: '#6C5CE7',
+    backgroundColor: colors.primary,
     borderRadius: 10,
     justifyContent: 'center',
     marginLeft: 10,
@@ -203,12 +204,12 @@ const styles = StyleSheet.create({
     paddingHorizontal: 16,
   },
   searchButtonText: {
-    color: '#FFFFFF',
+    color: colors.surface,
     fontSize: 15,
     fontWeight: '700',
   },
   error: {
-    color: '#B91C1C',
+    color: colors.danger,
     fontSize: 14,
     lineHeight: 21,
     marginTop: 8,
@@ -218,7 +219,7 @@ const styles = StyleSheet.create({
     padding: 28,
   },
   emptyMessage: {
-    color: '#6B7280',
+    color: colors.textSecondary,
     fontSize: 16,
     lineHeight: 24,
     marginTop: 18,
@@ -227,43 +228,43 @@ const styles = StyleSheet.create({
     marginTop: 28,
   },
   profileHeader: {
-    backgroundColor: '#F3F4F6',
+    backgroundColor: colors.surfaceSunken,
     borderRadius: 12,
     padding: 18,
   },
   profileName: {
-    color: '#1F2937',
+    color: colors.text,
     fontSize: 22,
     fontWeight: '700',
   },
   handle: {
-    color: '#6C5CE7',
+    color: colors.primary,
     fontSize: 16,
     fontWeight: '600',
     marginTop: 6,
   },
   sectionTitle: {
-    color: '#374151',
+    color: colors.text,
     fontSize: 19,
     fontWeight: '700',
     marginBottom: 12,
     marginTop: 24,
   },
   serviceCard: {
-    backgroundColor: '#FFFFFF',
-    borderColor: '#E5E7EB',
+    backgroundColor: colors.surface,
+    borderColor: colors.border,
     borderRadius: 12,
     borderWidth: 1,
     marginBottom: 12,
     padding: 16,
   },
   serviceTitle: {
-    color: '#374151',
+    color: colors.text,
     fontSize: 17,
     fontWeight: '700',
   },
   description: {
-    color: '#6B7280',
+    color: colors.textSecondary,
     fontSize: 14,
     lineHeight: 20,
     marginTop: 8,
@@ -274,18 +275,18 @@ const styles = StyleSheet.create({
     marginTop: 14,
   },
   detail: {
-    color: '#6C5CE7',
+    color: colors.primary,
     fontSize: 15,
     fontWeight: '600',
   },
   tos: {
-    color: '#374151',
+    color: colors.text,
     fontSize: 15,
     lineHeight: 23,
   },
   requestButton: {
     alignItems: 'center',
-    backgroundColor: '#6C5CE7',
+    backgroundColor: colors.primary,
     borderRadius: 8,
     justifyContent: 'center',
     marginTop: 12,
@@ -295,7 +296,7 @@ const styles = StyleSheet.create({
     opacity: 0.85,
   },
   requestButtonText: {
-    color: '#FFFFFF',
+    color: colors.surface,
     fontSize: 15,
     fontWeight: '700',
   },

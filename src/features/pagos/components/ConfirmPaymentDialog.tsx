@@ -1,4 +1,5 @@
 import { ActivityIndicator, Modal, Pressable, StyleSheet, Text, View } from 'react-native';
+import { colors } from '../../../theme';
 
 interface Props {
   visible: boolean;
@@ -27,7 +28,7 @@ export function ConfirmPaymentDialog({ visible, isPending, onConfirm, onCancel }
               disabled={isPending}
             >
               {isPending ? (
-                <ActivityIndicator size="small" color="#FFFFFF" />
+                <ActivityIndicator size="small" color={colors.surface} />
               ) : (
                 <Text style={styles.confirmLabel}>Confirmar</Text>
               )}
@@ -47,20 +48,20 @@ const styles = StyleSheet.create({
     marginTop: 20,
   },
   cancelButton: {
-    borderColor: '#D1D5DB',
+    borderColor: colors.borderStrong,
     borderRadius: 8,
     borderWidth: 1,
     paddingHorizontal: 16,
     paddingVertical: 10,
   },
   cancelLabel: {
-    color: '#374151',
+    color: colors.text,
     fontSize: 14,
     fontWeight: '600',
   },
   confirmButton: {
     alignItems: 'center',
-    backgroundColor: '#10B981',
+    backgroundColor: colors.success,
     borderRadius: 8,
     justifyContent: 'center',
     minWidth: 90,
@@ -71,19 +72,19 @@ const styles = StyleSheet.create({
     opacity: 0.6,
   },
   confirmLabel: {
-    color: '#FFFFFF',
+    color: colors.surface,
     fontSize: 14,
     fontWeight: '600',
   },
   dialog: {
-    backgroundColor: '#FFFFFF',
+    backgroundColor: colors.surface,
     borderRadius: 14,
     marginHorizontal: 24,
     padding: 20,
     width: '100%',
   },
   message: {
-    color: '#6B7280',
+    color: colors.textSecondary,
     fontSize: 14,
     lineHeight: 20,
     marginTop: 6,
@@ -95,7 +96,7 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
   title: {
-    color: '#111827',
+    color: colors.text,
     fontSize: 16,
     fontWeight: '700',
   },

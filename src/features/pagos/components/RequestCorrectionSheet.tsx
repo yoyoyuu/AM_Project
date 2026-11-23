@@ -17,6 +17,7 @@ import {
 import { useRequestPaymentCorrection } from '../hooks/useRequestPaymentCorrection';
 import { CORRECTION_SUGGESTIONS } from '../presenters';
 import { paymentCorrectionSchema, type PaymentCorrectionFormValues } from '../schemas';
+import { colors } from '../../../theme';
 
 interface Props {
   visible: boolean;
@@ -100,7 +101,7 @@ export function RequestCorrectionSheet({ visible, onClose, commissionId }: Props
                 <TextInput
                   style={[styles.input, errors.reason && styles.inputError]}
                   placeholder="O escribe el motivo..."
-                  placeholderTextColor="#9CA3AF"
+                  placeholderTextColor={colors.textMuted}
                   multiline
                   numberOfLines={3}
                   maxLength={310}
@@ -132,7 +133,7 @@ export function RequestCorrectionSheet({ visible, onClose, commissionId }: Props
               disabled={isPending}
             >
               {isPending ? (
-                <ActivityIndicator size="small" color="#FFFFFF" />
+                <ActivityIndicator size="small" color={colors.surface} />
               ) : (
                 <Text style={styles.confirmLabel}>Enviar al cliente</Text>
               )}
@@ -155,35 +156,35 @@ const styles = StyleSheet.create({
     flex: 1,
   },
   cancelButton: {
-    borderColor: '#D1D5DB',
+    borderColor: colors.borderStrong,
     borderRadius: 8,
     borderWidth: 1,
     paddingHorizontal: 16,
     paddingVertical: 10,
   },
   cancelLabel: {
-    color: '#374151',
+    color: colors.text,
     fontSize: 14,
     fontWeight: '600',
   },
   chip: {
-    borderColor: '#D1D5DB',
+    borderColor: colors.borderStrong,
     borderRadius: 999,
     borderWidth: 1,
     paddingHorizontal: 12,
     paddingVertical: 6,
   },
   chipLabel: {
-    color: '#374151',
+    color: colors.text,
     fontSize: 13,
   },
   chipLabelSelected: {
-    color: '#1D4ED8',
+    color: colors.primaryStrong,
     fontWeight: '600',
   },
   chipSelected: {
-    backgroundColor: '#DBEAFE',
-    borderColor: '#3B82F6',
+    backgroundColor: colors.primarySoft,
+    borderColor: colors.primary,
   },
   chips: {
     flexDirection: 'row',
@@ -193,7 +194,7 @@ const styles = StyleSheet.create({
   },
   confirmButton: {
     alignItems: 'center',
-    backgroundColor: '#EF4444',
+    backgroundColor: colors.danger,
     borderRadius: 8,
     justifyContent: 'center',
     minWidth: 120,
@@ -204,7 +205,7 @@ const styles = StyleSheet.create({
     opacity: 0.6,
   },
   confirmLabel: {
-    color: '#FFFFFF',
+    color: colors.surface,
     fontSize: 14,
     fontWeight: '600',
   },
@@ -213,12 +214,12 @@ const styles = StyleSheet.create({
     maxHeight: 360,
   },
   counter: {
-    color: '#6B7280',
+    color: colors.textSecondary,
     fontSize: 12,
     marginLeft: 'auto',
   },
   counterOver: {
-    color: '#EF4444',
+    color: colors.danger,
   },
   counterRow: {
     alignItems: 'center',
@@ -226,35 +227,35 @@ const styles = StyleSheet.create({
     marginTop: 4,
   },
   errorText: {
-    color: '#EF4444',
+    color: colors.danger,
     flex: 1,
     fontSize: 12,
   },
   input: {
-    borderColor: '#D1D5DB',
+    borderColor: colors.borderStrong,
     borderRadius: 8,
     borderWidth: 1,
-    color: '#111827',
+    color: colors.text,
     fontSize: 14,
     height: 80,
     padding: 10,
   },
   inputError: {
-    borderColor: '#EF4444',
+    borderColor: colors.danger,
   },
   overlay: {
     flex: 1,
     justifyContent: 'flex-end',
   },
   sheet: {
-    backgroundColor: '#FFFFFF',
+    backgroundColor: colors.surface,
     borderTopLeftRadius: 16,
     borderTopRightRadius: 16,
     padding: 20,
     paddingBottom: 32,
   },
   title: {
-    color: '#111827',
+    color: colors.text,
     fontSize: 16,
     fontWeight: '700',
   },

@@ -8,6 +8,7 @@ import { useMyCommissions } from '../hooks/useMyCommissions';
 import { CommissionListSkeleton } from '../components/CommissionListSkeleton';
 import { CommissionsEmptyState } from '../components/CommissionsEmptyState';
 import { CommissionsGroupSection } from '../components/CommissionsGroupSection';
+import { colors } from '../../../theme';
 
 export function MyCommissionsScreen() {
   const { user } = useAuth();
@@ -101,7 +102,7 @@ const styles = StyleSheet.create({
     padding: 32,
   },
   container: {
-    backgroundColor: '#F9FAFB',
+    backgroundColor: colors.background,
     flex: 1,
   },
   content: {
@@ -109,22 +110,22 @@ const styles = StyleSheet.create({
     paddingTop: 16,
   },
   errorText: {
-    color: '#374151',
+    color: colors.text,
     fontSize: 15,
     marginBottom: 16,
     textAlign: 'center',
   },
   retryButton: {
-    backgroundColor: '#111827',
+    backgroundColor: colors.text,
     borderRadius: 10,
     paddingHorizontal: 24,
     paddingVertical: 12,
   },
   retryButtonPressed: {
-    backgroundColor: '#374151',
+    backgroundColor: colors.text,
   },
   retryLabel: {
-    color: '#FFFFFF',
+    color: colors.surface,
     fontSize: 15,
     fontWeight: '600',
   },

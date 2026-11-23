@@ -23,6 +23,7 @@ import { useCommissionAction } from '../hooks/useCommissionAction';
 import { useCommissionDetail } from '../hooks/useCommissionDetail';
 import { getStageName } from '../stateMachine';
 import { CREATIVE_STAGE_ORDER } from '../types';
+import { colors } from '../../../theme';
 
 const ERROR_GENERIC = 'No se pudo completar la acción, comprueba tu conexión e inténtalo de nuevo';
 
@@ -40,7 +41,7 @@ export function CommissionWorkScreen() {
   if (isPending) {
     return (
       <View style={styles.centered}>
-        <ActivityIndicator color="#6C5CE7" size="large" />
+        <ActivityIndicator color={colors.primary} size="large" />
       </View>
     );
   }
@@ -185,24 +186,24 @@ const styles = StyleSheet.create({
   },
   uploadButton: {
     alignItems: 'center',
-    borderColor: '#6C5CE7',
+    borderColor: colors.primary,
     borderRadius: 10,
     borderWidth: 1.5,
     paddingVertical: 12,
   },
   uploadLabel: {
-    color: '#6C5CE7',
+    color: colors.primary,
     fontSize: 15,
     fontWeight: '600',
   },
   advanceButton: {
     alignItems: 'center',
-    backgroundColor: '#6C5CE7',
+    backgroundColor: colors.primary,
     borderRadius: 10,
     paddingVertical: 14,
   },
   advanceLabel: {
-    color: '#FFFFFF',
+    color: colors.surface,
     fontSize: 16,
     fontWeight: '700',
   },
@@ -226,16 +227,16 @@ const styles = StyleSheet.create({
     paddingBottom: 32,
   },
   currentStageName: {
-    color: '#374151',
+    color: colors.text,
     fontSize: 14,
     marginTop: 16,
   },
   divider: {
-    backgroundColor: '#F3F4F6',
+    backgroundColor: colors.surfaceSunken,
     height: 8,
   },
   errorText: {
-    color: '#B91C1C',
+    color: colors.danger,
     fontSize: 15,
     lineHeight: 22,
     textAlign: 'center',
@@ -247,19 +248,19 @@ const styles = StyleSheet.create({
     padding: 16,
   },
   sectionTitle: {
-    color: '#374151',
+    color: colors.text,
     fontSize: 14,
     fontWeight: '700',
     marginBottom: 16,
     textTransform: 'uppercase',
   },
   serviceName: {
-    color: '#111827',
+    color: colors.text,
     fontSize: 20,
     fontWeight: '700',
   },
   stageNameBold: {
-    color: '#6C5CE7',
+    color: colors.primary,
     fontWeight: '700',
   },
 });

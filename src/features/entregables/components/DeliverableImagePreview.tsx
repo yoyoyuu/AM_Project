@@ -1,6 +1,7 @@
 import { Image } from 'expo-image';
 import { useState } from 'react';
 import { ActivityIndicator, Modal, Pressable, StyleSheet, Text, View } from 'react-native';
+import { colors } from '../../../theme';
 
 interface Props {
   url: string | null | undefined;
@@ -16,7 +17,7 @@ export function DeliverableImagePreview({ url, loading = false }: Props) {
   if (loading) {
     return (
       <View style={styles.previewPlaceholder}>
-        <ActivityIndicator size="small" color="#6B7280" />
+        <ActivityIndicator size="small" color={colors.textSecondary} />
       </View>
     );
   }
@@ -59,7 +60,7 @@ export function DeliverableImagePreview({ url, loading = false }: Props) {
 
 const styles = StyleSheet.create({
   fallback: {
-    color: '#9CA3AF',
+    color: colors.textMuted,
     fontSize: 13,
   },
   fullImage: {
@@ -79,7 +80,7 @@ const styles = StyleSheet.create({
   },
   previewPlaceholder: {
     alignItems: 'center',
-    backgroundColor: '#F3F4F6',
+    backgroundColor: colors.surfaceSunken,
     borderRadius: 10,
     height: 200,
     justifyContent: 'center',

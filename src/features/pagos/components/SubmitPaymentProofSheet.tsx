@@ -23,6 +23,7 @@ import type { PickedAsset } from '../../../lib/media/pickSingleImage';
 import { requestGalleryPermission } from '../../avances/utils/requestGalleryPermission';
 import { useSubmitPaymentProof } from '../hooks/useSubmitPaymentProof';
 import { paymentProofSchema, type PaymentProofFormValues } from '../schemas';
+import { colors } from '../../../theme';
 
 interface Props {
   visible: boolean;
@@ -152,7 +153,7 @@ export function SubmitPaymentProofSheet({ visible, onClose, commissionId }: Prop
                     <TextInput
                       style={[styles.input, errors.reference && styles.inputError]}
                       placeholder="Ej. 123456789"
-                      placeholderTextColor="#9CA3AF"
+                      placeholderTextColor={colors.textMuted}
                       maxLength={70}
                       onBlur={onBlur}
                       onChangeText={onChange}
@@ -177,7 +178,7 @@ export function SubmitPaymentProofSheet({ visible, onClose, commissionId }: Prop
                     <TextInput
                       style={[styles.input, styles.inputMultiline, errors.note && styles.inputError]}
                       placeholder="Algún comentario adicional..."
-                      placeholderTextColor="#9CA3AF"
+                      placeholderTextColor={colors.textMuted}
                       multiline
                       numberOfLines={3}
                       maxLength={310}
@@ -226,7 +227,7 @@ export function SubmitPaymentProofSheet({ visible, onClose, commissionId }: Prop
                 disabled={isPending}
               >
                 {isPending ? (
-                  <ActivityIndicator size="small" color="#FFFFFF" />
+                  <ActivityIndicator size="small" color={colors.surface} />
                 ) : (
                   <Text style={styles.confirmLabel}>Enviar comprobante</Text>
                 )}
@@ -250,14 +251,14 @@ const styles = StyleSheet.create({
     flex: 1,
   },
   cancelButton: {
-    borderColor: '#D1D5DB',
+    borderColor: colors.borderStrong,
     borderRadius: 8,
     borderWidth: 1,
     paddingHorizontal: 16,
     paddingVertical: 10,
   },
   cancelLabel: {
-    color: '#374151',
+    color: colors.text,
     fontSize: 14,
     fontWeight: '600',
   },
@@ -266,12 +267,12 @@ const styles = StyleSheet.create({
     marginTop: 8,
   },
   changeLabel: {
-    color: '#3B82F6',
+    color: colors.primary,
     fontSize: 13,
   },
   confirmButton: {
     alignItems: 'center',
-    backgroundColor: '#3B82F6',
+    backgroundColor: colors.primary,
     borderRadius: 8,
     justifyContent: 'center',
     minWidth: 120,
@@ -282,7 +283,7 @@ const styles = StyleSheet.create({
     opacity: 0.6,
   },
   confirmLabel: {
-    color: '#FFFFFF',
+    color: colors.surface,
     fontSize: 14,
     fontWeight: '600',
   },
@@ -291,12 +292,12 @@ const styles = StyleSheet.create({
     maxHeight: 480,
   },
   counter: {
-    color: '#6B7280',
+    color: colors.textSecondary,
     fontSize: 12,
     marginLeft: 'auto',
   },
   counterOver: {
-    color: '#EF4444',
+    color: colors.danger,
   },
   counterRow: {
     alignItems: 'center',
@@ -304,35 +305,35 @@ const styles = StyleSheet.create({
     marginTop: 4,
   },
   errorBanner: {
-    backgroundColor: '#FEF2F2',
+    backgroundColor: colors.primarySoft,
     borderRadius: 8,
-    color: '#B91C1C',
+    color: colors.danger,
     fontSize: 13,
     marginTop: 12,
     padding: 10,
   },
   errorText: {
-    color: '#EF4444',
+    color: colors.danger,
     flex: 1,
     fontSize: 12,
   },
   fieldLabel: {
-    color: '#374151',
+    color: colors.text,
     fontSize: 13,
     fontWeight: '500',
     marginTop: 14,
   },
   input: {
-    borderColor: '#D1D5DB',
+    borderColor: colors.borderStrong,
     borderRadius: 8,
     borderWidth: 1,
-    color: '#111827',
+    color: colors.text,
     fontSize: 14,
     marginTop: 4,
     padding: 10,
   },
   inputError: {
-    borderColor: '#EF4444',
+    borderColor: colors.danger,
   },
   inputMultiline: {
     height: 80,
@@ -348,24 +349,24 @@ const styles = StyleSheet.create({
   },
   selectButton: {
     alignItems: 'center',
-    backgroundColor: '#F3F4F6',
+    backgroundColor: colors.surfaceSunken,
     borderRadius: 10,
     paddingVertical: 40,
   },
   selectLabel: {
-    color: '#3B82F6',
+    color: colors.primary,
     fontSize: 15,
     fontWeight: '600',
   },
   sheet: {
-    backgroundColor: '#FFFFFF',
+    backgroundColor: colors.surface,
     borderTopLeftRadius: 16,
     borderTopRightRadius: 16,
     padding: 20,
     paddingBottom: 32,
   },
   title: {
-    color: '#111827',
+    color: colors.text,
     fontSize: 16,
     fontWeight: '700',
   },

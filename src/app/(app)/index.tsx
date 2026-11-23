@@ -14,6 +14,7 @@ import { useAppMode, type AppMode } from '../../features/auth/useAppMode';
 import { useProfile } from '../../features/auth/useProfile';
 import { NotificationPermissionPrompt } from '../../features/notificaciones/components/NotificationPermissionPrompt';
 import { NotificationSettingsRow } from '../../features/notificaciones/components/NotificationSettingsRow';
+import { colors } from '../../theme';
 
 const showToast = (message: string) => ToastAndroid.show(message, ToastAndroid.SHORT);
 
@@ -59,7 +60,7 @@ export default function AppHomeScreen() {
   if (isLoading || modeLoading || profile === null) {
     return (
       <View style={styles.loading}>
-        <ActivityIndicator color="#6C5CE7" />
+        <ActivityIndicator color={colors.primary} />
       </View>
     );
   }
@@ -204,7 +205,7 @@ export default function AppHomeScreen() {
         style={styles.logoutButton}
       >
         {isSigningOut ? (
-          <ActivityIndicator color="#B91C1C" />
+          <ActivityIndicator color={colors.danger} />
         ) : (
           <Text style={styles.logoutText}>Cerrar sesión</Text>
         )}
@@ -224,42 +225,42 @@ const styles = StyleSheet.create({
     padding: 24,
   },
   brand: {
-    color: '#6C5CE7',
+    color: colors.primary,
     fontSize: 28,
     fontWeight: '800',
     marginBottom: 28,
   },
   title: {
-    color: '#1F2937',
+    color: colors.text,
     fontSize: 28,
     fontWeight: '700',
   },
   subtitle: {
-    color: '#6B7280',
+    color: colors.textSecondary,
     fontSize: 18,
     marginBottom: 16,
   },
   card: {
-    backgroundColor: '#FFFFFF',
-    borderColor: '#E5E7EB',
+    backgroundColor: colors.surface,
+    borderColor: colors.border,
     borderRadius: 12,
     borderWidth: 1,
     marginTop: 28,
     padding: 18,
   },
   cardTitle: {
-    color: '#374151',
+    color: colors.text,
     fontSize: 17,
     fontWeight: '700',
   },
   handle: {
-    color: '#6C5CE7',
+    color: colors.primary,
     fontSize: 22,
     fontWeight: '700',
     marginTop: 10,
   },
   cardText: {
-    color: '#6B7280',
+    color: colors.textSecondary,
     fontSize: 15,
     marginTop: 10,
   },
@@ -267,7 +268,7 @@ const styles = StyleSheet.create({
     marginTop: 28,
   },
   modeLabel: {
-    color: '#374151',
+    color: colors.text,
     fontSize: 16,
     fontWeight: '600',
     marginBottom: 10,
@@ -276,7 +277,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
   },
   modeOption: {
-    borderColor: '#D1D5DB',
+    borderColor: colors.borderStrong,
     borderRadius: 10,
     borderWidth: 1,
     marginRight: 10,
@@ -285,35 +286,35 @@ const styles = StyleSheet.create({
     paddingVertical: 12,
   },
   modeOptionSelected: {
-    backgroundColor: '#6C5CE7',
-    borderColor: '#6C5CE7',
+    backgroundColor: colors.primary,
+    borderColor: colors.primary,
   },
   modeOptionText: {
-    color: '#374151',
+    color: colors.text,
     fontSize: 15,
     textAlign: 'center',
   },
   modeOptionTextSelected: {
-    color: '#FFFFFF',
+    color: colors.surface,
     fontWeight: '700',
   },
   options: {
     marginTop: 32,
   },
   secondaryButton: {
-    backgroundColor: '#F3F4F6',
+    backgroundColor: colors.surfaceSunken,
     borderRadius: 10,
     marginBottom: 12,
     padding: 16,
   },
   secondaryButtonText: {
-    color: '#374151',
+    color: colors.text,
     fontSize: 16,
     fontWeight: '600',
   },
   button: {
     alignItems: 'center',
-    backgroundColor: '#6C5CE7',
+    backgroundColor: colors.primary,
     borderRadius: 10,
     justifyContent: 'center',
     marginTop: 16,
@@ -321,14 +322,14 @@ const styles = StyleSheet.create({
     paddingHorizontal: 16,
   },
   buttonText: {
-    color: '#FFFFFF',
+    color: colors.surface,
     fontSize: 16,
     fontWeight: '700',
     textAlign: 'center',
   },
   searchButton: {
     alignItems: 'center',
-    borderColor: '#6C5CE7',
+    borderColor: colors.primary,
     borderRadius: 10,
     borderWidth: 1,
     justifyContent: 'center',
@@ -337,12 +338,12 @@ const styles = StyleSheet.create({
     paddingHorizontal: 16,
   },
   searchButtonText: {
-    color: '#6C5CE7',
+    color: colors.primary,
     fontSize: 16,
     fontWeight: '700',
   },
   error: {
-    color: '#B91C1C',
+    color: colors.danger,
     fontSize: 14,
     marginTop: 18,
   },
@@ -353,7 +354,7 @@ const styles = StyleSheet.create({
     paddingVertical: 8,
   },
   logoutText: {
-    color: '#B91C1C',
+    color: colors.danger,
     fontSize: 15,
     fontWeight: '600',
   },

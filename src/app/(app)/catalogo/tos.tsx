@@ -17,6 +17,7 @@ import {
   useUpsertTos,
 } from '../../../features/catalogo/queries';
 import type { TosFormValues } from '../../../features/catalogo/schemas';
+import { colors } from '../../../theme';
 
 export default function TosScreen() {
   const tosQuery = useMyTos();
@@ -52,7 +53,7 @@ export default function TosScreen() {
   if (tosQuery.isPending) {
     return (
       <View style={styles.centered}>
-        <ActivityIndicator color="#6C5CE7" />
+        <ActivityIndicator color={colors.primary} />
       </View>
     );
   }
@@ -132,7 +133,7 @@ export default function TosScreen() {
           ]}
         >
           {isSaving ? (
-            <ActivityIndicator color="#FFFFFF" />
+            <ActivityIndicator color={colors.surface} />
           ) : (
             <Text style={styles.buttonText}>Guardar términos</Text>
           )}
@@ -157,61 +158,61 @@ const styles = StyleSheet.create({
     padding: 24,
   },
   brand: {
-    color: '#6C5CE7',
+    color: colors.primary,
     fontSize: 28,
     fontWeight: '800',
     marginBottom: 20,
   },
   title: {
-    color: '#1F2937',
+    color: colors.text,
     fontSize: 28,
     fontWeight: '700',
   },
   subtitle: {
-    color: '#6B7280',
+    color: colors.textSecondary,
     fontSize: 16,
     lineHeight: 23,
     marginBottom: 20,
     marginTop: 8,
   },
   input: {
-    borderColor: '#D1D5DB',
+    borderColor: colors.borderStrong,
     borderRadius: 10,
     borderWidth: 1,
-    color: '#111827',
+    color: colors.text,
     fontSize: 16,
     minHeight: 260,
     padding: 14,
   },
   inputError: {
-    borderColor: '#B91C1C',
+    borderColor: colors.danger,
   },
   counter: {
-    color: '#6B7280',
+    color: colors.textSecondary,
     fontSize: 13,
     marginTop: 6,
     textAlign: 'right',
   },
   counterLimit: {
-    color: '#B91C1C',
+    color: colors.danger,
     fontWeight: '600',
   },
   error: {
-    color: '#B91C1C',
+    color: colors.danger,
     fontSize: 14,
     lineHeight: 21,
     marginTop: 6,
     textAlign: 'center',
   },
   success: {
-    color: '#166534',
+    color: colors.successStrong,
     fontSize: 14,
     marginTop: 12,
     textAlign: 'center',
   },
   button: {
     alignItems: 'center',
-    backgroundColor: '#6C5CE7',
+    backgroundColor: colors.primary,
     borderRadius: 10,
     justifyContent: 'center',
     marginTop: 28,
@@ -222,10 +223,10 @@ const styles = StyleSheet.create({
     opacity: 0.85,
   },
   buttonDisabled: {
-    backgroundColor: '#9CA3AF',
+    backgroundColor: colors.textMuted,
   },
   buttonText: {
-    color: '#FFFFFF',
+    color: colors.surface,
     fontSize: 16,
     fontWeight: '700',
   },

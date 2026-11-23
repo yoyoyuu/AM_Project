@@ -3,6 +3,7 @@ import { useState } from 'react';
 import { Dimensions, Modal, Pressable, StyleSheet, View } from 'react-native';
 
 import type { CommissionAdvanceFile } from '../types';
+import { colors } from '../../../theme';
 
 interface Props {
   files: CommissionAdvanceFile[];
@@ -76,11 +77,11 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
   thumb: {
-    backgroundColor: '#F3F4F6',
+    backgroundColor: colors.surfaceSunken,
     borderRadius: 6,
   },
   thumbError: {
-    backgroundColor: '#FEE2E2',
+    backgroundColor: colors.primarySoft,
   },
   overlay: {
     alignItems: 'center',

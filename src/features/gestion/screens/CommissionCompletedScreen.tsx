@@ -2,6 +2,7 @@ import { router } from 'expo-router';
 import { Pressable, StyleSheet, Text, View } from 'react-native';
 
 import { CommissionStatusBadge } from '../components/CommissionStatusBadge';
+import { colors } from '../../../theme';
 
 export function CommissionCompletedScreen() {
   return (
@@ -28,7 +29,7 @@ export function CommissionCompletedScreen() {
 const styles = StyleSheet.create({
   button: {
     alignItems: 'center',
-    backgroundColor: '#6C5CE7',
+    backgroundColor: colors.primary,
     borderRadius: 10,
     marginTop: 32,
     paddingHorizontal: 32,
@@ -36,7 +37,7 @@ const styles = StyleSheet.create({
     width: '100%',
   },
   buttonLabel: {
-    color: '#FFFFFF',
+    color: colors.surface,
     fontSize: 16,
     fontWeight: '700',
   },
@@ -50,14 +51,14 @@ const styles = StyleSheet.create({
     padding: 32,
   },
   icon: {
-    color: '#FFFFFF',
+    color: colors.surface,
     fontSize: 40,
     fontWeight: '700',
     lineHeight: 48,
   },
   iconContainer: {
     alignItems: 'center',
-    backgroundColor: '#10B981',
+    backgroundColor: colors.success,
     borderRadius: 48,
     height: 96,
     justifyContent: 'center',
@@ -65,7 +66,7 @@ const styles = StyleSheet.create({
     width: 96,
   },
   message: {
-    color: '#111827',
+    color: colors.text,
     fontSize: 20,
     fontWeight: '700',
     lineHeight: 28,

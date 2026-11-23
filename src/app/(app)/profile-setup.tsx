@@ -16,6 +16,7 @@ import { z } from 'zod';
 import { useProfile } from '../../features/auth/useProfile';
 import { messages } from '../../features/auth/messages';
 import { displayNameSchema } from '../../features/auth/schemas';
+import { colors } from '../../theme';
 
 const profileSetupSchema = z.object({
   displayName: displayNameSchema,
@@ -101,7 +102,7 @@ export default function ProfileSetupScreen() {
           ]}
         >
           {isSubmitting ? (
-            <ActivityIndicator color="#FFFFFF" />
+            <ActivityIndicator color={colors.surface} />
           ) : (
             <Text style={styles.buttonText}>Guardar nombre</Text>
           )}
@@ -121,49 +122,49 @@ const styles = StyleSheet.create({
     padding: 24,
   },
   brand: {
-    color: '#6C5CE7',
+    color: colors.primary,
     fontSize: 28,
     fontWeight: '800',
     marginBottom: 24,
   },
   title: {
-    color: '#1F2937',
+    color: colors.text,
     fontSize: 28,
     fontWeight: '700',
   },
   subtitle: {
-    color: '#6B7280',
+    color: colors.textSecondary,
     fontSize: 16,
     marginBottom: 28,
     marginTop: 8,
   },
   label: {
-    color: '#374151',
+    color: colors.text,
     fontSize: 15,
     fontWeight: '600',
     marginBottom: 8,
     marginTop: 16,
   },
   input: {
-    borderColor: '#D1D5DB',
+    borderColor: colors.borderStrong,
     borderRadius: 10,
     borderWidth: 1,
-    color: '#111827',
+    color: colors.text,
     fontSize: 16,
     minHeight: 50,
     paddingHorizontal: 14,
   },
   inputError: {
-    borderColor: '#B91C1C',
+    borderColor: colors.danger,
   },
   error: {
-    color: '#B91C1C',
+    color: colors.danger,
     fontSize: 14,
     marginTop: 6,
   },
   button: {
     alignItems: 'center',
-    backgroundColor: '#6C5CE7',
+    backgroundColor: colors.primary,
     borderRadius: 10,
     justifyContent: 'center',
     marginTop: 28,
@@ -176,7 +177,7 @@ const styles = StyleSheet.create({
     opacity: 0.85,
   },
   buttonText: {
-    color: '#FFFFFF',
+    color: colors.surface,
     fontSize: 16,
     fontWeight: '700',
   },

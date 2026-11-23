@@ -4,6 +4,7 @@ import { formatRelativeDate } from '../../seguimiento/presenters';
 import type { CommissionAdvance } from '../types';
 import { AdvanceImageGrid } from './AdvanceImageGrid';
 import { AdvanceStageBadge } from './AdvanceStageBadge';
+import { colors } from '../../../theme';
 
 interface Props {
   advance: CommissionAdvance;
@@ -28,8 +29,8 @@ export function AdvanceCard({ advance }: Props) {
 
 const styles = StyleSheet.create({
   card: {
-    backgroundColor: '#FFFFFF',
-    borderColor: '#E5E7EB',
+    backgroundColor: colors.surface,
+    borderColor: colors.border,
     borderRadius: 12,
     borderWidth: 1,
     gap: 10,
@@ -41,11 +42,11 @@ const styles = StyleSheet.create({
     justifyContent: 'space-between',
   },
   date: {
-    color: '#6B7280',
+    color: colors.textSecondary,
     fontSize: 12,
   },
   note: {
-    color: '#374151',
+    color: colors.text,
     fontSize: 14,
     lineHeight: 20,
   },

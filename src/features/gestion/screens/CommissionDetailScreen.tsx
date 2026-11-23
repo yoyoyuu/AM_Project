@@ -17,6 +17,7 @@ import { ReferenceGallery } from '../components/ReferenceGallery';
 import { RejectCommissionSheet } from '../components/RejectCommissionSheet';
 import { useCommissionAction } from '../hooks/useCommissionAction';
 import { useCommissionDetail } from '../hooks/useCommissionDetail';
+import { colors } from '../../../theme';
 
 const ERROR_GENERIC = 'No se pudo completar la acción, comprueba tu conexión e inténtalo de nuevo';
 const ERROR_PERMISSION = 'No tienes permiso para ver esta comisión';
@@ -43,7 +44,7 @@ export function CommissionDetailScreen() {
   if (isPending) {
     return (
       <View style={styles.centered}>
-        <ActivityIndicator color="#6C5CE7" size="large" />
+        <ActivityIndicator color={colors.primary} size="large" />
       </View>
     );
   }
@@ -242,13 +243,13 @@ export function CommissionDetailScreen() {
 const styles = StyleSheet.create({
   acceptButton: {
     alignItems: 'center',
-    backgroundColor: '#6C5CE7',
+    backgroundColor: colors.primary,
     borderRadius: 10,
     marginBottom: 10,
     paddingVertical: 14,
   },
   acceptLabel: {
-    color: '#FFFFFF',
+    color: colors.surface,
     fontSize: 16,
     fontWeight: '700',
   },
@@ -272,7 +273,7 @@ const styles = StyleSheet.create({
     paddingBottom: 32,
   },
   detailLabel: {
-    color: '#6B7280',
+    color: colors.textSecondary,
     fontSize: 13,
     marginBottom: 2,
   },
@@ -280,29 +281,29 @@ const styles = StyleSheet.create({
     marginBottom: 12,
   },
   detailValue: {
-    color: '#111827',
+    color: colors.text,
     fontSize: 15,
     lineHeight: 22,
   },
   divider: {
-    backgroundColor: '#F3F4F6',
+    backgroundColor: colors.surfaceSunken,
     height: 8,
   },
   errorText: {
-    color: '#B91C1C',
+    color: colors.danger,
     fontSize: 15,
     lineHeight: 22,
     textAlign: 'center',
   },
   rejectButton: {
     alignItems: 'center',
-    borderColor: '#EF4444',
+    borderColor: colors.danger,
     borderRadius: 10,
     borderWidth: 1.5,
     paddingVertical: 14,
   },
   rejectLabel: {
-    color: '#EF4444',
+    color: colors.danger,
     fontSize: 16,
     fontWeight: '700',
   },
@@ -314,14 +315,14 @@ const styles = StyleSheet.create({
     padding: 16,
   },
   sectionTitle: {
-    color: '#374151',
+    color: colors.text,
     fontSize: 14,
     fontWeight: '700',
     marginBottom: 12,
     textTransform: 'uppercase',
   },
   serviceMeta: {
-    color: '#6C5CE7',
+    color: colors.primary,
     fontSize: 14,
     fontWeight: '600',
   },
@@ -331,7 +332,7 @@ const styles = StyleSheet.create({
     marginTop: 8,
   },
   serviceName: {
-    color: '#111827',
+    color: colors.text,
     fontSize: 20,
     fontWeight: '700',
   },

@@ -3,6 +3,7 @@ import { Pressable, StyleSheet, Text, View } from 'react-native';
 
 import type { CommissionWithDetails } from '../types';
 import { CommissionStatusBadge } from './CommissionStatusBadge';
+import { colors } from '../../../theme';
 
 interface Props {
   commission: CommissionWithDetails;
@@ -55,8 +56,8 @@ export function PendingCommissionCard({ commission }: Props) {
 
 const styles = StyleSheet.create({
   card: {
-    backgroundColor: '#FFFFFF',
-    borderColor: '#E5E7EB',
+    backgroundColor: colors.surface,
+    borderColor: colors.border,
     borderRadius: 12,
     borderWidth: 1,
     marginHorizontal: 16,
@@ -64,15 +65,15 @@ const styles = StyleSheet.create({
     padding: 16,
   },
   cardPressed: {
-    backgroundColor: '#F9FAFB',
+    backgroundColor: colors.background,
   },
   clientHandle: {
-    color: '#6B7280',
+    color: colors.textSecondary,
     fontSize: 14,
     marginTop: 4,
   },
   date: {
-    color: '#9CA3AF',
+    color: colors.textMuted,
     fontSize: 12,
     marginTop: 6,
   },
@@ -82,7 +83,7 @@ const styles = StyleSheet.create({
     justifyContent: 'space-between',
   },
   serviceTitle: {
-    color: '#111827',
+    color: colors.text,
     flex: 1,
     fontSize: 16,
     fontWeight: '600',

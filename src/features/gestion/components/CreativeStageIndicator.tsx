@@ -1,9 +1,9 @@
 import { StyleSheet, Text, View } from 'react-native';
 
-import { colors } from '../../../theme';
 import { getStageName } from '../stateMachine';
 import { CREATIVE_STAGE_ORDER } from '../types';
 import type { CreativeStage } from '../types';
+import { colors } from '../../../theme';
 
 interface Props {
   currentStage: CreativeStage | null;
@@ -85,7 +85,7 @@ const styles = StyleSheet.create({
     fontWeight: '700',
   },
   dotLabelActive: {
-    color: '#FFFFFF',
+    color: colors.surface,
     fontSize: 14,
     fontWeight: '700',
   },

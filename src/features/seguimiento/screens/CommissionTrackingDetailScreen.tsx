@@ -20,6 +20,7 @@ import { CommissionStatusBadge } from '../components/CommissionStatusBadge';
 import { CreativeStepper } from '../components/CreativeStepper';
 import { RejectionBlock } from '../components/RejectionBlock';
 import type { CommissionReferenceView } from '../types';
+import { colors } from '../../../theme';
 
 interface Props {
   commissionId: string;
@@ -205,8 +206,8 @@ export function CommissionTrackingDetailScreen({ commissionId }: Props) {
 
 const styles = StyleSheet.create({
   block: {
-    backgroundColor: '#FFFFFF',
-    borderColor: '#E5E7EB',
+    backgroundColor: colors.surface,
+    borderColor: colors.border,
     borderRadius: 12,
     borderWidth: 1,
     marginBottom: 12,
@@ -216,7 +217,7 @@ const styles = StyleSheet.create({
     marginBottom: 12,
   },
   blockTitle: {
-    color: '#374151',
+    color: colors.text,
     fontSize: 13,
     fontWeight: '600',
     letterSpacing: 0.4,
@@ -230,7 +231,7 @@ const styles = StyleSheet.create({
     padding: 32,
   },
   container: {
-    backgroundColor: '#F9FAFB',
+    backgroundColor: colors.background,
     flex: 1,
   },
   content: {
@@ -238,7 +239,7 @@ const styles = StyleSheet.create({
     paddingBottom: 40,
   },
   detailLabel: {
-    color: '#6B7280',
+    color: colors.textSecondary,
     fontSize: 13,
     marginBottom: 2,
   },
@@ -246,11 +247,11 @@ const styles = StyleSheet.create({
     marginBottom: 8,
   },
   detailValue: {
-    color: '#111827',
+    color: colors.text,
     fontSize: 15,
   },
   errorText: {
-    color: '#374151',
+    color: colors.text,
     fontSize: 15,
     marginBottom: 16,
     textAlign: 'center',
@@ -261,8 +262,8 @@ const styles = StyleSheet.create({
     gap: 8,
   },
   header: {
-    backgroundColor: '#FFFFFF',
-    borderColor: '#E5E7EB',
+    backgroundColor: colors.surface,
+    borderColor: colors.border,
     borderRadius: 12,
     borderWidth: 1,
     marginBottom: 12,
@@ -279,21 +280,21 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
   retryButton: {
-    backgroundColor: '#111827',
+    backgroundColor: colors.text,
     borderRadius: 10,
     paddingHorizontal: 24,
     paddingVertical: 12,
   },
   retryButtonPressed: {
-    backgroundColor: '#374151',
+    backgroundColor: colors.text,
   },
   retryLabel: {
-    color: '#FFFFFF',
+    color: colors.surface,
     fontSize: 15,
     fontWeight: '600',
   },
   stageLabel: {
-    color: '#3B82F6',
+    color: colors.primary,
     fontSize: 13,
     marginTop: 6,
   },

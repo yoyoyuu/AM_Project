@@ -1,4 +1,5 @@
 import { Pressable, StyleSheet, Text, View } from 'react-native';
+import { colors } from '../../../theme';
 
 interface Props {
   onExploreArtists: () => void;
@@ -22,19 +23,19 @@ export function CommissionsEmptyState({ onExploreArtists }: Props) {
 
 const styles = StyleSheet.create({
   button: {
-    backgroundColor: '#111827',
+    backgroundColor: colors.text,
     borderRadius: 10,
     marginTop: 16,
     paddingHorizontal: 24,
     paddingVertical: 12,
   },
   buttonLabel: {
-    color: '#FFFFFF',
+    color: colors.surface,
     fontSize: 15,
     fontWeight: '600',
   },
   buttonPressed: {
-    backgroundColor: '#374151',
+    backgroundColor: colors.text,
   },
   container: {
     alignItems: 'center',
@@ -43,7 +44,7 @@ const styles = StyleSheet.create({
     padding: 32,
   },
   message: {
-    color: '#6B7280',
+    color: colors.textSecondary,
     fontSize: 16,
     textAlign: 'center',
   },

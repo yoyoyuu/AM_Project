@@ -13,6 +13,7 @@ import { MESSAGES } from '../../../features/catalogo/messages';
 import { useMyServices } from '../../../features/catalogo/queries';
 import type { Service } from '../../../features/catalogo/types';
 import { useProfile } from '../../../features/auth/useProfile';
+import { colors } from '../../../theme';
 
 function ServiceCard({ service }: { service: Service }) {
   return (
@@ -52,7 +53,7 @@ export default function CatalogoScreen() {
   if (profileLoading || servicesQuery.isPending) {
     return (
       <View style={styles.centered}>
-        <ActivityIndicator color="#6C5CE7" />
+        <ActivityIndicator color={colors.primary} />
       </View>
     );
   }
@@ -145,18 +146,18 @@ const styles = StyleSheet.create({
     padding: 24,
   },
   brand: {
-    color: '#6C5CE7',
+    color: colors.primary,
     fontSize: 28,
     fontWeight: '800',
     marginBottom: 20,
   },
   title: {
-    color: '#1F2937',
+    color: colors.text,
     fontSize: 28,
     fontWeight: '700',
   },
   subtitle: {
-    color: '#6B7280',
+    color: colors.textSecondary,
     fontSize: 15,
     marginBottom: 18,
     marginTop: 8,
@@ -170,8 +171,8 @@ const styles = StyleSheet.create({
     paddingBottom: 24,
   },
   serviceCard: {
-    backgroundColor: '#FFFFFF',
-    borderColor: '#E5E7EB',
+    backgroundColor: colors.surface,
+    borderColor: colors.border,
     borderRadius: 12,
     borderWidth: 1,
     marginBottom: 12,
@@ -183,15 +184,15 @@ const styles = StyleSheet.create({
     justifyContent: 'space-between',
   },
   serviceTitle: {
-    color: '#374151',
+    color: colors.text,
     flex: 1,
     fontSize: 17,
     fontWeight: '700',
   },
   pausedLabel: {
-    backgroundColor: '#FEF3C7',
+    backgroundColor: colors.neutralSoft,
     borderRadius: 6,
-    color: '#92400E',
+    color: colors.neutralText,
     fontSize: 12,
     fontWeight: '700',
     marginLeft: 10,
@@ -200,7 +201,7 @@ const styles = StyleSheet.create({
     paddingVertical: 4,
   },
   description: {
-    color: '#6B7280',
+    color: colors.textSecondary,
     fontSize: 14,
     marginTop: 8,
   },
@@ -210,35 +211,35 @@ const styles = StyleSheet.create({
     marginTop: 14,
   },
   detail: {
-    color: '#6C5CE7',
+    color: colors.primary,
     fontSize: 15,
     fontWeight: '600',
   },
   emptyText: {
-    color: '#6B7280',
+    color: colors.textSecondary,
     fontSize: 16,
     lineHeight: 24,
     textAlign: 'center',
   },
   error: {
-    color: '#B91C1C',
+    color: colors.danger,
     fontSize: 15,
     lineHeight: 22,
     textAlign: 'center',
   },
   primaryButton: {
     alignItems: 'center',
-    backgroundColor: '#6C5CE7',
+    backgroundColor: colors.primary,
     borderRadius: 10,
     justifyContent: 'center',
     minHeight: 52,
     paddingHorizontal: 16,
   },
   disabledButton: {
-    backgroundColor: '#9CA3AF',
+    backgroundColor: colors.textMuted,
   },
   primaryButtonText: {
-    color: '#FFFFFF',
+    color: colors.surface,
     fontSize: 16,
     fontWeight: '700',
     textAlign: 'center',

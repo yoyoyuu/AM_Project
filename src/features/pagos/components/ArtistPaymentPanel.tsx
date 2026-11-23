@@ -8,6 +8,7 @@ import { PaymentStatusBadge } from './PaymentStatusBadge';
 import { PaymentProofViewer } from './PaymentProofViewer';
 import { ConfirmPaymentDialog } from './ConfirmPaymentDialog';
 import { RequestCorrectionSheet } from './RequestCorrectionSheet';
+import { colors } from '../../../theme';
 
 interface Props {
   payment: CommissionPayment;
@@ -106,25 +107,25 @@ const styles = StyleSheet.create({
   },
   confirmButton: {
     alignItems: 'center',
-    backgroundColor: '#10B981',
+    backgroundColor: colors.success,
     borderRadius: 8,
     flex: 1,
     paddingHorizontal: 14,
     paddingVertical: 11,
   },
   confirmLabel: {
-    color: '#FFFFFF',
+    color: colors.surface,
     fontSize: 14,
     fontWeight: '600',
   },
   container: {
-    backgroundColor: '#FFFFFF',
+    backgroundColor: colors.surface,
     borderRadius: 12,
     padding: 16,
   },
   correctionButton: {
     alignItems: 'center',
-    borderColor: '#EF4444',
+    borderColor: colors.danger,
     borderRadius: 8,
     borderWidth: 1,
     flex: 1,
@@ -132,12 +133,12 @@ const styles = StyleSheet.create({
     paddingVertical: 11,
   },
   correctionLabel: {
-    color: '#EF4444',
+    color: colors.danger,
     fontSize: 14,
     fontWeight: '600',
   },
   message: {
-    color: '#6B7280',
+    color: colors.textSecondary,
     fontSize: 13,
     marginTop: 6,
   },
@@ -146,7 +147,7 @@ const styles = StyleSheet.create({
     marginTop: 12,
   },
   proofButtonLabel: {
-    color: '#3B82F6',
+    color: colors.primary,
     fontSize: 13,
     fontWeight: '500',
     textDecorationLine: 'underline',
@@ -155,7 +156,7 @@ const styles = StyleSheet.create({
     marginTop: 10,
   },
   title: {
-    color: '#111827',
+    color: colors.text,
     fontSize: 16,
     fontWeight: '700',
   },

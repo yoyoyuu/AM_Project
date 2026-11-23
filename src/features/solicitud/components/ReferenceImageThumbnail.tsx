@@ -1,4 +1,5 @@
 import { Image, Pressable, StyleSheet, Text, View } from 'react-native';
+import { colors } from '../../../theme';
 
 interface Props {
   uri: string;
@@ -38,7 +39,7 @@ const styles = StyleSheet.create({
   },
   removeButton: {
     alignItems: 'center',
-    backgroundColor: '#1F2937',
+    backgroundColor: colors.text,
     borderRadius: 10,
     height: 20,
     justifyContent: 'center',
@@ -51,7 +52,7 @@ const styles = StyleSheet.create({
     opacity: 0.7,
   },
   removeIcon: {
-    color: '#FFFFFF',
+    color: colors.surface,
     fontSize: 14,
     fontWeight: '700',
     lineHeight: 18,

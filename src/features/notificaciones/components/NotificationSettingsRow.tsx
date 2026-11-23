@@ -4,6 +4,7 @@ import { NOTIFICATION_MESSAGES as M } from '../messages';
 import { getPushPermissionState, type PushPermissionState } from '../permission';
 import { syncPushRegistration } from '../pushToken';
 import { NotificationPermissionPrompt } from './NotificationPermissionPrompt';
+import { colors } from '../../../theme';
 
 interface Props {
   showToast?: (message: string) => void;
@@ -86,14 +87,14 @@ export function NotificationSettingsRow({ showToast }: Props) {
 const styles = StyleSheet.create({
   actionButton: {
     alignSelf: 'flex-start',
-    backgroundColor: '#3B82F6',
+    backgroundColor: colors.primary,
     borderRadius: 8,
     marginTop: 10,
     paddingHorizontal: 16,
     paddingVertical: 10,
   },
   actionLabel: {
-    color: '#FFFFFF',
+    color: colors.surface,
     fontSize: 14,
     fontWeight: '600',
   },
@@ -103,23 +104,23 @@ const styles = StyleSheet.create({
     justifyContent: 'space-between',
   },
   helpText: {
-    color: '#6B7280',
+    color: colors.textSecondary,
     fontSize: 13,
     lineHeight: 18,
     marginTop: 6,
   },
   label: {
-    color: '#111827',
+    color: colors.text,
     fontSize: 15,
     fontWeight: '600',
   },
   row: {
-    borderBottomColor: '#E5E7EB',
+    borderBottomColor: colors.border,
     borderBottomWidth: 1,
     paddingVertical: 12,
   },
   value: {
-    color: '#6B7280',
+    color: colors.textSecondary,
     fontSize: 14,
   },
 });

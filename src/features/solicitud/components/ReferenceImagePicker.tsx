@@ -5,6 +5,7 @@ import { Pressable, ScrollView, StyleSheet, Text, View } from 'react-native';
 import { requestGalleryPermission } from '../hooks/useGalleryPermission';
 import type { LocalImageAsset } from '../types';
 import { ReferenceImageThumbnail } from './ReferenceImageThumbnail';
+import { colors } from '../../../theme';
 
 const MAX_IMAGES = 5;
 const MAX_FILE_SIZE = 10 * 1024 * 1024; // 10 MB
@@ -136,7 +137,7 @@ const styles = StyleSheet.create({
     gap: 10,
   },
   label: {
-    color: '#374151',
+    color: colors.text,
     fontSize: 15,
     fontWeight: '600',
   },
@@ -145,12 +146,12 @@ const styles = StyleSheet.create({
     paddingVertical: 4,
   },
   error: {
-    color: '#B91C1C',
+    color: colors.danger,
     fontSize: 14,
   },
   addButton: {
     alignItems: 'center',
-    borderColor: '#6C5CE7',
+    borderColor: colors.primary,
     borderRadius: 10,
     borderStyle: 'dashed',
     borderWidth: 1.5,
@@ -161,10 +162,10 @@ const styles = StyleSheet.create({
     opacity: 0.7,
   },
   addButtonDisabled: {
-    borderColor: '#D1D5DB',
+    borderColor: colors.borderStrong,
   },
   addButtonText: {
-    color: '#6C5CE7',
+    color: colors.primary,
     fontSize: 15,
     fontWeight: '600',
   },

@@ -7,6 +7,7 @@ import {
   SAVE_MESSAGES,
   useSaveDeliverable,
 } from '../hooks/useSaveDeliverable';
+import { colors } from '../../../theme';
 
 interface Props {
   commissionId: string;
@@ -51,7 +52,7 @@ export function SaveToGalleryButton({ commissionId, deliverablePath }: Props) {
       >
         {isPending ? (
           <>
-            <ActivityIndicator size="small" color="#FFFFFF" />
+            <ActivityIndicator size="small" color={colors.surface} />
             <Text style={styles.label}>Guardando…</Text>
           </>
         ) : (
@@ -76,7 +77,7 @@ export function SaveToGalleryButton({ commissionId, deliverablePath }: Props) {
 const styles = StyleSheet.create({
   button: {
     alignItems: 'center',
-    backgroundColor: '#3B82F6',
+    backgroundColor: colors.primary,
     borderRadius: 8,
     flexDirection: 'row',
     gap: 8,
@@ -91,16 +92,16 @@ const styles = StyleSheet.create({
     marginTop: 8,
   },
   errorTxt: {
-    color: '#B91C1C',
+    color: colors.danger,
     fontSize: 13,
   },
   label: {
-    color: '#FFFFFF',
+    color: colors.surface,
     fontSize: 14,
     fontWeight: '600',
   },
   settingsLink: {
-    color: '#3B82F6',
+    color: colors.primary,
     fontSize: 13,
     marginTop: 4,
     textDecorationLine: 'underline',

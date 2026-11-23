@@ -1,6 +1,7 @@
 import { Checkbox } from 'expo-checkbox';
 import { useState } from 'react';
 import { Pressable, ScrollView, StyleSheet, Text, View } from 'react-native';
+import { colors } from '../../../theme';
 
 interface Props {
   tosText: string | null;
@@ -35,7 +36,7 @@ export function TosAcceptanceBlock({ tosText, onAcceptChange }: Props) {
         style={styles.checkRow}
       >
         <Checkbox
-          color={accepted ? '#6C5CE7' : undefined}
+          color={accepted ? colors.primary : undefined}
           onValueChange={handleChange}
           value={accepted}
         />
@@ -52,13 +53,13 @@ const styles = StyleSheet.create({
     gap: 10,
   },
   label: {
-    color: '#374151',
+    color: colors.text,
     fontSize: 15,
     fontWeight: '600',
   },
   tosScroll: {
-    backgroundColor: '#F9FAFB',
-    borderColor: '#D1D5DB',
+    backgroundColor: colors.background,
+    borderColor: colors.borderStrong,
     borderRadius: 10,
     borderWidth: 1,
     maxHeight: 160,
@@ -66,7 +67,7 @@ const styles = StyleSheet.create({
     paddingVertical: 10,
   },
   tosText: {
-    color: '#374151',
+    color: colors.text,
     fontSize: 14,
     lineHeight: 20,
   },
@@ -76,7 +77,7 @@ const styles = StyleSheet.create({
     gap: 10,
   },
   checkLabel: {
-    color: '#374151',
+    color: colors.text,
     flex: 1,
     fontSize: 15,
   },

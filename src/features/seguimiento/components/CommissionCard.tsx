@@ -4,6 +4,7 @@ import { PaymentStatusBadge } from '../../pagos/components/PaymentStatusBadge';
 import { formatRelativeDate } from '../presenters';
 import type { ClientCommissionSummary } from '../types';
 import { CommissionStatusBadge } from './CommissionStatusBadge';
+import { colors } from '../../../theme';
 
 const STAGE_LABEL: Record<string, string> = {
   SKETCH:  'Boceto',
@@ -56,13 +57,13 @@ export function CommissionCard({ commission, onPress }: Props) {
 
 const styles = StyleSheet.create({
   artistHandle: {
-    color: '#6B7280',
+    color: colors.textSecondary,
     fontSize: 14,
     marginTop: 4,
   },
   card: {
-    backgroundColor: '#FFFFFF',
-    borderColor: '#E5E7EB',
+    backgroundColor: colors.surface,
+    borderColor: colors.border,
     borderRadius: 12,
     borderWidth: 1,
     marginHorizontal: 16,
@@ -70,10 +71,10 @@ const styles = StyleSheet.create({
     padding: 16,
   },
   cardPressed: {
-    backgroundColor: '#F9FAFB',
+    backgroundColor: colors.background,
   },
   date: {
-    color: '#9CA3AF',
+    color: colors.textMuted,
     fontSize: 12,
     marginTop: 6,
   },
@@ -83,7 +84,7 @@ const styles = StyleSheet.create({
     justifyContent: 'space-between',
   },
   serviceTitle: {
-    color: '#111827',
+    color: colors.text,
     flex: 1,
     fontSize: 16,
     fontWeight: '600',
@@ -93,7 +94,7 @@ const styles = StyleSheet.create({
     marginTop: 6,
   },
   stage: {
-    color: '#3B82F6',
+    color: colors.primary,
     fontSize: 12,
     marginTop: 4,
   },

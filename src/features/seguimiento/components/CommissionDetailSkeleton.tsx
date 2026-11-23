@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import { Animated, StyleSheet, View } from 'react-native';
+import { colors } from '../../../theme';
 
 function SkeletonBox({ style }: { style?: object }) {
   const [opacity] = useState(() => new Animated.Value(0.3));
@@ -68,22 +69,22 @@ export function CommissionDetailSkeleton() {
 
 const styles = StyleSheet.create({
   badge: {
-    backgroundColor: '#E5E7EB',
+    backgroundColor: colors.border,
     borderRadius: 999,
     height: 24,
     marginBottom: 12,
     width: 90,
   },
   block: {
-    backgroundColor: '#FFFFFF',
-    borderColor: '#E5E7EB',
+    backgroundColor: colors.surface,
+    borderColor: colors.border,
     borderRadius: 12,
     borderWidth: 1,
     marginBottom: 12,
     padding: 16,
   },
   connector: {
-    backgroundColor: '#E5E7EB',
+    backgroundColor: colors.border,
     flex: 1,
     height: 2,
     marginHorizontal: 4,
@@ -96,7 +97,7 @@ const styles = StyleSheet.create({
     width: '100%',
   },
   line: {
-    backgroundColor: '#E5E7EB',
+    backgroundColor: colors.border,
     borderRadius: 4,
     height: 14,
     marginVertical: 4,
@@ -114,13 +115,13 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
   stepIcon: {
-    backgroundColor: '#E5E7EB',
+    backgroundColor: colors.border,
     borderRadius: 16,
     height: 32,
     width: 32,
   },
   stepLabel: {
-    backgroundColor: '#E5E7EB',
+    backgroundColor: colors.border,
     borderRadius: 4,
     flex: 1,
     height: 10,

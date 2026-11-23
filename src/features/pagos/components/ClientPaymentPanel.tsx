@@ -7,6 +7,7 @@ import type { CommissionPayment } from '../types';
 import { usePaymentProofUrl } from '../hooks/usePaymentProofUrl';
 import { PaymentStatusBadge } from './PaymentStatusBadge';
 import { SubmitPaymentProofSheet } from './SubmitPaymentProofSheet';
+import { colors } from '../../../theme';
 
 interface Props {
   payment: CommissionPayment;
@@ -14,7 +15,7 @@ interface Props {
 
 function ProofThumbnail({ path }: { path: string }) {
   const { data: url, isLoading } = usePaymentProofUrl(path);
-  if (isLoading) return <ActivityIndicator size="small" color="#6B7280" style={styles.thumbLoader} />;
+  if (isLoading) return <ActivityIndicator size="small" color={colors.textSecondary} style={styles.thumbLoader} />;
   if (!url) return null;
   return (
     <Image
@@ -94,34 +95,34 @@ export function ClientPaymentPanel({ payment }: Props) {
 
 const styles = StyleSheet.create({
   amount: {
-    color: '#374151',
+    color: colors.text,
     fontSize: 14,
     marginTop: 12,
   },
   amountValue: {
-    color: '#111827',
+    color: colors.text,
     fontWeight: '700',
   },
   button: {
     alignItems: 'center',
-    backgroundColor: '#3B82F6',
+    backgroundColor: colors.primary,
     borderRadius: 8,
     marginTop: 16,
     paddingHorizontal: 20,
     paddingVertical: 12,
   },
   buttonLabel: {
-    color: '#FFFFFF',
+    color: colors.surface,
     fontSize: 14,
     fontWeight: '600',
   },
   container: {
-    backgroundColor: '#FFFFFF',
+    backgroundColor: colors.surface,
     borderRadius: 12,
     padding: 16,
   },
   correctionBox: {
-    borderColor: '#FCA5A5',
+    borderColor: colors.primary,
     borderRadius: 8,
     borderWidth: 1,
     gap: 10,
@@ -129,27 +130,27 @@ const styles = StyleSheet.create({
     padding: 12,
   },
   correctionReason: {
-    color: '#B91C1C',
+    color: colors.danger,
     fontSize: 13,
   },
   message: {
-    color: '#6B7280',
+    color: colors.textSecondary,
     fontSize: 13,
     marginTop: 6,
   },
   notice: {
-    backgroundColor: '#F9FAFB',
+    backgroundColor: colors.background,
     borderRadius: 8,
     marginTop: 10,
     padding: 10,
   },
   noticeTxt: {
-    color: '#6B7280',
+    color: colors.textSecondary,
     fontSize: 12,
     lineHeight: 18,
   },
   pendingNote: {
-    color: '#6B7280',
+    color: colors.textSecondary,
     fontSize: 13,
     fontStyle: 'italic',
     marginTop: 14,
@@ -167,7 +168,7 @@ const styles = StyleSheet.create({
     width: 80,
   },
   title: {
-    color: '#111827',
+    color: colors.text,
     fontSize: 16,
     fontWeight: '700',
   },

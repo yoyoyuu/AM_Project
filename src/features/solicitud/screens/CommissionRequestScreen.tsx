@@ -19,6 +19,7 @@ import { ReferenceImagePicker } from '../components/ReferenceImagePicker';
 import { useSubmitCommission } from '../hooks/useSubmitCommission';
 import { commissionRequestSchema, type CommissionRequestFormValues } from '../schemas';
 import type { LocalImageAsset } from '../types';
+import { colors } from '../../../theme';
 
 export interface CommissionRequestScreenProps {
   artistId: string;
@@ -259,7 +260,7 @@ export function CommissionRequestScreen({
           ]}
         >
           {isPending ? (
-            <ActivityIndicator color="#FFFFFF" />
+            <ActivityIndicator color={colors.surface} />
           ) : (
             <Text style={styles.submitButtonText}>Enviar solicitud</Text>
           )}
@@ -278,13 +279,13 @@ const styles = StyleSheet.create({
     padding: 24,
   },
   title: {
-    color: '#1F2937',
+    color: colors.text,
     fontSize: 24,
     fontWeight: '700',
     marginBottom: 20,
   },
   sectionTitle: {
-    color: '#1F2937',
+    color: colors.text,
     fontSize: 17,
     fontWeight: '700',
     marginBottom: 4,
@@ -295,20 +296,20 @@ const styles = StyleSheet.create({
     marginTop: 16,
   },
   label: {
-    color: '#374151',
+    color: colors.text,
     fontSize: 15,
     fontWeight: '600',
     marginBottom: 8,
     marginTop: 16,
   },
   required: {
-    color: '#B91C1C',
+    color: colors.danger,
   },
   input: {
-    borderColor: '#D1D5DB',
+    borderColor: colors.borderStrong,
     borderRadius: 10,
     borderWidth: 1,
-    color: '#111827',
+    color: colors.text,
     fontSize: 16,
     minHeight: 50,
     paddingHorizontal: 14,
@@ -318,7 +319,7 @@ const styles = StyleSheet.create({
     paddingTop: 12,
   },
   inputError: {
-    borderColor: '#B91C1C',
+    borderColor: colors.danger,
   },
   radioRow: {
     flexDirection: 'row',
@@ -326,7 +327,7 @@ const styles = StyleSheet.create({
   },
   radioOption: {
     alignItems: 'center',
-    borderColor: '#D1D5DB',
+    borderColor: colors.borderStrong,
     borderRadius: 10,
     borderWidth: 1.5,
     flex: 1,
@@ -334,25 +335,25 @@ const styles = StyleSheet.create({
     minHeight: 48,
   },
   radioSelected: {
-    backgroundColor: '#F3F0FF',
-    borderColor: '#6C5CE7',
+    backgroundColor: colors.primarySoft,
+    borderColor: colors.primary,
   },
   radioText: {
-    color: '#374151',
+    color: colors.text,
     fontSize: 15,
     fontWeight: '600',
   },
   radioTextSelected: {
-    color: '#6C5CE7',
+    color: colors.primary,
   },
   error: {
-    color: '#B91C1C',
+    color: colors.danger,
     fontSize: 14,
     marginTop: 6,
   },
   submitButton: {
     alignItems: 'center',
-    backgroundColor: '#6C5CE7',
+    backgroundColor: colors.primary,
     borderRadius: 10,
     justifyContent: 'center',
     marginTop: 28,
@@ -365,7 +366,7 @@ const styles = StyleSheet.create({
     opacity: 0.7,
   },
   submitButtonText: {
-    color: '#FFFFFF',
+    color: colors.surface,
     fontSize: 16,
     fontWeight: '700',
   },

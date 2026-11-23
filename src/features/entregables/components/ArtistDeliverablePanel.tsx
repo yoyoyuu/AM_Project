@@ -17,6 +17,7 @@ import { canArtistUploadDeliverable, formatFileSize } from '../presenters';
 import { useSubmitDeliverable } from '../hooks/useSubmitDeliverable';
 import { useDeliverablePreviewUrl } from '../hooks/useDeliverablePreviewUrl';
 import { DeliverableImagePreview } from './DeliverableImagePreview';
+import { colors } from '../../../theme';
 
 interface Props {
   payment: CommissionPayment;
@@ -138,7 +139,7 @@ export function ArtistDeliverablePanel({ payment }: Props) {
           disabled={isPending}
         >
           {isPending ? (
-            <ActivityIndicator size="small" color="#FFFFFF" />
+            <ActivityIndicator size="small" color={colors.surface} />
           ) : (
             <Text style={styles.buttonLabel}>
               {hasDeliverable ? 'Reemplazar entregable' : 'Subir entregable'}
@@ -153,7 +154,7 @@ export function ArtistDeliverablePanel({ payment }: Props) {
 const styles = StyleSheet.create({
   button: {
     alignItems: 'center',
-    backgroundColor: '#3B82F6',
+    backgroundColor: colors.primary,
     borderRadius: 8,
     marginTop: 14,
     paddingHorizontal: 20,
@@ -163,19 +164,19 @@ const styles = StyleSheet.create({
     opacity: 0.6,
   },
   buttonLabel: {
-    color: '#FFFFFF',
+    color: colors.surface,
     fontSize: 14,
     fontWeight: '600',
   },
   container: {
-    backgroundColor: '#FFFFFF',
+    backgroundColor: colors.surface,
     borderRadius: 12,
     padding: 16,
   },
   errorBanner: {
-    backgroundColor: '#FEF2F2',
+    backgroundColor: colors.primarySoft,
     borderRadius: 8,
-    color: '#B91C1C',
+    color: colors.danger,
     fontSize: 13,
     marginTop: 12,
     padding: 10,
@@ -187,14 +188,14 @@ const styles = StyleSheet.create({
     marginTop: 8,
   },
   metaItem: {
-    color: '#6B7280',
+    color: colors.textSecondary,
     fontSize: 12,
   },
   preview: {
     marginTop: 12,
   },
   title: {
-    color: '#111827',
+    color: colors.text,
     fontSize: 16,
     fontWeight: '700',
   },

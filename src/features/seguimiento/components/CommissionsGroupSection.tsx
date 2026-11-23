@@ -2,6 +2,7 @@ import { StyleSheet, Text, View } from 'react-native';
 
 import type { ClientCommissionSummary } from '../types';
 import { CommissionCard } from './CommissionCard';
+import { colors } from '../../../theme';
 
 interface Props {
   title: string;
@@ -28,7 +29,7 @@ export function CommissionsGroupSection({ title, commissions, onPressItem }: Pro
 
 const styles = StyleSheet.create({
   heading: {
-    color: '#374151',
+    color: colors.text,
     fontSize: 13,
     fontWeight: '600',
     letterSpacing: 0.5,

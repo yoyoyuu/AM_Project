@@ -1,5 +1,6 @@
 import { router } from 'expo-router';
 import { Pressable, StyleSheet, Text, View } from 'react-native';
+import { colors } from '../../../theme';
 
 export interface CommissionSuccessScreenProps {
   artistHandle: string;
@@ -41,9 +42,9 @@ const styles = StyleSheet.create({
     gap: 16,
   },
   icon: {
-    backgroundColor: '#6C5CE7',
+    backgroundColor: colors.primary,
     borderRadius: 40,
-    color: '#FFFFFF',
+    color: colors.surface,
     fontSize: 32,
     height: 80,
     lineHeight: 80,
@@ -51,19 +52,19 @@ const styles = StyleSheet.create({
     width: 80,
   },
   title: {
-    color: '#1F2937',
+    color: colors.text,
     fontSize: 26,
     fontWeight: '700',
   },
   message: {
-    color: '#6B7280',
+    color: colors.textSecondary,
     fontSize: 16,
     lineHeight: 24,
     textAlign: 'center',
   },
   button: {
     alignItems: 'center',
-    backgroundColor: '#6C5CE7',
+    backgroundColor: colors.primary,
     borderRadius: 10,
     justifyContent: 'center',
     minHeight: 52,
@@ -72,7 +73,7 @@ const styles = StyleSheet.create({
     opacity: 0.85,
   },
   buttonText: {
-    color: '#FFFFFF',
+    color: colors.surface,
     fontSize: 16,
     fontWeight: '700',
   },

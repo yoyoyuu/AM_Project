@@ -11,6 +11,7 @@ import {
 } from 'react-native';
 
 import { usePaymentProofUrl } from '../hooks/usePaymentProofUrl';
+import { colors } from '../../../theme';
 
 interface Props {
   visible: boolean;
@@ -52,7 +53,7 @@ export function PaymentProofViewer({ visible, onClose, path, reference, note, up
           showsHorizontalScrollIndicator={false}
           showsVerticalScrollIndicator={false}
         >
-          {isLoading && <ActivityIndicator size="large" color="#6B7280" />}
+          {isLoading && <ActivityIndicator size="large" color={colors.textSecondary} />}
           {isError && (
             <View style={styles.errorBox}>
               <Text style={styles.errorTxt}>
@@ -92,7 +93,7 @@ export function PaymentProofViewer({ visible, onClose, path, reference, note, up
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#000',
+    backgroundColor: colors.text,
   },
   closeBtn: {
     position: 'absolute',
@@ -102,7 +103,7 @@ const styles = StyleSheet.create({
     padding: 8,
   },
   closeTxt: {
-    color: '#fff',
+    color: colors.surface,
     fontSize: 20,
     fontWeight: '600',
   },
@@ -123,29 +124,29 @@ const styles = StyleSheet.create({
     paddingHorizontal: 32,
   },
   errorTxt: {
-    color: '#D1D5DB',
+    color: colors.borderStrong,
     fontSize: 14,
     textAlign: 'center',
   },
   retryBtn: {
     paddingHorizontal: 20,
     paddingVertical: 8,
-    backgroundColor: '#374151',
+    backgroundColor: colors.text,
     borderRadius: 8,
   },
   retryTxt: {
-    color: '#fff',
+    color: colors.surface,
     fontSize: 14,
     fontWeight: '600',
   },
   meta: {
-    backgroundColor: '#111827',
+    backgroundColor: colors.text,
     paddingHorizontal: 20,
     paddingVertical: 12,
     gap: 4,
   },
   metaItem: {
-    color: '#D1D5DB',
+    color: colors.borderStrong,
     fontSize: 13,
   },
 });

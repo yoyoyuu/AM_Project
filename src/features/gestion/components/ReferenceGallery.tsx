@@ -11,6 +11,7 @@ import {
 } from 'react-native';
 
 import type { CommissionReference } from '../types';
+import { colors } from '../../../theme';
 
 interface Props {
   references: CommissionReference[];
@@ -76,7 +77,7 @@ const styles = StyleSheet.create({
     paddingVertical: 16,
   },
   emptyText: {
-    color: '#6B7280',
+    color: colors.textSecondary,
     fontSize: 14,
   },
   fullImage: {

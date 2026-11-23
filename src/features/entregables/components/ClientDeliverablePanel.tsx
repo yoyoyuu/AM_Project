@@ -6,6 +6,7 @@ import { useDeliverablePreviewUrl } from '../hooks/useDeliverablePreviewUrl';
 import { DeliverableImagePreview } from './DeliverableImagePreview';
 import { DeliverableLockedCard } from './DeliverableLockedCard';
 import { SaveToGalleryButton } from './SaveToGalleryButton';
+import { colors } from '../../../theme';
 
 interface Props {
   payment: CommissionPayment;
@@ -70,7 +71,7 @@ export function ClientDeliverablePanel({ payment }: Props) {
 
 const styles = StyleSheet.create({
   container: {
-    backgroundColor: '#FFFFFF',
+    backgroundColor: colors.surface,
     borderRadius: 12,
     padding: 16,
   },
@@ -85,16 +86,16 @@ const styles = StyleSheet.create({
     marginTop: 8,
   },
   metaItem: {
-    color: '#6B7280',
+    color: colors.textSecondary,
     fontSize: 12,
   },
   notUploadedTxt: {
-    color: '#6B7280',
+    color: colors.textSecondary,
     fontSize: 13,
     fontStyle: 'italic',
   },
   title: {
-    color: '#111827',
+    color: colors.text,
     fontSize: 16,
     fontWeight: '700',
   },
@@ -102,7 +103,7 @@ const styles = StyleSheet.create({
     gap: 0,
   },
   unlockedTitle: {
-    color: '#065F46',
+    color: colors.successStrong,
     fontSize: 14,
     fontWeight: '600',
     marginTop: 12,

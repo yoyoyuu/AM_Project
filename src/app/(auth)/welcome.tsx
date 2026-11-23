@@ -1,5 +1,6 @@
 import { router } from 'expo-router';
 import { Pressable, StyleSheet, Text, View } from 'react-native';
+import { colors } from '../../theme';
 
 export default function WelcomeScreen() {
   return (
@@ -44,13 +45,13 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
   brand: {
-    color: '#6C5CE7',
+    color: colors.primary,
     fontSize: 48,
     fontWeight: '800',
     marginBottom: 16,
   },
   tagline: {
-    color: '#6B7280',
+    color: colors.textSecondary,
     fontSize: 18,
     lineHeight: 26,
   },
@@ -59,15 +60,15 @@ const styles = StyleSheet.create({
   },
   buttonPrimary: {
     alignItems: 'center',
-    backgroundColor: '#6C5CE7',
+    backgroundColor: colors.primary,
     borderRadius: 10,
     justifyContent: 'center',
     minHeight: 52,
   },
   buttonSecondary: {
     alignItems: 'center',
-    backgroundColor: '#FFFFFF',
-    borderColor: '#6C5CE7',
+    backgroundColor: colors.surface,
+    borderColor: colors.primary,
     borderRadius: 10,
     borderWidth: 1.5,
     justifyContent: 'center',
@@ -77,12 +78,12 @@ const styles = StyleSheet.create({
     opacity: 0.8,
   },
   buttonPrimaryText: {
-    color: '#FFFFFF',
+    color: colors.surface,
     fontSize: 16,
     fontWeight: '700',
   },
   buttonSecondaryText: {
-    color: '#6C5CE7',
+    color: colors.primary,
     fontSize: 16,
     fontWeight: '700',
   },

@@ -3,6 +3,7 @@ import { ActivityIndicator, StyleSheet, Text, View } from 'react-native';
 
 import { useAuth } from '../features/auth/AuthProvider';
 import { useProfile } from '../features/auth/useProfile';
+import { colors } from '../theme';
 
 export default function IndexRoute() {
   const { loading: authLoading, session } = useAuth();
@@ -15,7 +16,7 @@ export default function IndexRoute() {
   if (authLoading || (session !== null && profileLoading)) {
     return (
       <View style={styles.loading}>
-        <ActivityIndicator color="#6C5CE7" />
+        <ActivityIndicator color={colors.primary} />
       </View>
     );
   }
@@ -53,7 +54,7 @@ const styles = StyleSheet.create({
     padding: 24,
   },
   errorText: {
-    color: '#B91C1C',
+    color: colors.danger,
     fontSize: 16,
     textAlign: 'center',
   },

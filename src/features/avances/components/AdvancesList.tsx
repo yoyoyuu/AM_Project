@@ -4,6 +4,7 @@ import { Animated, FlatList, StyleSheet, Text, View } from 'react-native';
 import { useCommissionAdvances } from '../hooks/useCommissionAdvances';
 import type { CommissionAdvance } from '../types';
 import { AdvanceCard } from './AdvanceCard';
+import { colors } from '../../../theme';
 
 interface Props {
   commissionId: string;
@@ -85,7 +86,7 @@ const styles = StyleSheet.create({
     paddingVertical: 24,
   },
   emptyText: {
-    color: '#6B7280',
+    color: colors.textSecondary,
     fontSize: 14,
     textAlign: 'center',
   },
@@ -93,14 +94,14 @@ const styles = StyleSheet.create({
     height: 12,
   },
   skeletonBadge: {
-    backgroundColor: '#E5E7EB',
+    backgroundColor: colors.border,
     borderRadius: 12,
     height: 24,
     width: 80,
   },
   skeletonCard: {
-    backgroundColor: '#FFFFFF',
-    borderColor: '#E5E7EB',
+    backgroundColor: colors.surface,
+    borderColor: colors.border,
     borderRadius: 12,
     borderWidth: 1,
     gap: 10,
@@ -110,13 +111,13 @@ const styles = StyleSheet.create({
     gap: 12,
   },
   skeletonDate: {
-    backgroundColor: '#E5E7EB',
+    backgroundColor: colors.border,
     borderRadius: 4,
     height: 12,
     width: 60,
   },
   skeletonImage: {
-    backgroundColor: '#E5E7EB',
+    backgroundColor: colors.border,
     borderRadius: 6,
     height: 160,
     width: '100%',

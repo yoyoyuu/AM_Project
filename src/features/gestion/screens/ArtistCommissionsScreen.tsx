@@ -12,6 +12,7 @@ import { PendingCommissionCard } from '../components/PendingCommissionCard';
 import { useActiveCommissions } from '../hooks/useActiveCommissions';
 import { usePendingCommissions } from '../hooks/usePendingCommissions';
 import type { CommissionWithDetails } from '../types';
+import { colors } from '../../../theme';
 
 export function ArtistCommissionsScreen() {
   const { user } = useAuth();
@@ -47,7 +48,7 @@ export function ArtistCommissionsScreen() {
   if (isLoading) {
     return (
       <View style={styles.centered}>
-        <ActivityIndicator color="#6C5CE7" size="large" />
+        <ActivityIndicator color={colors.primary} size="large" />
       </View>
     );
   }
@@ -60,7 +61,7 @@ export function ArtistCommissionsScreen() {
         <RefreshControl
           refreshing={isRefreshing}
           onRefresh={handleRefresh}
-          tintColor="#6C5CE7"
+          tintColor={colors.primary}
         />
       }
     >
@@ -110,13 +111,13 @@ const styles = StyleSheet.create({
     paddingTop: 16,
   },
   emptyText: {
-    color: '#6B7280',
+    color: colors.textSecondary,
     fontSize: 15,
     paddingHorizontal: 16,
     paddingVertical: 8,
   },
   errorText: {
-    color: '#B91C1C',
+    color: colors.danger,
     fontSize: 14,
     paddingHorizontal: 16,
   },
@@ -124,7 +125,7 @@ const styles = StyleSheet.create({
     marginBottom: 24,
   },
   sectionTitle: {
-    color: '#111827',
+    color: colors.text,
     fontSize: 18,
     fontWeight: '700',
     marginBottom: 8,

@@ -4,6 +4,7 @@ import { ActivityIndicator, StyleSheet, Text, View } from 'react-native';
 import { useArtistPublicProfile } from '../../../../features/catalogo/queries';
 import { CommissionRequestScreen } from '../../../../features/solicitud/screens/CommissionRequestScreen';
 import { useProfile } from '../../../../features/auth/useProfile';
+import { colors } from '../../../../theme';
 
 function ErrorState({ message }: { message: string }) {
   return (
@@ -28,7 +29,7 @@ export default function CommissionRequestRoute() {
   if (profileQuery.isPending) {
     return (
       <View style={styles.centered}>
-        <ActivityIndicator color="#6C5CE7" />
+        <ActivityIndicator color={colors.primary} />
       </View>
     );
   }
@@ -76,7 +77,7 @@ const styles = StyleSheet.create({
     padding: 24,
   },
   errorText: {
-    color: '#B91C1C',
+    color: colors.danger,
     fontSize: 16,
     textAlign: 'center',
   },

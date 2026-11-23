@@ -12,6 +12,7 @@ import {
 } from 'react-native';
 
 import { rejectCommissionSchema, type RejectCommissionFormValues } from '../schemas';
+import { colors } from '../../../theme';
 
 interface Props {
   visible: boolean;
@@ -66,7 +67,7 @@ export function RejectCommissionSheet({ visible, onConfirm, onCancel }: Props) {
               <TextInput
                 style={[styles.input, errors.rejection_reason && styles.inputError]}
                 placeholder="Motivo de rechazo (opcional)"
-                placeholderTextColor="#9CA3AF"
+                placeholderTextColor={colors.textMuted}
                 multiline
                 numberOfLines={4}
                 maxLength={510}
@@ -112,35 +113,35 @@ const styles = StyleSheet.create({
     flex: 1,
   },
   cancelButton: {
-    borderColor: '#D1D5DB',
+    borderColor: colors.borderStrong,
     borderRadius: 8,
     borderWidth: 1,
     paddingHorizontal: 16,
     paddingVertical: 10,
   },
   cancelLabel: {
-    color: '#374151',
+    color: colors.text,
     fontSize: 14,
     fontWeight: '600',
   },
   confirmButton: {
-    backgroundColor: '#EF4444',
+    backgroundColor: colors.danger,
     borderRadius: 8,
     paddingHorizontal: 16,
     paddingVertical: 10,
   },
   confirmLabel: {
-    color: '#FFFFFF',
+    color: colors.surface,
     fontSize: 14,
     fontWeight: '600',
   },
   counter: {
-    color: '#6B7280',
+    color: colors.textSecondary,
     fontSize: 12,
     marginLeft: 'auto',
   },
   counterOver: {
-    color: '#EF4444',
+    color: colors.danger,
   },
   counterRow: {
     alignItems: 'center',
@@ -148,41 +149,41 @@ const styles = StyleSheet.create({
     marginTop: 4,
   },
   errorText: {
-    color: '#EF4444',
+    color: colors.danger,
     flex: 1,
     fontSize: 12,
   },
   input: {
-    borderColor: '#D1D5DB',
+    borderColor: colors.borderStrong,
     borderRadius: 8,
     borderWidth: 1,
-    color: '#111827',
+    color: colors.text,
     fontSize: 14,
     height: 100,
     marginTop: 12,
     padding: 10,
   },
   inputError: {
-    borderColor: '#EF4444',
+    borderColor: colors.danger,
   },
   overlay: {
     flex: 1,
     justifyContent: 'flex-end',
   },
   sheet: {
-    backgroundColor: '#FFFFFF',
+    backgroundColor: colors.surface,
     borderTopLeftRadius: 16,
     borderTopRightRadius: 16,
     padding: 20,
     paddingBottom: 32,
   },
   subtitle: {
-    color: '#6B7280',
+    color: colors.textSecondary,
     fontSize: 13,
     marginTop: 4,
   },
   title: {
-    color: '#111827',
+    color: colors.text,
     fontSize: 16,
     fontWeight: '700',
   },

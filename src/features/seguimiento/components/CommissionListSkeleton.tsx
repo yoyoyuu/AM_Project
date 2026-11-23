@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import { Animated, StyleSheet, View } from 'react-native';
+import { colors } from '../../../theme';
 
 function SkeletonBox({ style }: { style?: object }) {
   const [opacity] = useState(() => new Animated.Value(0.3));
@@ -44,14 +45,14 @@ export function CommissionListSkeleton() {
 
 const styles = StyleSheet.create({
   badge: {
-    backgroundColor: '#E5E7EB',
+    backgroundColor: colors.border,
     borderRadius: 999,
     height: 22,
     width: 72,
   },
   card: {
-    backgroundColor: '#FFFFFF',
-    borderColor: '#E5E7EB',
+    backgroundColor: colors.surface,
+    borderColor: colors.border,
     borderRadius: 12,
     borderWidth: 1,
     marginHorizontal: 16,
@@ -59,7 +60,7 @@ const styles = StyleSheet.create({
     padding: 16,
   },
   dateLine: {
-    backgroundColor: '#E5E7EB',
+    backgroundColor: colors.border,
     borderRadius: 4,
     height: 10,
     marginTop: 8,
@@ -71,7 +72,7 @@ const styles = StyleSheet.create({
     justifyContent: 'space-between',
   },
   sectionHeader: {
-    backgroundColor: '#E5E7EB',
+    backgroundColor: colors.border,
     borderRadius: 4,
     height: 12,
     marginBottom: 8,
@@ -79,14 +80,14 @@ const styles = StyleSheet.create({
     width: 100,
   },
   subtitleLine: {
-    backgroundColor: '#E5E7EB',
+    backgroundColor: colors.border,
     borderRadius: 4,
     height: 12,
     marginTop: 8,
     width: 120,
   },
   titleLine: {
-    backgroundColor: '#E5E7EB',
+    backgroundColor: colors.border,
     borderRadius: 4,
     flex: 1,
     height: 16,

@@ -1,4 +1,5 @@
 import { StyleSheet, Text, View } from 'react-native';
+import { colors } from '../../../theme';
 
 interface Props {
   title: string;
@@ -19,20 +20,20 @@ export function ServiceSummaryCard({ title, base_price, estimated_days }: Props)
 
 const styles = StyleSheet.create({
   card: {
-    backgroundColor: '#F3F0FF',
-    borderColor: '#DDD6FE',
+    backgroundColor: colors.primarySoft,
+    borderColor: colors.primary,
     borderRadius: 10,
     borderWidth: 1,
     gap: 6,
     padding: 16,
   },
   title: {
-    color: '#1F2937',
+    color: colors.text,
     fontSize: 16,
     fontWeight: '700',
   },
   details: {
-    color: '#374151',
+    color: colors.text,
     fontSize: 14,
   },
 });
