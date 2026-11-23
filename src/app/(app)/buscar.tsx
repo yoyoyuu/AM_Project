@@ -14,17 +14,25 @@ import { catalogoErrors } from '../../features/catalogo/errors';
 import { MESSAGES } from '../../features/catalogo/messages';
 import { useArtistPublicProfile } from '../../features/catalogo/queries';
 import { searchHandleSchema } from '../../features/catalogo/schemas';
+import { useIsOnline } from '../../lib/useIsOnline';
 import { colors } from '../../theme';
 
 export default function SearchArtistScreen() {
   const [query, setQuery] = useState('');
   const [submittedHandle, setSubmittedHandle] = useState('');
   const [validationError, setValidationError] = useState<string | null>(null);
+  const isOnline = useIsOnline();
   const profileQuery = useArtistPublicProfile(submittedHandle);
   const hasSearched = submittedHandle.length > 0;
   const profile = profileQuery.data;
+  const isPaused = profileQuery.fetchStatus === 'paused';
 
   const handleSearch = () => {
+    if (!isOnline) {
+      setValidationError('Sin conexión a internet. Revisa tu red e inténtalo de nuevo.');
+      return;
+    }
+
     const parsed = searchHandleSchema.safeParse({ query });
 
     if (!parsed.success) {
@@ -62,12 +70,19 @@ export default function SearchArtistScreen() {
           />
           <Pressable
             accessibilityRole="button"
+            disabled={!isOnline}
             onPress={handleSearch}
-            style={styles.searchButton}
+            style={[styles.searchButton, !isOnline && styles.searchButtonDisabled]}
           >
             <Text style={styles.searchButtonText}>Buscar</Text>
           </Pressable>
         </View>
+
+        {!isOnline && (
+          <Text accessibilityRole="alert" style={styles.offlineBanner}>
+            Sin conexión a internet
+          </Text>
+        )}
 
         {validationError && (
           <Text accessibilityRole="alert" style={styles.error}>
@@ -75,7 +90,13 @@ export default function SearchArtistScreen() {
           </Text>
         )}
 
-        {hasSearched && profileQuery.isFetching && (
+        {hasSearched && isPaused && (
+          <Text accessibilityRole="alert" style={styles.error}>
+            Sin conexión. La búsqueda se reanudará al recuperar la red.
+          </Text>
+        )}
+
+        {hasSearched && !isPaused && profileQuery.isFetching && (
           <View style={styles.status}>
             <ActivityIndicator color={colors.primary} />
           </View>
@@ -202,6 +223,20 @@ const styles = StyleSheet.create({
     marginLeft: 10,
     minHeight: 50,
     paddingHorizontal: 16,
+  },
+  searchButtonDisabled: {
+    opacity: 0.5,
+  },
+  offlineBanner: {
+    backgroundColor: colors.surfaceSunken,
+    borderRadius: 8,
+    color: colors.danger,
+    fontSize: 14,
+    fontWeight: '600',
+    marginTop: 12,
+    paddingHorizontal: 12,
+    paddingVertical: 10,
+    textAlign: 'center',
   },
   searchButtonText: {
     color: colors.surface,

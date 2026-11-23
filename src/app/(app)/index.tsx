@@ -302,15 +302,21 @@ const styles = StyleSheet.create({
     marginTop: 32,
   },
   secondaryButton: {
-    backgroundColor: colors.surfaceSunken,
+    alignItems: 'center',
+    backgroundColor: colors.primarySoft,
+    borderColor: colors.primary,
     borderRadius: 10,
+    borderWidth: 1,
+    justifyContent: 'center',
     marginBottom: 12,
-    padding: 16,
+    marginTop: 12,
+    minHeight: 50,
+    paddingHorizontal: 16,
   },
   secondaryButtonText: {
-    color: colors.text,
+    color: colors.primaryStrong,
     fontSize: 16,
-    fontWeight: '600',
+    fontWeight: '700',
   },
   button: {
     alignItems: 'center',
@@ -329,6 +335,7 @@ const styles = StyleSheet.create({
   },
   searchButton: {
     alignItems: 'center',
+    backgroundColor: colors.surface,
     borderColor: colors.primary,
     borderRadius: 10,
     borderWidth: 1,

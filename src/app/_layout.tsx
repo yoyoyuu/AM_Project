@@ -6,7 +6,18 @@ import { useAppMode } from '../features/auth/useAppMode';
 import { usePushNotifications } from '../features/notificaciones/usePushNotifications';
 import '../features/notificaciones/handler';
 
-const queryClient = new QueryClient();
+const queryClient = new QueryClient({
+  defaultOptions: {
+    queries: {
+      retry: 2,
+      networkMode: 'online',
+    },
+    mutations: {
+      retry: 0,
+      networkMode: 'online',
+    },
+  },
+});
 
 /**
  * Monta usePushNotifications dentro de AuthProvider + QueryClientProvider,

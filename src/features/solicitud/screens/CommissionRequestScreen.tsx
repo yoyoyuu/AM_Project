@@ -19,6 +19,7 @@ import { ReferenceImagePicker } from '../components/ReferenceImagePicker';
 import { useSubmitCommission } from '../hooks/useSubmitCommission';
 import { commissionRequestSchema, type CommissionRequestFormValues } from '../schemas';
 import type { LocalImageAsset } from '../types';
+import { useIsOnline } from '../../../lib/useIsOnline';
 import { colors } from '../../../theme';
 
 export interface CommissionRequestScreenProps {
@@ -37,6 +38,7 @@ export function CommissionRequestScreen({
   const [images, setImages] = useState<LocalImageAsset[]>([]);
   const [submitError, setSubmitError] = useState<string | null>(null);
   const hasArtistTos = tosText !== null;
+  const isOnline = useIsOnline();
 
   const submitCommission = useSubmitCommission();
 
@@ -58,6 +60,11 @@ export function CommissionRequestScreen({
 
   const onSubmit = async (values: CommissionRequestFormValues) => {
     setSubmitError(null);
+
+    if (!isOnline) {
+      setSubmitError('Sin conexión a internet. Revisa tu red e inténtalo de nuevo.');
+      return;
+    }
 
     if (hasArtistTos && !values.terms_accepted) {
       setError('terms_accepted', {
@@ -240,6 +247,12 @@ export function CommissionRequestScreen({
           <ReferenceImagePicker onImagesChange={setImages} />
         </View>
 
+        {!isOnline ? (
+          <Text accessibilityRole="alert" style={styles.offlineBanner}>
+            Sin conexión a internet
+          </Text>
+        ) : null}
+
         {submitError ? (
           <Text accessibilityRole="alert" style={styles.error}>
             {submitError}
@@ -248,7 +261,7 @@ export function CommissionRequestScreen({
 
         <Pressable
           accessibilityRole="button"
-          disabled={isPending || (hasArtistTos && !tosAccepted)}
+          disabled={isPending || !isOnline || (hasArtistTos && !tosAccepted)}
           onPress={() => void handleSubmit(onSubmit)()}
           style={({ pressed }) => [
             styles.submitButton,
@@ -347,6 +360,17 @@ const styles = StyleSheet.create({
     color: colors.danger,
     fontSize: 14,
     marginTop: 6,
+  },
+  offlineBanner: {
+    backgroundColor: colors.surfaceSunken,
+    borderRadius: 8,
+    color: colors.danger,
+    fontSize: 14,
+    fontWeight: '600',
+    marginTop: 12,
+    paddingHorizontal: 12,
+    paddingVertical: 10,
+    textAlign: 'center',
   },
   submitButton: {
     alignItems: 'center',
