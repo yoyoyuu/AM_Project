@@ -142,7 +142,7 @@ export default function RegisterScreen() {
           </Text>
         )}
         {submitted && (
-          <Text accessibilityRole="status" style={styles.success}>
+          <Text accessibilityLiveRegion="polite" style={styles.success}>
             Te enviamos un código a tu correo.
           </Text>
         )}

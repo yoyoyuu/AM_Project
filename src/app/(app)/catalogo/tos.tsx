@@ -117,7 +117,7 @@ export default function TosScreen() {
           </Text>
         )}
         {savedMessage && (
-          <Text accessibilityRole="status" style={styles.success}>
+          <Text accessibilityLiveRegion="polite" style={styles.success}>
             {savedMessage}
           </Text>
         )}
